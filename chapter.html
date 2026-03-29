@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Junior Season 2024</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+    </div>
+  </nav>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main chapter-main">
+
+    <!-- BREADCRUMB + ACTIONS -->
+    <div class="chapter-topbar">
+      <a href="dashboard.html" class="chapter-breadcrumb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Chapters
+      </a>
+      <div class="chapter-actions">
+        <button class="btn-page-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          Share
+        </button>
+        <button class="btn-page-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Edit Chapter
+        </button>
+      </div>
+    </div>
+
+    <!-- CHAPTER NAME -->
+    <h1 class="chapter-detail-name">Junior Season 2024</h1>
+
+    <!-- META STRIP -->
+    <div class="chapter-meta-strip">
+      <div class="chapter-meta-field">
+        <span class="meta-label">Sport</span>
+        <span class="meta-value">Basketball</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">School</span>
+        <span class="meta-value">Lincoln High School</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Level</span>
+        <span class="meta-value">Varsity</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Season</span>
+        <span class="meta-value">Sep 2024 &ndash; Mar 2025</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Athlete</span>
+        <span class="meta-value">Marcus Johnson</span>
+      </div>
+    </div>
+
+    <!-- VIEW SWITCHER -->
+    <div class="chapter-views">
+      <button class="chapter-view-tab active" data-view="overview">Overview</button>
+      <button class="chapter-view-tab" data-view="timeline">Timeline</button>
+    </div>
+
+    <!-- OVERVIEW PANEL -->
+    <div class="chapter-view-panel active" id="view-overview">
+
+      <!-- ── MOMENTS ─────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Moments</h3>
+            <span class="overview-section-count">8</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Moment
+          </button>
+        </div>
+
+        <div class="moments-grid">
+          <div class="moment-card">
+            <div class="moment-thumb"></div>
+            <div class="moment-info">
+              <p class="moment-title">Championship Game Dunk</p>
+              <p class="moment-caption">Fourth quarter, two minutes left on the clock — the play that sealed it.</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <div class="moment-thumb"></div>
+            <div class="moment-info">
+              <p class="moment-title">Season Opener Warmup</p>
+              <p class="moment-caption">First game of the season. Energy in the gym was unreal.</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <div class="moment-thumb moment-thumb--video"></div>
+            <div class="moment-info">
+              <p class="moment-title">Post-Game Interview</p>
+              <p class="moment-caption">Coach talks about the team's mentality heading into the playoffs.</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <div class="moment-thumb"></div>
+            <div class="moment-info">
+              <p class="moment-title">Halftime Huddle</p>
+              <p class="moment-caption">Down by six at halftime. This is where the comeback started.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SCHEDULE ────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Schedule</h3>
+            <span class="overview-section-count">14</span>
+          </div>
+          <div class="schedule-actions">
+            <button class="btn-section-ghost">Manage Schedule</button>
+            <button class="btn-section-ghost">Bulk Edit</button>
+            <button class="btn-section-primary">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Create Event
+            </button>
+          </div>
+        </div>
+
+        <div class="schedule-list">
+          <div class="schedule-list-header">
+            <span>Date</span>
+            <span>Game</span>
+            <span>Opponent</span>
+            <span class="col-score">Score</span>
+            <span class="col-result">Result</span>
+            <span class="col-moments">Moments</span>
+            <span></span>
+          </div>
+
+          <a href="event.html" class="event-row">
+            <div class="event-date">
+              <span class="event-date-primary">Oct 5</span>
+              <span class="event-date-year">2024</span>
+            </div>
+            <div class="event-name">Season Opener</div>
+            <div class="event-opponent">Riverside HS</div>
+            <div class="event-score">68 &ndash; 52</div>
+            <div class="event-result win">W</div>
+            <div class="event-moments-count">3</div>
+            <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="event-row">
+            <div class="event-date">
+              <span class="event-date-primary">Oct 12</span>
+              <span class="event-date-year">2024</span>
+            </div>
+            <div class="event-name">Away at Westside</div>
+            <div class="event-opponent">Westside Prep</div>
+            <div class="event-score">44 &ndash; 61</div>
+            <div class="event-result loss">L</div>
+            <div class="event-moments-count">1</div>
+            <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="event-row">
+            <div class="event-date">
+              <span class="event-date-primary">Oct 19</span>
+              <span class="event-date-year">2024</span>
+            </div>
+            <div class="event-name">Home vs. Eastview</div>
+            <div class="event-opponent">Eastview HS</div>
+            <div class="event-score">73 &ndash; 55</div>
+            <div class="event-result win">W</div>
+            <div class="event-moments-count">5</div>
+            <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="event-row">
+            <div class="event-date">
+              <span class="event-date-primary">Oct 26</span>
+              <span class="event-date-year">2024</span>
+            </div>
+            <div class="event-name">Tournament &ndash; Round 1</div>
+            <div class="event-opponent">Central HS</div>
+            <div class="event-score">58 &ndash; 50</div>
+            <div class="event-result win">W</div>
+            <div class="event-moments-count">0</div>
+            <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="#" class="event-row event-row--upcoming">
+            <div class="event-date">
+              <span class="event-date-primary">Nov 2</span>
+              <span class="event-date-year">2024</span>
+            </div>
+            <div class="event-name">Tournament &ndash; Semifinals</div>
+            <div class="event-opponent">North Valley HS</div>
+            <div class="event-score">&mdash;</div>
+            <div class="event-result upcoming">—</div>
+            <div class="event-moments-count">0</div>
+            <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <a href="#" class="schedule-view-all">View all 14 events
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <!-- ── STATS ───────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Stats</h3>
+            <span class="overview-section-count">4 events</span>
+          </div>
+          <span class="chapter-stats-note">Totals across all events</span>
+        </div>
+
+        <div class="stat-grid chapter-stat-grid">
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">347</span>
+            <span class="stat-cell-label">Points</span>
+            <span class="stat-cell-avg">34.7 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">89</span>
+            <span class="stat-cell-label">Rebounds</span>
+            <span class="stat-cell-avg">8.9 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">47</span>
+            <span class="stat-cell-label">Assists</span>
+            <span class="stat-cell-avg">4.7 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">28</span>
+            <span class="stat-cell-label">Steals</span>
+            <span class="stat-cell-avg">2.8 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">15</span>
+            <span class="stat-cell-label">Blocks</span>
+            <span class="stat-cell-avg">1.5 / game</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── GOALS ──────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Goals</h3>
+            <span class="overview-section-count" id="goal-count">2</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Goal
+          </button>
+        </div>
+
+        <div class="goal-list" id="goal-list">
+
+          <!-- Boolean — in progress -->
+          <div class="goal-item" id="goal-1" data-goal-type="boolean">
+            <div class="goal-check goal-check--open"></div>
+            <div class="goal-body">
+              <p class="goal-title">Start every game in the lineup</p>
+              <p class="goal-desc">Earn and hold the starting position all season</p>
+            </div>
+            <button class="goal-complete-btn" onclick="completeGoal('goal-1')">Mark as Complete</button>
+          </div>
+
+          <!-- Numerical -->
+          <div class="goal-item goal-item--numerical" id="goal-2" data-goal-type="numerical" data-target="500">
+            <div class="goal-check goal-check--target">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+              </svg>
+            </div>
+            <div class="goal-body">
+              <div class="goal-numerical-header">
+                <p class="goal-title">Score 500 total points this season</p>
+                <span class="goal-numerical-count"><span id="goal-2-current">347</span><span class="goal-numerical-target"> / 500</span></span>
+              </div>
+              <p class="goal-desc">Cumulative points across all regular season games</p>
+              <div class="goal-progress-track">
+                <div class="goal-progress-fill" id="goal-2-fill" style="width: 69.4%"></div>
+              </div>
+              <div class="goal-progress-footer">
+                <span class="goal-progress-pct" id="goal-2-pct">69%</span>
+                <button class="btn-section-ghost" onclick="openNumericalUpdate('goal-2')">Update</button>
+              </div>
+              <div class="goal-update-row" id="goal-2-update-row">
+                <input type="number" class="goal-update-input" id="goal-2-input" min="0" max="500" placeholder="Current value (e.g. 420)">
+                <button class="goal-update-save" onclick="saveNumericalUpdate('goal-2')">Save</button>
+                <button class="goal-update-cancel" onclick="cancelNumericalUpdate('goal-2')">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── MILESTONES ─────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Milestones</h3>
+            <span class="overview-section-count" id="milestone-count">2</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Milestone
+          </button>
+        </div>
+
+        <div class="milestone-grid" id="milestone-grid">
+
+          <div class="milestone-card">
+            <div class="milestone-card-top">
+              <div class="milestone-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="milestone-achieved-label">Achieved</span>
+            </div>
+            <h4 class="milestone-title">First Varsity Start</h4>
+            <p class="milestone-desc">Earned the starting position in the Season Opener against Riverside HS.</p>
+            <p class="milestone-date">Oct 5, 2024</p>
+          </div>
+
+          <div class="milestone-card">
+            <div class="milestone-card-top">
+              <div class="milestone-check">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="milestone-achieved-label">Achieved</span>
+            </div>
+            <h4 class="milestone-title">20-Point Average Reached</h4>
+            <p class="milestone-desc">Crossed the 20 PPG threshold after the Home vs. Eastview game.</p>
+            <p class="milestone-date">Oct 19, 2024</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TIMELINE PANEL -->
+    <div class="chapter-view-panel" id="view-timeline">
+
+      <!-- FILTERS -->
+      <div class="timeline-filters">
+        <button class="tl-filter active" data-filter="all">All</button>
+        <button class="tl-filter" data-filter="event">Events</button>
+        <button class="tl-filter" data-filter="moment">Moments</button>
+        <button class="tl-filter" data-filter="milestone">Milestones</button>
+      </div>
+
+      <!-- ENTRIES -->
+      <div class="timeline-list">
+
+        <!-- Event -->
+        <div class="timeline-entry" data-type="event">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="event.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Event</span>
+              <span class="tl-date">Oct 5, 2024</span>
+            </div>
+            <h4 class="tl-title">Season Opener</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln High School</span>
+              <span class="tl-score">68 &ndash; 52</span>
+              <span class="tl-team tl-team--opp">Riverside HS</span>
+              <span class="tl-result tl-result--win">W</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Moment -->
+        <div class="timeline-entry" data-type="moment">
+          <div class="tl-dot tl-dot--moment"></div>
+          <div class="tl-card tl-card--moment">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--moment">Moment</span>
+              <span class="tl-date">Oct 5, 2024</span>
+            </div>
+            <div class="tl-moment-body">
+              <div class="tl-moment-thumb"></div>
+              <div class="tl-moment-text">
+                <h4 class="tl-title">Opening Tip-Off</h4>
+                <p class="tl-caption">First possession of the season. The gym was packed and the energy was unlike anything.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event -->
+        <div class="timeline-entry" data-type="event">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="event.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Event</span>
+              <span class="tl-date">Oct 12, 2024</span>
+            </div>
+            <h4 class="tl-title">Away at Westside</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln High School</span>
+              <span class="tl-score">44 &ndash; 61</span>
+              <span class="tl-team tl-team--opp">Westside Prep</span>
+              <span class="tl-result tl-result--loss">L</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Event -->
+        <div class="timeline-entry" data-type="event">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="event.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Event</span>
+              <span class="tl-date">Oct 19, 2024</span>
+            </div>
+            <h4 class="tl-title">Home vs. Eastview</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln High School</span>
+              <span class="tl-score">73 &ndash; 55</span>
+              <span class="tl-team tl-team--opp">Eastview HS</span>
+              <span class="tl-result tl-result--win">W</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Milestone -->
+        <div class="timeline-entry" data-type="milestone">
+          <div class="tl-dot tl-dot--milestone"></div>
+          <div class="tl-card tl-card--milestone">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--milestone">Milestone</span>
+              <span class="tl-date tl-date--milestone">Oct 19, 2024</span>
+            </div>
+            <div class="tl-milestone-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h4 class="tl-title">20-Point Average Reached</h4>
+            <p class="tl-caption">Crossed the 20 PPG threshold after the Home vs. Eastview game.</p>
+          </div>
+        </div>
+
+        <!-- Event -->
+        <div class="timeline-entry" data-type="event">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="event.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Event</span>
+              <span class="tl-date">Oct 26, 2024</span>
+            </div>
+            <h4 class="tl-title">Tournament &ndash; Round 1</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln High School</span>
+              <span class="tl-score">58 &ndash; 50</span>
+              <span class="tl-team tl-team--opp">Central HS</span>
+              <span class="tl-result tl-result--win">W</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Moment (video) -->
+        <div class="timeline-entry" data-type="moment">
+          <div class="tl-dot tl-dot--moment"></div>
+          <div class="tl-card tl-card--moment">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--moment">Moment</span>
+              <span class="tl-date">Oct 26, 2024</span>
+            </div>
+            <div class="tl-moment-body">
+              <div class="tl-moment-thumb tl-moment-thumb--video"></div>
+              <div class="tl-moment-text">
+                <h4 class="tl-title">Post-Game Interview</h4>
+                <p class="tl-caption">Coach breaks down the defensive adjustments that turned the tournament opener around.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ── View tabs ───────────────────────────────────────────
+    document.querySelectorAll('.chapter-view-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.chapter-view-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.chapter-view-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('view-' + tab.dataset.view).classList.add('active');
+      });
+    });
+
+    // ── Timeline filters ────────────────────────────────────
+    document.querySelectorAll('.tl-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tl-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.timeline-entry').forEach(entry => {
+          entry.style.display = (filter === 'all' || entry.dataset.type === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    // ── Boolean goal: mark complete → promote to milestone ──
+    function completeGoal(id) {
+      const item = document.getElementById(id);
+      if (!item || item.dataset.completing) return;
+      item.dataset.completing = 'true';
+
+      const title = item.querySelector('.goal-title').textContent.trim();
+      const desc  = item.querySelector('.goal-desc')  ? item.querySelector('.goal-desc').textContent.trim() : '';
+      const check       = item.querySelector('.goal-check');
+      const completeBtn = item.querySelector('.goal-complete-btn');
+
+      // 1. Visually mark complete
+      if (check) {
+        check.className = 'goal-check goal-check--done';
+        check.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+      }
+      if (completeBtn) completeBtn.style.display = 'none';
+
+      // 2. Collapse row, then move to milestones
+      setTimeout(() => {
+        const h = item.offsetHeight;
+        item.style.overflow  = 'hidden';
+        item.style.height    = h + 'px';
+        item.style.transition = 'height 0.4s ease, opacity 0.3s ease, padding 0.4s ease';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          item.style.height        = '0';
+          item.style.opacity       = '0';
+          item.style.paddingTop    = '0';
+          item.style.paddingBottom = '0';
+        }));
+        setTimeout(() => {
+          item.remove();
+          syncGoalCount();
+          promoteToMilestone(title, desc);
+        }, 420);
+      }, 700);
+    }
+
+    // ── Create milestone card ───────────────────────────────
+    function promoteToMilestone(title, desc) {
+      const grid  = document.getElementById('milestone-grid');
+      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      const card = document.createElement('div');
+      card.className = 'milestone-card';
+      card.style.cssText = 'opacity:0;transform:translateY(-10px);transition:opacity 0.45s ease,transform 0.45s ease;';
+      card.innerHTML = `
+        <div class="milestone-card-top">
+          <div class="milestone-check">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="milestone-achieved-label">Achieved</span>
+        </div>
+        <h4 class="milestone-title">${title}</h4>
+        <p class="milestone-desc">${desc}</p>
+        <p class="milestone-date">${today}</p>`;
+
+      grid.prepend(card);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        card.style.opacity   = '1';
+        card.style.transform = 'translateY(0)';
+      }));
+      syncMilestoneCount();
+    }
+
+    // ── Numerical goal: update value ────────────────────────
+    function openNumericalUpdate(id) {
+      const row = document.getElementById(id + '-update-row');
+      row.style.display = 'flex';
+      const input = document.getElementById(id + '-input');
+      input.value = '';
+      input.focus();
+    }
+
+    function cancelNumericalUpdate(id) {
+      document.getElementById(id + '-update-row').style.display = 'none';
+    }
+
+    function saveNumericalUpdate(id) {
+      const item   = document.getElementById(id);
+      const input  = document.getElementById(id + '-input');
+      const target = parseInt(item.dataset.target, 10);
+      const raw    = parseInt(input.value, 10);
+
+      if (isNaN(raw) || raw < 0) { input.focus(); return; }
+
+      const value = Math.min(raw, target);
+      const pct   = Math.round((value / target) * 100);
+
+      document.getElementById(id + '-current').textContent = value.toLocaleString();
+      document.getElementById(id + '-fill').style.width    = pct + '%';
+      document.getElementById(id + '-pct').textContent     = pct + '%';
+      cancelNumericalUpdate(id);
+
+      if (value >= target) {
+        setTimeout(() => completeGoal(id), 500);
+      }
+    }
+
+    // Enter / Escape on numerical input
+    document.querySelectorAll('.goal-update-input').forEach(input => {
+      input.addEventListener('keydown', e => {
+        const id = input.id.replace('-input', '');
+        if (e.key === 'Enter')  { e.preventDefault(); saveNumericalUpdate(id); }
+        if (e.key === 'Escape') { cancelNumericalUpdate(id); }
+      });
+    });
+
+    // ── Sync counts ─────────────────────────────────────────
+    function syncGoalCount() {
+      const el = document.getElementById('goal-count');
+      if (el) el.textContent = document.querySelectorAll('#goal-list .goal-item').length;
+    }
+
+    function syncMilestoneCount() {
+      const el = document.getElementById('milestone-count');
+      if (el) el.textContent = document.querySelectorAll('#milestone-grid .milestone-card').length;
+    }
+  </script>
+</body>
+</html>

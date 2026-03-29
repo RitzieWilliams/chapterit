@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <!-- Notification Bell -->
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <!-- Avatar -->
+      <button class="dash-avatar-btn" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <!-- Add New -->
+      <button class="btn-dash-primary">Add New</button>
+    </div>
+  </nav>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main">
+
+    <!-- NEXT STEPS -->
+    <section class="next-steps" id="next-steps-section">
+      <h2 class="dash-section-title">Next Steps</h2>
+      <div class="step-cards">
+
+        <!-- Add Profile Photo -->
+        <div class="step-card" id="step-photo">
+          <button class="step-dismiss" onclick="dismissStep('step-photo')" aria-label="Dismiss">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <p class="step-title">Add Profile Photo</p>
+          <p class="step-desc">Upload a photo so teammates and collaborators can recognize you.</p>
+          <button class="step-action">Upload Photo
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <!-- Add Athlete -->
+        <div class="step-card" id="step-athlete">
+          <button class="step-dismiss" onclick="dismissStep('step-athlete')" aria-label="Dismiss">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <p class="step-title">Add an Athlete</p>
+          <p class="step-desc">Add the athlete you're tracking so their chapters are tied to their profile.</p>
+          <button class="step-action">Add Athlete
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <!-- Add Collaborator -->
+        <div class="step-card" id="step-collaborator">
+          <button class="step-dismiss" onclick="dismissStep('step-collaborator')" aria-label="Dismiss">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <p class="step-title">Add a Collaborator</p>
+          <p class="step-desc">Invite a parent or coach to contribute moments and view chapters.</p>
+          <button class="step-action">Add Collaborator
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <!-- Create a Chapter -->
+        <div class="step-card" id="step-chapter">
+          <button class="step-dismiss" onclick="dismissStep('step-chapter')" aria-label="Dismiss">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <p class="step-title">Create a Chapter</p>
+          <p class="step-desc">Start a chapter to organize a season's games, stats, and memories.</p>
+          <button class="step-action" onclick="window.location='chapter.html'">Create Chapter
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <!-- Invite Friends -->
+        <div class="step-card" id="step-invite">
+          <button class="step-dismiss" onclick="dismissStep('step-invite')" aria-label="Dismiss">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </div>
+          <p class="step-title">Invite Friends</p>
+          <p class="step-desc">Share ChapterIt with other families tracking athletes in their lives.</p>
+          <button class="step-action">Send Invite
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHAPTERS -->
+    <section class="chapters-section">
+      <div class="chapters-header">
+        <div class="chapters-title-group">
+          <div class="chapters-headline-row">
+            <svg class="chapters-book-icon" width="52" height="52" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M28 48 L4 38 L4 8 L28 18 L52 8 L52 38 Z"/>
+              <line x1="28" y1="18" x2="28" y2="48"/>
+              <line x1="12" y1="15" x2="24" y2="19"/>
+              <line x1="12" y1="23" x2="24" y2="27"/>
+              <line x1="12" y1="31" x2="24" y2="35"/>
+              <line x1="32" y1="19" x2="44" y2="15"/>
+              <line x1="32" y1="27" x2="44" y2="23"/>
+              <line x1="32" y1="35" x2="44" y2="31"/>
+            </svg>
+            <h2 class="chapters-title">Chapters</h2>
+          </div>
+          <p class="chapters-desc">Every season tells a story. Create chapters to organize games, stats, and memorable moments from an athlete's journey.</p>
+        </div>
+        <button class="btn-dash-primary">Create Chapter</button>
+      </div>
+
+      <!-- CHAPTER LIST -->
+      <div class="chapter-list">
+
+        <a href="chapter.html" class="chapter-item">
+          <div class="chapter-item-main">
+            <span class="chapter-sport">Basketball</span>
+            <h3 class="chapter-name">Junior Season 2024</h3>
+            <p class="chapter-meta">High School &middot; Varsity &middot; Lincoln High School</p>
+          </div>
+          <div class="chapter-item-athlete">
+            <span class="chapter-athlete-label">Athlete</span>
+            <span class="chapter-athlete-name">Marcus Johnson</span>
+          </div>
+          <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+
+        <a href="#" class="chapter-item">
+          <div class="chapter-item-main">
+            <span class="chapter-sport">Soccer</span>
+            <h3 class="chapter-name">Fall Classic 2023</h3>
+            <p class="chapter-meta">Club &middot; U17 Elite &middot; Metro FC Academy</p>
+          </div>
+          <div class="chapter-item-athlete">
+            <span class="chapter-athlete-label">Athlete</span>
+            <span class="chapter-athlete-name">Emma Rodriguez</span>
+          </div>
+          <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+
+        <a href="#" class="chapter-item">
+          <div class="chapter-item-main">
+            <span class="chapter-sport">Baseball</span>
+            <h3 class="chapter-name">Summer League</h3>
+            <p class="chapter-meta">Middle School &middot; JV &middot; Roosevelt Middle School</p>
+          </div>
+          <div class="chapter-item-athlete">
+            <span class="chapter-athlete-label">Athlete</span>
+            <span class="chapter-athlete-name">Tyler Chen</span>
+          </div>
+          <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    function dismissStep(id) {
+      const card = document.getElementById(id);
+      if (card) {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.92)';
+        card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 200);
+      }
+    }
+  </script>
+</body>
+</html>
