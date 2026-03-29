@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Profile</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+    </div>
+  </nav>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main">
+
+    <!-- PAGE HEADER -->
+    <div class="profile-page-header">
+      <h1 class="profile-page-title">Profile</h1>
+      <button class="btn-page-ghost" onclick="toggleProfileEdit()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+        <span id="edit-profile-label">Edit Profile</span>
+      </button>
+    </div>
+
+    <!-- ── PROFILE DETAILS ───────────────────────────── -->
+    <div class="overview-section" id="profile-section">
+
+      <!-- VIEW MODE -->
+      <div class="profile-view" id="profile-view">
+        <div class="profile-identity">
+          <div class="profile-avatar">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="profile-identity-info">
+            <p class="profile-name">Jane Smith</p>
+            <p class="profile-role">Parent / Guardian</p>
+          </div>
+        </div>
+
+        <div class="profile-fields">
+          <div class="profile-field">
+            <span class="profile-field-label">Full Name</span>
+            <span class="profile-field-value">Jane Smith</span>
+          </div>
+          <div class="profile-field">
+            <span class="profile-field-label">Email</span>
+            <span class="profile-field-value">jane.smith@example.com</span>
+          </div>
+          <div class="profile-field">
+            <span class="profile-field-label">Phone</span>
+            <span class="profile-field-value">(555) 867-5309</span>
+          </div>
+          <div class="profile-field">
+            <span class="profile-field-label">Role</span>
+            <span class="profile-field-value">Parent / Guardian</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDIT MODE -->
+      <form class="profile-edit-form" id="profile-edit-form" onsubmit="saveProfile(event)" style="display:none;">
+        <div class="profile-form-grid">
+          <div class="profile-form-group">
+            <label for="pf-name">Full Name</label>
+            <input type="text" id="pf-name" value="Jane Smith" autocomplete="name">
+          </div>
+          <div class="profile-form-group">
+            <label for="pf-email">Email</label>
+            <input type="email" id="pf-email" value="jane.smith@example.com" autocomplete="email">
+          </div>
+          <div class="profile-form-group">
+            <label for="pf-phone">Phone</label>
+            <input type="tel" id="pf-phone" value="(555) 867-5309" autocomplete="tel">
+          </div>
+          <div class="profile-form-group">
+            <label for="pf-role">Role</label>
+            <select id="pf-role">
+              <option selected>Parent / Guardian</option>
+              <option>Coach</option>
+              <option>Athlete</option>
+              <option>Collaborator</option>
+            </select>
+          </div>
+        </div>
+        <div class="profile-form-actions">
+          <button type="submit" class="btn-section-primary">Save Changes</button>
+          <button type="button" class="btn-section-ghost" onclick="toggleProfileEdit()">Cancel</button>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- ── SECURITY ───────────────────────────────────── -->
+    <div class="overview-section">
+
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Security</h3>
+        </div>
+        <button class="btn-section-ghost" onclick="togglePasswordEdit()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span id="change-pw-label">Change Password</span>
+        </button>
+      </div>
+
+      <!-- VIEW MODE -->
+      <div class="profile-fields" id="password-view">
+        <div class="profile-field">
+          <span class="profile-field-label">Password</span>
+          <span class="profile-field-value">••••••••••••</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-field-label">Last Changed</span>
+          <span class="profile-field-value">Never</span>
+        </div>
+      </div>
+
+      <!-- EDIT MODE -->
+      <form class="profile-edit-form" id="password-edit-form" onsubmit="savePassword(event)" style="display:none;">
+        <div class="profile-form-grid">
+          <div class="profile-form-group">
+            <label for="pw-current">Current Password</label>
+            <input type="password" id="pw-current" placeholder="Enter current password" autocomplete="current-password">
+          </div>
+          <div class="profile-form-group">
+            <label for="pw-new">New Password</label>
+            <input type="password" id="pw-new" placeholder="Min. 8 characters" autocomplete="new-password" minlength="8">
+          </div>
+          <div class="profile-form-group">
+            <label for="pw-confirm">Confirm New Password</label>
+            <input type="password" id="pw-confirm" placeholder="Repeat new password" autocomplete="new-password">
+          </div>
+        </div>
+        <div class="profile-form-actions">
+          <button type="submit" class="btn-section-primary">Update Password</button>
+          <button type="button" class="btn-section-ghost" onclick="togglePasswordEdit()">Cancel</button>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- ── COLLABORATORS ──────────────────────────────── -->
+    <div class="overview-section">
+
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Collaborators</h3>
+          <span class="overview-section-count">2</span>
+        </div>
+        <button class="btn-section-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Collaborator
+        </button>
+      </div>
+
+      <div class="people-list">
+
+        <div class="people-row">
+          <div class="people-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="people-info">
+            <p class="people-name">Coach Brian Torres</p>
+            <p class="people-meta">brian.torres@lincolnhs.edu</p>
+          </div>
+          <span class="people-tag">Coach</span>
+          <button class="people-remove" aria-label="Remove">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="people-row">
+          <div class="people-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="people-info">
+            <p class="people-name">Amanda Chen</p>
+            <p class="people-meta">amanda.chen@example.com</p>
+          </div>
+          <span class="people-tag">Collaborator</span>
+          <button class="people-remove" aria-label="Remove">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PARENTS ─────────────────────────────────────── -->
+    <div class="overview-section">
+
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Parents</h3>
+          <span class="overview-section-count">1</span>
+        </div>
+        <button class="btn-section-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Parent
+        </button>
+      </div>
+
+      <div class="people-list">
+
+        <div class="people-row">
+          <div class="people-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="people-info">
+            <p class="people-name">David Johnson</p>
+            <p class="people-meta">david.johnson@example.com</p>
+          </div>
+          <span class="people-tag">Father</span>
+          <button class="people-remove" aria-label="Remove">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── ATHLETES ────────────────────────────────────── -->
+    <div class="overview-section">
+
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Athletes</h3>
+          <span class="overview-section-count">2</span>
+        </div>
+        <button class="btn-section-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Athlete
+        </button>
+      </div>
+
+      <div class="people-list">
+
+        <div class="people-row people-row--athlete">
+          <div class="people-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <div class="people-info">
+            <p class="people-name">Marcus Johnson</p>
+            <p class="people-meta">Basketball &middot; Lincoln High School &middot; Varsity</p>
+          </div>
+          <span class="people-tag">Son</span>
+          <a href="chapter.html" class="people-link" aria-label="View chapters">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="people-row people-row--athlete">
+          <div class="people-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <div class="people-info">
+            <p class="people-name">Emma Rodriguez</p>
+            <p class="people-meta">Soccer &middot; Metro FC Academy &middot; U17 Elite</p>
+          </div>
+          <span class="people-tag">Daughter</span>
+          <a href="#" class="people-link" aria-label="View chapters">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleProfileEdit() {
+      const view = document.getElementById('profile-view');
+      const form = document.getElementById('profile-edit-form');
+      const label = document.getElementById('edit-profile-label');
+      const isEditing = form.style.display !== 'none';
+      view.style.display = isEditing ? 'block' : 'none';
+      form.style.display = isEditing ? 'none' : 'block';
+      label.textContent = isEditing ? 'Edit Profile' : 'Cancel';
+    }
+
+    function saveProfile(e) {
+      e.preventDefault();
+      const name = document.getElementById('pf-name').value.trim();
+      const role = document.getElementById('pf-role').value;
+      document.querySelector('.profile-name').textContent = name;
+      document.querySelector('.profile-role').textContent = role;
+      document.querySelector('.profile-field:nth-child(1) .profile-field-value').textContent = name;
+      document.querySelector('.profile-field:nth-child(4) .profile-field-value').textContent = role;
+      toggleProfileEdit();
+    }
+
+    function togglePasswordEdit() {
+      const view = document.getElementById('password-view');
+      const form = document.getElementById('password-edit-form');
+      const label = document.getElementById('change-pw-label');
+      const isEditing = form.style.display !== 'none';
+      view.style.display = isEditing ? 'grid' : 'none';
+      form.style.display = isEditing ? 'none' : 'block';
+      label.textContent = isEditing ? 'Change Password' : 'Cancel';
+    }
+
+    function savePassword(e) {
+      e.preventDefault();
+      const current = document.getElementById('pw-current').value;
+      const newPw = document.getElementById('pw-new').value;
+      const confirm = document.getElementById('pw-confirm').value;
+      if (!current || !newPw || !confirm) return;
+      if (newPw !== confirm) { alert('Passwords do not match.'); return; }
+      document.getElementById('pw-current').value = '';
+      document.getElementById('pw-new').value = '';
+      document.getElementById('pw-confirm').value = '';
+      togglePasswordEdit();
+    }
+  </script>
+</body>
+</html>
