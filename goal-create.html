@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Add Goal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+      <button class="dash-icon-btn dash-add-mobile" aria-label="Add New">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── CREATE LAYOUT ────────────────────────────────── -->
+  <div class="create-layout">
+
+    <!-- ── LEFT: FORM ──────────────────────────────────── -->
+    <div class="create-form-panel">
+
+      <a href="chapter.html" class="chapter-breadcrumb" style="margin-bottom: 32px; display: inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Junior Season 2024
+      </a>
+
+      <h1 class="create-title">Add a<br>Goal</h1>
+
+      <form id="goal-form" onsubmit="submitGoal(event)">
+
+        <!-- Goal Name -->
+        <div class="create-field-group">
+          <label class="create-label" for="goal-name">Goal Name <span class="create-required">*</span></label>
+          <input type="text" id="goal-name" class="create-input" placeholder="e.g. Start every game in the lineup" required>
+        </div>
+
+        <!-- Type toggle -->
+        <div class="create-field-group">
+          <label class="create-label">Type <span class="create-required">*</span></label>
+          <div class="goal-type-toggle">
+            <button type="button" class="goal-type-btn goal-type-btn--active" id="type-boolean" onclick="setType('boolean')">
+              <div class="goal-type-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                  <line x1="4" y1="22" x2="4" y2="15"/>
+                </svg>
+              </div>
+              <div class="goal-type-label">
+                <span class="goal-type-name">Complete / Incomplete</span>
+                <span class="goal-type-desc">A goal you either achieve or you don't</span>
+              </div>
+            </button>
+            <button type="button" class="goal-type-btn" id="type-numeric" onclick="setType('numeric')">
+              <div class="goal-type-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6" y1="20" x2="6" y2="14"/>
+                </svg>
+              </div>
+              <div class="goal-type-label">
+                <span class="goal-type-name">Numeric</span>
+                <span class="goal-type-desc">A goal with a measurable target value</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Target value — shown only for numeric -->
+        <div class="create-field-group create-field-conditional" id="target-field">
+          <label class="create-label" for="goal-target">Target Value <span class="create-required">*</span></label>
+          <input type="number" id="goal-target" class="create-input" placeholder="e.g. 500" min="1">
+        </div>
+
+        <!-- Description (optional) -->
+        <div class="create-field-group">
+          <label class="create-label" for="goal-desc">Description</label>
+          <input type="text" id="goal-desc" class="create-input" placeholder="e.g. Cumulative points across all regular season games">
+        </div>
+
+        <button type="submit" class="btn-dash-primary create-submit">Add Goal</button>
+
+      </form>
+    </div>
+
+    <!-- ── RIGHT: INFO ──────────────────────────────────── -->
+    <div class="create-info-panel">
+      <div class="create-info-content">
+
+        <p class="create-info-eyebrow">Setting goals</p>
+        <h2 class="create-info-headline">Goals keep<br>athletes<br><span class="outline-text">focused.</span></h2>
+
+        <div class="create-info-items">
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                <line x1="4" y1="22" x2="4" y2="15"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Complete / Incomplete</p>
+              <p class="create-info-item-desc">For goals that are binary — like earning a starting spot or finishing a season without injury.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Numeric</p>
+              <p class="create-info-item-desc">For goals with a measurable target — like scoring 500 points or recording 100 assists this season.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Become a Milestone</p>
+              <p class="create-info-item-desc">When a goal is completed it becomes a milestone — a permanent highlight in the chapter's timeline.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    let currentType = 'boolean';
+
+    function setType(type) {
+      currentType = type;
+      document.getElementById('type-boolean').classList.toggle('goal-type-btn--active', type === 'boolean');
+      document.getElementById('type-numeric').classList.toggle('goal-type-btn--active', type === 'numeric');
+
+      const targetField = document.getElementById('target-field');
+      const targetInput = document.getElementById('goal-target');
+      if (type === 'numeric') {
+        targetField.classList.add('is-visible');
+        targetInput.required = true;
+      } else {
+        targetField.classList.remove('is-visible');
+        targetInput.required = false;
+        targetInput.value = '';
+      }
+    }
+
+    function submitGoal(e) {
+      e.preventDefault();
+      window.location = 'chapter.html';
+    }
+  </script>
+</body>
+</html>

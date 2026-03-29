@@ -79,7 +79,7 @@
 
       <!-- ACTIONS -->
       <div class="chapter-actions">
-        <button class="btn-page-ghost">
+        <button class="btn-page-ghost" onclick="openShareModal()">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
@@ -338,7 +338,7 @@
             <h3 class="overview-section-title">Goals</h3>
             <span class="overview-section-count" id="goal-count">2</span>
           </div>
-          <button class="btn-section-ghost">
+          <button class="btn-section-ghost" onclick="window.location='goal-create.html'">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Add Goal
           </button>
@@ -402,7 +402,7 @@
             <h3 class="overview-section-title">Milestones</h3>
             <span class="overview-section-count" id="milestone-count">2</span>
           </div>
-          <button class="btn-section-ghost">
+          <button class="btn-section-ghost" onclick="window.location='milestone-create.html'">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Add Milestone
           </button>
@@ -442,18 +442,24 @@
     <!-- TIMELINE PANEL -->
     <div class="chapter-view-panel" id="view-timeline">
 
-      <!-- FILTERS -->
-      <div class="timeline-filters">
-        <button class="tl-filter active" data-filter="all">All</button>
-        <button class="tl-filter" data-filter="event">Events</button>
-        <button class="tl-filter" data-filter="moment">Moments</button>
-        <button class="tl-filter" data-filter="milestone">Milestones</button>
+      <!-- TIMELINE TOOLBAR -->
+      <div class="tl-toolbar">
+        <div class="timeline-filters">
+          <button class="tl-filter active" data-filter="all">All</button>
+          <button class="tl-filter" data-filter="event">Events</button>
+          <button class="tl-filter" data-filter="moment">Moments</button>
+          <button class="tl-filter" data-filter="milestone">Milestones</button>
+        </div>
+        <button class="btn-dash-primary tl-add-btn" onclick="openTlPicker()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Entry
+        </button>
       </div>
 
-      <!-- ENTRIES -->
+      <!-- ENTRIES (earliest → latest) -->
       <div class="timeline-list">
 
-        <!-- Event -->
+        <!-- Event: Oct 5 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
           <a href="event.html" class="tl-card tl-card--event">
@@ -471,7 +477,7 @@
           </a>
         </div>
 
-        <!-- Moment -->
+        <!-- Moment: Oct 5 -->
         <div class="timeline-entry" data-type="moment">
           <div class="tl-dot tl-dot--moment"></div>
           <div class="tl-card tl-card--moment">
@@ -489,7 +495,7 @@
           </div>
         </div>
 
-        <!-- Event -->
+        <!-- Event: Oct 12 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
           <a href="event.html" class="tl-card tl-card--event">
@@ -507,7 +513,7 @@
           </a>
         </div>
 
-        <!-- Event -->
+        <!-- Event: Oct 19 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
           <a href="event.html" class="tl-card tl-card--event">
@@ -525,7 +531,7 @@
           </a>
         </div>
 
-        <!-- Milestone -->
+        <!-- Milestone: Oct 19 -->
         <div class="timeline-entry" data-type="milestone">
           <div class="tl-dot tl-dot--milestone"></div>
           <div class="tl-card tl-card--milestone">
@@ -541,7 +547,7 @@
           </div>
         </div>
 
-        <!-- Event -->
+        <!-- Event: Oct 26 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
           <a href="event.html" class="tl-card tl-card--event">
@@ -559,7 +565,7 @@
           </a>
         </div>
 
-        <!-- Moment (video) -->
+        <!-- Moment: Oct 26 -->
         <div class="timeline-entry" data-type="moment">
           <div class="tl-dot tl-dot--moment"></div>
           <div class="tl-card tl-card--moment">
@@ -580,7 +586,105 @@
       </div>
     </div>
 
+  <!-- ─── ADD ENTRY PICKER ──────────────────────────────── -->
+  <div class="modal-overlay" id="tl-picker-overlay" onclick="closeTlPicker()">
+    <div class="tl-picker" onclick="event.stopPropagation()">
+      <div class="tl-picker-header">
+        <p class="tl-picker-title">What would you like to add?</p>
+        <button class="dash-drawer-close" onclick="closeTlPicker()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="tl-picker-options">
+        <a href="event-create.html" class="tl-picker-option">
+          <div class="tl-picker-icon tl-picker-icon--event">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="tl-picker-text">
+            <span class="tl-picker-name">Event</span>
+            <span class="tl-picker-desc">A game, match, or competition</span>
+          </div>
+          <svg class="tl-picker-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+        <a href="moment-create.html" class="tl-picker-option">
+          <div class="tl-picker-icon tl-picker-icon--moment">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <div class="tl-picker-text">
+            <span class="tl-picker-name">Moment</span>
+            <span class="tl-picker-desc">A photo or video worth keeping</span>
+          </div>
+          <svg class="tl-picker-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+        <a href="milestone-create.html" class="tl-picker-option">
+          <div class="tl-picker-icon tl-picker-icon--milestone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="tl-picker-text">
+            <span class="tl-picker-name">Milestone</span>
+            <span class="tl-picker-desc">An achievement worth celebrating</span>
+          </div>
+          <svg class="tl-picker-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
   </main>
+
+  <!-- ─── SHARE MODAL ──────────────────────────────────── -->
+  <div class="modal-overlay" id="share-modal-overlay" onclick="closeShareModal()">
+    <div class="modal share-modal" onclick="event.stopPropagation()">
+
+      <div class="share-modal-header">
+        <h2 class="modal-title">Share Chapter</h2>
+        <button class="dash-drawer-close" onclick="closeShareModal()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <p class="share-modal-sub">Invite someone by email or copy a link to share directly.</p>
+
+      <!-- Email invite -->
+      <div class="share-section">
+        <label class="share-label">Invite by Email</label>
+        <div class="share-email-row">
+          <input type="email" id="share-email-input" class="create-input share-email-input" placeholder="name@example.com">
+          <button class="btn-dash-primary share-send-btn" onclick="sendInvite()">Send</button>
+        </div>
+        <div class="share-sent-msg" id="share-sent-msg">Invite sent!</div>
+      </div>
+
+      <!-- Divider -->
+      <div class="share-divider">
+        <span>or</span>
+      </div>
+
+      <!-- Copy link -->
+      <div class="share-section">
+        <label class="share-label">Chapter Link</label>
+        <div class="share-link-row">
+          <span class="share-link-text" id="share-link-text">chapterit.app/c/junior-season-2024</span>
+          <button class="btn-page-ghost share-copy-btn" id="share-copy-btn" onclick="copyLink()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
   <script>
@@ -605,6 +709,59 @@
         });
       });
     });
+
+    // ── Share modal ─────────────────────────────────────────
+    function openShareModal() {
+      document.getElementById('share-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeShareModal() {
+      document.getElementById('share-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+      document.getElementById('share-email-input').value = '';
+      document.getElementById('share-sent-msg').classList.remove('is-visible');
+    }
+
+    function sendInvite() {
+      const input = document.getElementById('share-email-input');
+      if (!input.value || !input.validity.valid) {
+        input.focus();
+        return;
+      }
+      input.value = '';
+      const msg = document.getElementById('share-sent-msg');
+      msg.classList.add('is-visible');
+      setTimeout(() => msg.classList.remove('is-visible'), 3000);
+    }
+
+    function copyLink() {
+      const link = document.getElementById('share-link-text').textContent;
+      navigator.clipboard.writeText(link).catch(() => {});
+      const btn = document.getElementById('share-copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link`;
+      }, 2000);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeShareModal(); closeTlPicker(); }
+    });
+
+    // ── Timeline entry picker ───────────────────────────────
+    function openTlPicker() {
+      const overlay = document.getElementById('tl-picker-overlay');
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTlPicker() {
+      const overlay = document.getElementById('tl-picker-overlay');
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
 
     // ── Boolean goal: mark complete → promote to milestone ──
     function completeGoal(id) {
