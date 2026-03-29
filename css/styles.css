@@ -10,6 +10,7 @@
   --black: #000000;
   --white: #ffffff;
   --blue: #268AFF;
+  --blue-dark: #1a7aee;
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
   --gray-400: #999999;
@@ -110,13 +111,13 @@ nav.scrolled {
 }
 
 .btn-primary {
-  background: var(--black);
+  background: var(--blue);
   color: var(--white);
   padding: 14px 32px;
 }
 
 .btn-primary:hover {
-  background: var(--gray-800);
+  background: var(--blue-dark);
 }
 
 .btn-outline {
@@ -467,9 +468,24 @@ footer {
   color: var(--black);
 }
 
+/* ─── AUTH NAV ────────────────────────────────────── */
+.auth-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 24px 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+
 /* ─── AUTH PAGE ───────────────────────────────────── */
 .auth-page {
   min-height: 100vh;
+  padding-top: 77px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -482,6 +498,25 @@ footer {
   padding: 48px;
   position: relative;
   overflow: hidden;
+}
+
+.auth-back {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-back:hover {
+  color: var(--white);
 }
 
 .auth-left-bg {
@@ -641,7 +676,7 @@ footer {
 .btn-form {
   width: 100%;
   padding: 16px;
-  background: var(--black);
+  background: var(--blue);
   color: var(--white);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -655,7 +690,7 @@ footer {
 }
 
 .btn-form:hover {
-  background: var(--gray-800);
+  background: var(--blue-dark);
 }
 
 .btn-form:active {
@@ -828,12 +863,105 @@ footer {
   color: var(--white);
 }
 
+/* Hamburger — hidden on desktop, shown on mobile */
+.dash-hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+/* Mobile add button — hidden on desktop */
+.dash-add-mobile {
+  display: none;
+}
+
+/* ── Mobile Drawer ──────────────────────────────── */
+.dash-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+}
+
+.dash-drawer.is-open {
+  transform: translateX(0);
+}
+
+.dash-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.dash-drawer-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.dash-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 72px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.dash-drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--black);
+}
+
+.dash-drawer-nav {
+  padding: 8px 0;
+}
+
+.dash-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dash-drawer-item:hover {
+  background: var(--gray-100);
+}
+
 /* Dashboard CTA button — matches btn-primary from landing */
 .btn-dash-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--black);
+  background: var(--blue);
   color: var(--white);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -848,7 +976,7 @@ footer {
 }
 
 .btn-dash-primary:hover {
-  background: var(--gray-800);
+  background: var(--blue-dark);
 }
 
 .btn-dash-primary:active {
@@ -857,7 +985,7 @@ footer {
 
 /* Dash Main */
 .dash-main {
-  padding: 104px 48px 80px;
+  padding: 140px 48px 80px;
   max-width: 1200px;
 }
 
@@ -1101,12 +1229,19 @@ footer {
   max-width: none;
 }
 
-.chapter-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+.chapter-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "breadcrumb actions"
+    "title      title";
+  align-items: start;
+  margin-bottom: 40px;
 }
+
+.chapter-header .chapter-breadcrumb { grid-area: breadcrumb; margin-bottom: 12px; }
+.chapter-header .chapter-detail-name { grid-area: title; margin-bottom: 0; }
+.chapter-header .chapter-actions { grid-area: actions; align-self: center; margin-bottom: 0; }
 
 .chapter-breadcrumb {
   display: inline-flex;
@@ -1158,7 +1293,7 @@ footer {
   letter-spacing: 0.01em;
   line-height: 0.95;
   color: var(--black);
-  margin-bottom: 40px;
+  margin-bottom: 12px;
 }
 
 .chapter-meta-strip {
@@ -1312,7 +1447,7 @@ footer {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
-  background: var(--black);
+  background: var(--blue);
   border: none;
   cursor: pointer;
   padding: 10px 18px;
@@ -1321,7 +1456,7 @@ footer {
 }
 
 .btn-section-primary:hover {
-  background: var(--gray-800);
+  background: var(--blue-dark);
 }
 
 .schedule-actions {
@@ -1731,14 +1866,14 @@ footer {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: var(--black);
+  background: var(--blue);
   color: var(--white);
   border: none;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
-.goal-update-save:hover { background: var(--gray-800); }
+.goal-update-save:hover { background: var(--blue-dark); }
 
 .goal-update-cancel {
   display: flex;
@@ -2501,6 +2636,120 @@ footer {
   color: var(--black);
 }
 
+/* ─── MODAL ───────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--white);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  transform: translateY(8px);
+  transition: transform 0.2s ease;
+}
+
+.modal-overlay.is-open .modal {
+  transform: translateY(0);
+}
+
+.modal-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.modal-body {
+  font-size: 14px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-modal-confirm {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-modal-confirm:hover {
+  background: var(--gray-800);
+}
+
+.btn-modal-cancel {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  background: none;
+  color: var(--gray-500);
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.btn-modal-cancel:hover {
+  color: var(--black);
+}
+
+/* Log out row */
+.profile-logout-row {
+  padding: 48px 0 0;
+}
+
+.btn-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0;
+}
+
+.btn-logout:hover {
+  color: var(--black);
+}
+
 /* ─── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 1024px) {
   nav { padding: 20px 32px; }
@@ -2516,7 +2765,7 @@ footer {
   .auth-right { padding: 80px 32px; }
 
   .dash-nav { padding: 20px 32px; }
-  .dash-main { padding: 88px 32px 64px; }
+  .dash-main { padding: 120px 32px 64px; }
   .chapters-header { flex-direction: column; gap: 24px; }
   .profile-fields { grid-template-columns: repeat(2, 1fr); }
   .profile-form-grid { grid-template-columns: 1fr; }
@@ -2541,8 +2790,18 @@ footer {
   footer { padding: 24px; flex-direction: column; text-align: center; }
   .auth-right { padding: 48px 24px; }
 
-  .dash-nav { padding: 16px 24px; }
-  .dash-main { padding: 80px 24px 48px; }
+  .dash-nav {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: center;
+    padding: 16px 20px;
+  }
+  .dash-nav .nav-logo { justify-self: center; }
+  .dash-hamburger { display: flex; }
+  .dash-avatar-btn { display: none; }
+  .btn-dash-primary { display: none; }
+  .dash-add-mobile { display: flex; }
+  .dash-main { padding: 112px 24px 48px; }
   .chapters-title { font-size: 40px; }
   .chapter-item { grid-template-columns: 1fr auto; gap: 24px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
   .step-cards { grid-template-columns: repeat(2, 1fr); }
@@ -2561,6 +2820,12 @@ footer {
   .stat-field--value { width: 100px; }
   .chapter-arrow { display: none; }
   .chapter-name { font-size: 28px; }
+  .chapter-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .chapter-header .chapter-detail-name { order: 2; margin-bottom: 12px; }
+  .chapter-header .chapter-actions { order: 3; margin-bottom: 40px; }
   .profile-fields { grid-template-columns: 1fr 1fr; }
   .profile-page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .people-row { grid-template-columns: 40px 1fr auto auto; gap: 12px; padding: 14px 16px; }

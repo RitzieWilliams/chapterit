@@ -1,3 +1,25 @@
+// ─── MOBILE DRAWER ─────────────────────────────────
+const hamburger = document.getElementById('dash-hamburger');
+const drawer    = document.getElementById('dash-drawer');
+const overlay   = document.getElementById('dash-drawer-overlay');
+const drawerClose = document.getElementById('dash-drawer-close');
+
+function openDrawer() {
+  drawer.classList.add('is-open');
+  overlay.classList.add('is-open');
+  drawer.setAttribute('aria-hidden', 'false');
+}
+
+function closeDrawer() {
+  drawer.classList.remove('is-open');
+  overlay.classList.remove('is-open');
+  drawer.setAttribute('aria-hidden', 'true');
+}
+
+if (hamburger) hamburger.addEventListener('click', openDrawer);
+if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+if (overlay) overlay.addEventListener('click', closeDrawer);
+
 // ─── NAV SCROLL STATE ──────────────────────────────
 const nav = document.getElementById('nav');
 if (nav) {
