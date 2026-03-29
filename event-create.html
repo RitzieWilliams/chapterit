@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Create Event</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+      <button class="dash-icon-btn dash-add-mobile" aria-label="Add New">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── CREATE LAYOUT ────────────────────────────────── -->
+  <div class="create-layout">
+
+    <!-- ── LEFT: FORM ──────────────────────────────────── -->
+    <div class="create-form-panel">
+
+      <a href="chapter.html" class="chapter-breadcrumb" style="margin-bottom: 32px; display: inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Junior Season 2024
+      </a>
+
+      <h1 class="create-title">Create an<br>Event</h1>
+
+      <form id="event-form" onsubmit="submitEvent(event)">
+
+        <!-- Event Name -->
+        <div class="create-field-group">
+          <label class="create-label" for="ev-name">Event Name <span class="create-required">*</span></label>
+          <input type="text" id="ev-name" class="create-input" placeholder="e.g. Season Opener, Away at Westside" required>
+        </div>
+
+        <!-- Date -->
+        <div class="create-field-group">
+          <label class="create-label" for="ev-date">Date <span class="create-required">*</span></label>
+          <input type="date" id="ev-date" class="create-input" required>
+        </div>
+
+        <!-- Opponent -->
+        <div class="create-field-group">
+          <label class="create-label" for="ev-opponent">Opponent</label>
+          <input type="text" id="ev-opponent" class="create-input" placeholder="e.g. Riverside HS">
+        </div>
+
+        <!-- Result -->
+        <div class="create-field-group">
+          <label class="create-label">Result</label>
+          <div class="event-score-row">
+            <div class="event-score-field">
+              <span class="event-score-team" id="your-team-label">Your Score</span>
+              <input type="number" id="ev-your-score" class="create-input event-score-input" placeholder="—" min="0">
+            </div>
+            <span class="event-score-sep">—</span>
+            <div class="event-score-field">
+              <span class="event-score-team">Opp. Score</span>
+              <input type="number" id="ev-opp-score" class="create-input event-score-input" placeholder="—" min="0">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-dash-primary create-submit">Create Event</button>
+
+      </form>
+    </div>
+
+    <!-- ── RIGHT: INFO ──────────────────────────────────── -->
+    <div class="create-info-panel">
+      <div class="create-info-content">
+
+        <p class="create-info-eyebrow">What is an event?</p>
+        <h2 class="create-info-headline">Every game<br>tells part of<br><span class="outline-text">the story.</span></h2>
+
+        <div class="create-info-items">
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Log the Result</p>
+              <p class="create-info-item-desc">Record the score so every W and L is part of the permanent record of the season.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Track Individual Stats</p>
+              <p class="create-info-item-desc">Add points, rebounds, assists — any stat that matters for this sport and this athlete.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Attach Moments</p>
+              <p class="create-info-item-desc">Link photos and videos directly to the event so the highlights live alongside the stats.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Hide number spinners
+    document.querySelectorAll('.event-score-input').forEach(input => {
+      input.addEventListener('keydown', e => {
+        if (e.key === 'ArrowUp' || e.key === 'ArrowDown') e.preventDefault();
+      });
+    });
+
+    function submitEvent(e) {
+      e.preventDefault();
+      window.location = 'event.html';
+    }
+  </script>
+</body>
+</html>

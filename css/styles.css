@@ -2903,6 +2903,141 @@ footer {
   color: var(--black);
 }
 
+/* ─── SCHEDULE EDITOR ─────────────────────────────── */
+.sched-editor {
+  border: 1px solid var(--gray-200);
+  margin-bottom: 48px;
+}
+
+.sched-header {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr 100px 100px 44px;
+  gap: 0;
+  padding: 0 16px;
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.sched-header span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  padding: 12px 12px;
+}
+
+.sched-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.sched-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr 100px 100px 44px;
+  gap: 0;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 0 16px;
+  transition: background 0.15s ease;
+}
+
+.sched-row:last-child {
+  border-bottom: none;
+}
+
+.sched-row:hover {
+  background: var(--gray-100);
+}
+
+.sched-row--new {
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sched-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--black);
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid transparent;
+  padding: 14px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease;
+  -webkit-appearance: none;
+}
+
+.sched-input:focus {
+  border-bottom-color: var(--black);
+  background: var(--white);
+}
+
+.sched-input::placeholder {
+  color: var(--gray-400);
+}
+
+.sched-input--score {
+  text-align: center;
+}
+
+/* Hide number spinners */
+.sched-input--score::-webkit-outer-spin-button,
+.sched-input--score::-webkit-inner-spin-button { -webkit-appearance: none; }
+.sched-input--score { -moz-appearance: textfield; }
+
+.sched-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-200);
+  transition: color 0.15s ease;
+  justify-self: center;
+}
+
+.sched-row:hover .sched-delete {
+  color: var(--gray-400);
+}
+
+.sched-delete:hover {
+  color: var(--black) !important;
+}
+
+.sched-add-row {
+  padding: 14px 28px;
+  border-top: 1px solid var(--gray-200);
+  background: var(--white);
+}
+
+.sched-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.sched-add-btn:hover {
+  color: var(--black);
+}
+
 /* ─── MOMENT CREATE ───────────────────────────────── */
 .moment-create-layout {
   grid-template-columns: 1fr 480px;
@@ -3016,6 +3151,47 @@ footer {
 
 .moment-upload-change:hover {
   background: var(--gray-100);
+}
+
+/* Event score row */
+.event-score-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.event-score-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.event-score-team {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.event-score-input {
+  text-align: center;
+  font-size: 28px !important;
+  font-weight: 300 !important;
+  padding: 8px 0 !important;
+  -moz-appearance: textfield;
+}
+
+.event-score-input::-webkit-outer-spin-button,
+.event-score-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+.event-score-sep {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--gray-400);
+  padding-bottom: 10px;
+  flex-shrink: 0;
 }
 
 /* Textarea */
@@ -3251,4 +3427,18 @@ footer {
   .people-row { grid-template-columns: 40px 1fr auto auto; gap: 12px; padding: 14px 16px; }
   .create-form-panel { padding: 112px 24px 48px; }
   .create-dates { grid-template-columns: 1fr; gap: 0; }
+  .sched-header { display: none; }
+  .sched-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 16px;
+    gap: 4px;
+    row-gap: 0;
+  }
+  .sched-row .sched-input:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .sched-row .sched-input:nth-child(2) { grid-column: 1 / -1; grid-row: 2; font-weight: 600; }
+  .sched-row .sched-input:nth-child(3) { grid-column: 1; grid-row: 3; }
+  .sched-row .sched-input:nth-child(4) { grid-column: 1; grid-row: 4; }
+  .sched-row .sched-input:nth-child(5) { grid-column: 2; grid-row: 4; }
+  .sched-row .sched-delete { grid-column: 2; grid-row: 1; justify-self: end; color: var(--gray-400); }
 }
