@@ -138,7 +138,7 @@
             <h3 class="overview-section-title">Moments</h3>
             <span class="overview-section-count">8</span>
           </div>
-          <button class="btn-section-ghost">
+          <button class="btn-section-ghost" onclick="window.location='moment-create.html'">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Add Moment
           </button>
@@ -146,29 +146,41 @@
 
         <div class="moments-grid">
           <div class="moment-card">
-            <div class="moment-thumb"></div>
+            <div class="moment-thumb">
+              <img src="https://unsplash.it/800?image=10" alt="Championship Game Dunk">
+            </div>
             <div class="moment-info">
+              <p class="moment-date">Mar 15, 2024</p>
               <p class="moment-title">Championship Game Dunk</p>
               <p class="moment-caption">Fourth quarter, two minutes left on the clock — the play that sealed it.</p>
             </div>
           </div>
           <div class="moment-card">
-            <div class="moment-thumb"></div>
+            <div class="moment-thumb">
+              <img src="https://unsplash.it/800?image=20" alt="Season Opener Warmup">
+            </div>
             <div class="moment-info">
+              <p class="moment-date">Oct 5, 2024</p>
               <p class="moment-title">Season Opener Warmup</p>
               <p class="moment-caption">First game of the season. Energy in the gym was unreal.</p>
             </div>
           </div>
           <div class="moment-card">
-            <div class="moment-thumb moment-thumb--video"></div>
+            <div class="moment-thumb moment-thumb--video">
+              <img src="https://unsplash.it/800?image=30" alt="Post-Game Interview">
+            </div>
             <div class="moment-info">
+              <p class="moment-date">Nov 2, 2024</p>
               <p class="moment-title">Post-Game Interview</p>
               <p class="moment-caption">Coach talks about the team's mentality heading into the playoffs.</p>
             </div>
           </div>
           <div class="moment-card">
-            <div class="moment-thumb"></div>
+            <div class="moment-thumb">
+              <img src="https://unsplash.it/800?image=40" alt="Halftime Huddle">
+            </div>
             <div class="moment-info">
+              <p class="moment-date">Jan 18, 2024</p>
               <p class="moment-title">Halftime Huddle</p>
               <p class="moment-caption">Down by six at halftime. This is where the comeback started.</p>
             </div>
@@ -337,7 +349,11 @@
 
           <!-- Boolean — in progress -->
           <div class="goal-item" id="goal-1" data-goal-type="boolean">
-            <div class="goal-check goal-check--open"></div>
+            <div class="goal-check goal-check--open">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>
+              </svg>
+            </div>
             <div class="goal-body">
               <p class="goal-title">Start every game in the lineup</p>
               <p class="goal-desc">Earn and hold the starting position all season</p>

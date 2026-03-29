@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Create a Chapter</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+      <button class="dash-icon-btn dash-add-mobile" aria-label="Add New">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── CREATE LAYOUT ────────────────────────────────── -->
+  <div class="create-layout">
+
+    <!-- ── LEFT: FORM ──────────────────────────────────── -->
+    <div class="create-form-panel">
+
+      <a href="dashboard.html" class="chapter-breadcrumb" style="margin-bottom: 32px; display: inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Dashboard
+      </a>
+
+      <h1 class="create-title">Create a<br>Chapter</h1>
+
+      <form id="create-chapter-form" onsubmit="submitChapter(event)">
+
+        <!-- Athlete -->
+        <div class="create-field-group">
+          <label class="create-label">Athlete <span class="create-required">*</span></label>
+          <div class="athlete-selector" id="athlete-selector">
+
+            <button type="button" class="athlete-option athlete-option--active" data-athlete="yourself">
+              <div class="athlete-option-avatar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <span>Yourself</span>
+            </button>
+
+            <button type="button" class="athlete-option" data-athlete="marcus">
+              <div class="athlete-option-avatar athlete-option-avatar--initials">MJ</div>
+              <span>Marcus Johnson</span>
+            </button>
+
+            <button type="button" class="athlete-option" data-athlete="emma">
+              <div class="athlete-option-avatar athlete-option-avatar--initials">ER</div>
+              <span>Emma Rodriguez</span>
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Chapter Name -->
+        <div class="create-field-group">
+          <label class="create-label" for="ch-name">Chapter Name <span class="create-required">*</span></label>
+          <input type="text" id="ch-name" class="create-input" placeholder="e.g. Junior Season 2025" required>
+        </div>
+
+        <!-- Sport -->
+        <div class="create-field-group">
+          <label class="create-label" for="ch-sport">Sport</label>
+          <input type="text" id="ch-sport" class="create-input" placeholder="e.g. Basketball, Soccer, Baseball">
+        </div>
+
+        <!-- Level -->
+        <div class="create-field-group">
+          <label class="create-label" for="ch-level">Level</label>
+          <div class="create-select-wrap">
+            <select id="ch-level" class="create-input create-select" onchange="handleLevelChange()">
+              <option value="">Select a level</option>
+              <option value="youth">Youth / Recreational</option>
+              <option value="middle">Middle School</option>
+              <option value="hs-jv">High School – JV</option>
+              <option value="hs-varsity">High School – Varsity</option>
+              <option value="club">Club</option>
+              <option value="aau">AAU</option>
+              <option value="college">College</option>
+              <option value="pro">Semi-Pro / Professional</option>
+              <option value="personal">Personal</option>
+            </select>
+            <svg class="create-select-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Conditional org/school field -->
+        <div class="create-field-group create-field-conditional" id="org-field">
+          <label class="create-label" id="org-label" for="ch-org">School</label>
+          <input type="text" id="ch-org" class="create-input" placeholder="">
+        </div>
+
+        <!-- Dates -->
+        <div class="create-dates">
+          <div class="create-field-group">
+            <label class="create-label" for="ch-start">Start Date <span class="create-required">*</span></label>
+            <input type="date" id="ch-start" class="create-input" required>
+          </div>
+          <div class="create-field-group">
+            <label class="create-label" for="ch-end">End Date</label>
+            <input type="date" id="ch-end" class="create-input">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-dash-primary create-submit">Create Chapter</button>
+
+      </form>
+    </div>
+
+    <!-- ── RIGHT: EDUCATIONAL ──────────────────────────── -->
+    <div class="create-info-panel">
+      <div class="create-info-content">
+
+        <p class="create-info-eyebrow">What is a chapter?</p>
+        <h2 class="create-info-headline">Every journey<br>deserves<br><span class="outline-text">a record.</span></h2>
+
+        <div class="create-info-items">
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Track Your Season</p>
+              <p class="create-info-item-desc">Log every game, record stats, and capture the highlights of a full season from start to finish.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Track Your Growth</p>
+              <p class="create-info-item-desc">Set goals, measure progress, and look back at how far you've come as an athlete over time.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Track More</p>
+              <p class="create-info-item-desc">Injury recovery, travel tournaments, off-season training — chapters work for any journey worth remembering.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ── Athlete selection ──────────────────────────────
+    document.querySelectorAll('.athlete-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.athlete-option').forEach(b => b.classList.remove('athlete-option--active'));
+        btn.classList.add('athlete-option--active');
+      });
+    });
+
+    // ── Level → conditional field ──────────────────────
+    const levelConfig = {
+      youth:       { label: 'League / Organization', placeholder: 'e.g. AYSO, local rec league' },
+      middle:      { label: 'School',                placeholder: 'e.g. Roosevelt Middle School' },
+      'hs-jv':     { label: 'School',                placeholder: 'e.g. Lincoln High School' },
+      'hs-varsity':{ label: 'School',                placeholder: 'e.g. Lincoln High School' },
+      club:        { label: 'Club Name',             placeholder: 'e.g. Metro FC Academy' },
+      aau:         { label: 'Organization',          placeholder: 'e.g. Houston Hoops AAU' },
+      college:     { label: 'University',            placeholder: 'e.g. University of Michigan' },
+      pro:         { label: 'Team / Organization',   placeholder: 'e.g. Springfield FC' },
+    };
+
+    function handleLevelChange() {
+      const level    = document.getElementById('ch-level').value;
+      const field    = document.getElementById('org-field');
+      const label    = document.getElementById('org-label');
+      const input    = document.getElementById('ch-org');
+      const config   = levelConfig[level];
+
+      if (config) {
+        label.textContent    = config.label;
+        input.placeholder    = config.placeholder;
+        field.classList.add('is-visible');
+      } else {
+        field.classList.remove('is-visible');
+        input.value = '';
+      }
+    }
+
+    // ── Submit ─────────────────────────────────────────
+    function submitChapter(e) {
+      e.preventDefault();
+      window.location = 'chapter.html';
+    }
+  </script>
+</body>
+</html>
