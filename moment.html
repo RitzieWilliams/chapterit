@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Opening Tip-Off</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body moment-viewer-page">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+      <button class="dash-icon-btn dash-add-mobile" aria-label="Add New">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── MOMENT VIEWER ────────────────────────────────── -->
+  <div class="moment-viewer">
+
+    <!-- LEFT: IMAGE STAGE -->
+    <div class="moment-viewer-stage">
+      <img src="https://unsplash.it/1200/800?image=50" alt="Opening Tip-Off" class="moment-viewer-img">
+    </div>
+
+    <!-- RIGHT: DETAIL PANEL -->
+    <aside class="moment-viewer-panel">
+
+      <!-- BREADCRUMB -->
+      <a href="event.html" class="chapter-breadcrumb moment-panel-breadcrumb">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Season Opener
+      </a>
+
+      <!-- TITLE & META -->
+      <div class="moment-panel-body">
+        <h1 class="moment-panel-title">Opening Tip-Off</h1>
+        <span class="moment-panel-date">Oct 5, 2024</span>
+        <p class="moment-panel-caption">First possession of the season. The gym was packed.</p>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="moment-panel-actions">
+        <a href="moment-create.html" class="moment-panel-action">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Edit
+        </a>
+        <button class="moment-panel-action" onclick="openMoveModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="5 9 2 12 5 15"/>
+            <polyline points="9 5 12 2 15 5"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="12" y1="2" x2="12" y2="22"/>
+          </svg>
+          Move
+        </button>
+        <a href="https://unsplash.it/1200/800?image=50" download="Opening-Tip-Off.jpg" class="moment-panel-action">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download
+        </a>
+        <button class="moment-panel-action moment-panel-action--danger" onclick="openDeleteModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/>
+            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+            <path d="M10 11v6M14 11v6"/>
+            <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+          </svg>
+          Delete
+        </button>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ─── DELETE MODAL ────────────────────────────── -->
+  <div class="modal-overlay" id="delete-modal-overlay" onclick="closeDeleteModal()">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title" onclick="event.stopPropagation()">
+      <h2 class="modal-title" id="delete-modal-title">Delete Moment</h2>
+      <p class="modal-body">This moment will be permanently deleted and cannot be recovered.</p>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm btn-modal-confirm--danger" onclick="window.location='event.html'">Delete</button>
+        <button class="btn-modal-cancel" onclick="closeDeleteModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MOVE MODAL ──────────────────────────────── -->
+  <div class="modal-overlay" id="move-modal-overlay" onclick="closeMoveModal()">
+    <div class="modal move-modal" role="dialog" aria-modal="true" aria-labelledby="move-modal-title" onclick="event.stopPropagation()">
+      <div class="move-modal-header">
+        <h2 class="modal-title" id="move-modal-title">Move Moment</h2>
+        <button class="dash-drawer-close" onclick="closeMoveModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <p class="move-modal-sub">Choose an event to move this moment to.</p>
+      <div class="move-modal-list">
+        <button class="move-modal-item" onclick="closeMoveModal()">
+          <span class="move-modal-item-name">Season Opener</span>
+          <span class="move-modal-item-date">Oct 5, 2024</span>
+        </button>
+        <button class="move-modal-item" onclick="closeMoveModal()">
+          <span class="move-modal-item-name">Away at Riverside</span>
+          <span class="move-modal-item-date">Oct 12, 2024</span>
+        </button>
+        <button class="move-modal-item" onclick="closeMoveModal()">
+          <span class="move-modal-item-name">Homecoming Game</span>
+          <span class="move-modal-item-date">Oct 19, 2024</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function openDeleteModal() {
+      document.getElementById('delete-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDeleteModal() {
+      document.getElementById('delete-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function openMoveModal() {
+      document.getElementById('move-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMoveModal() {
+      document.getElementById('move-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeDeleteModal();
+        closeMoveModal();
+      }
+    });
+  </script>
+</body>
+</html>
