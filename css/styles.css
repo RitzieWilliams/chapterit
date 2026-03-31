@@ -1352,6 +1352,346 @@ footer {
   color: var(--black);
 }
 
+/* ─── FRAME SECTION ──────────────────────────────── */
+.chapter-frame-section {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  align-items: center;
+  gap: 80px;
+  margin: 56px -48px 0;
+  padding: 64px 72px;
+  background: var(--black);
+}
+
+.chapter-frame-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.chapter-frame-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 5px 12px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.chapter-frame-headline {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 6vw, 80px);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.chapter-frame-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+  max-width: 380px;
+  margin-bottom: 36px;
+}
+
+.chapter-frame-ctas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.chapter-frame-btn-primary {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  background: var(--white);
+  border: none;
+  padding: 13px 28px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.chapter-frame-btn-primary:hover {
+  background: var(--gray-200);
+}
+
+.chapter-frame-btn-ghost {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.6);
+  background: none;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.chapter-frame-btn-ghost:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: var(--white);
+}
+
+.chapter-frame-customize-hint {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── The Frame Card ───────────────────────────────── */
+.chapter-frame-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.frame-card {
+  width: 288px;
+  background: #0d0d0d;
+  background-image: repeating-linear-gradient(
+    -48deg,
+    transparent,
+    transparent 28px,
+    rgba(255,255,255,0.018) 28px,
+    rgba(255,255,255,0.018) 29px
+  );
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.frame-card-accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, #c9a84c, #e8c96d, #c9a84c);
+  flex-shrink: 0;
+}
+
+.frame-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 0;
+}
+
+.frame-card-season {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.frame-card-level {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c9a84c;
+}
+
+.frame-card-name-block {
+  position: relative;
+  padding: 20px 20px 12px;
+  overflow: hidden;
+}
+
+.frame-card-initials {
+  position: absolute;
+  top: -10px;
+  right: 8px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 128px;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.035);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.frame-card-firstname {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.55);
+  line-height: 1;
+  position: relative;
+}
+
+.frame-card-lastname {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 58px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 0.95;
+  position: relative;
+}
+
+.frame-card-team-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 20px 20px;
+}
+
+.frame-card-school {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.frame-card-sport {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.frame-card-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin: 0 20px;
+}
+
+.frame-card-record {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  position: relative;
+}
+
+.frame-record-col {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.frame-record-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.frame-record-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+}
+
+.frame-record-dash {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: rgba(255,255,255,0.2);
+  margin: 0 2px;
+}
+
+.frame-record-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-left: auto;
+}
+
+.frame-card-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 16px 20px 20px;
+  gap: 0;
+}
+
+.frame-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.frame-stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  color: #c9a84c;
+  line-height: 1;
+}
+
+.frame-stat-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.frame-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 14px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: auto;
+}
+
+.frame-card-chapter-name {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.frame-card-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+}
+
+/* Frame section responsive */
+@media (max-width: 1024px) {
+  .chapter-frame-section {
+    margin: 56px -32px 0;
+    padding: 56px 48px;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapter-frame-section {
+    grid-template-columns: 1fr;
+    margin: 40px -24px 0;
+    padding: 48px 24px;
+    gap: 40px;
+  }
+
+  .chapter-frame-headline {
+    font-size: 52px;
+  }
+
+  .chapter-frame-preview {
+    order: -1;
+  }
+}
+
 /* View Tabs */
 .chapter-views {
   display: flex;
