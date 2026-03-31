@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChapterIt — Season Opener</title>
+  <title>ChapterIt — Fall Showcase</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="dash-body">
@@ -18,6 +18,10 @@
     <a href="dashboard.html" class="nav-logo">
       <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
     </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link">Teams</a>
+    </div>
     <div class="dash-nav-right">
       <button class="dash-icon-btn" aria-label="Notifications">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -51,11 +55,17 @@
       </button>
     </div>
     <nav class="dash-drawer-nav">
-      <a href="profile.html" class="dash-drawer-item">
+      <a href="dashboard.html" class="dash-drawer-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
         </svg>
-        Profile
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
       </a>
     </nav>
   </div>
@@ -75,7 +85,7 @@
       </a>
 
       <!-- EVENT NAME -->
-      <h1 class="chapter-detail-name">Season Opener</h1>
+      <h1 class="chapter-detail-name">Fall Showcase</h1>
 
       <!-- ACTIONS -->
       <div class="chapter-actions">
@@ -90,102 +100,105 @@
 
     </div>
 
-    <!-- SCOREBOARD -->
-    <div class="event-scoreboard">
-
-      <div class="event-team event-team--home">
-        <span class="event-team-label">Lincoln High School</span>
-        <span class="event-score-num">68</span>
+    <!-- DETAILS STRIP -->
+    <div class="chapter-meta-strip">
+      <div class="chapter-meta-field">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">Nov 10, 2024</span>
       </div>
-
-      <div class="event-scoreboard-center">
-        <div class="event-result-badge event-result-badge--win">W</div>
-        <span class="event-vs-sep">vs</span>
-        <span class="event-scoreboard-date">Oct 5, 2024</span>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">Recruiting Showcase</span>
       </div>
-
-      <div class="event-team event-team--away">
-        <span class="event-team-label">Riverside HS</span>
-        <span class="event-score-num event-score-num--opp">52</span>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Riverside Sports Complex</span>
       </div>
-
+      <div class="chapter-meta-field">
+        <span class="meta-label">Chapter</span>
+        <span class="meta-value">Junior Season 2024</span>
+      </div>
     </div>
 
-    <!-- ── STATS ──────────────────────────────────────── -->
+    <!-- ── REFLECTIONS ────────────────────────────────── -->
     <div class="overview-section">
       <div class="overview-section-header">
         <div class="overview-section-title-group">
-          <h3 class="overview-section-title">Stats</h3>
-          <span class="overview-section-count" id="stat-count">5</span>
+          <h3 class="overview-section-title">Reflections</h3>
+          <span class="overview-section-count">1</span>
+        </div>
+        <button class="btn-section-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Reflection
+        </button>
+      </div>
+
+      <div class="reflection-list">
+
+        <div class="reflection-card">
+          <div class="reflection-header">
+            <h4 class="reflection-title">First Recruiting Showcase</h4>
+            <span class="reflection-date">Nov 10, 2024</span>
+          </div>
+          <p class="reflection-note">Three college coaches in the stands. I was nervous early but settled in by the second half. Felt like I showed what I can do in transition. Coach said two programs asked for my contact info after. Moments like this are why you put in the work all summer.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── COACH RECOGNITION ──────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Coach Recognition</h3>
+          <span class="overview-section-count">1</span>
         </div>
       </div>
 
-      <!-- Add stat form -->
-      <form class="stat-add-form" onsubmit="addStat(event)">
-        <input
-          type="text"
-          class="stat-field stat-field--title"
-          id="stat-title-input"
-          placeholder="Stat (e.g. Points)"
-          autocomplete="off"
-          required
-        >
-        <input
-          type="text"
-          class="stat-field stat-field--value"
-          id="stat-value-input"
-          placeholder="Value"
-          autocomplete="off"
-          required
-        >
-        <button type="submit" class="btn-section-primary">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Stat
+      <div class="recognition-list">
+
+        <div class="recognition-card">
+          <div class="recognition-card-header">
+            <div class="recognition-coach-info">
+              <div class="recognition-coach-avatar">CW</div>
+              <span class="recognition-coach-name">Coach Williams</span>
+            </div>
+            <span class="recognition-date">Nov 10, 2024</span>
+          </div>
+          <p class="recognition-note">Best showing of the season. Marcus played with the poise of someone who has been in big moments before. College coaches noticed — two programs reached out within 48 hours. This is exactly the opportunity we prepared for.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── LINKS ──────────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Links</h3>
+          <span class="overview-section-count">1</span>
+        </div>
+        <button class="btn-section-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Link
         </button>
-      </form>
+      </div>
 
-      <!-- Stats display -->
-      <div class="stat-grid" id="stat-grid">
+      <div class="links-list">
 
-        <div class="stat-cell">
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <span class="stat-cell-value">24</span>
-          <span class="stat-cell-label">Points</span>
-        </div>
-
-        <div class="stat-cell">
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <span class="stat-cell-value">8</span>
-          <span class="stat-cell-label">Rebounds</span>
-        </div>
-
-        <div class="stat-cell">
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <span class="stat-cell-value">5</span>
-          <span class="stat-cell-label">Assists</span>
-        </div>
-
-        <div class="stat-cell">
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <span class="stat-cell-value">3</span>
-          <span class="stat-cell-label">Steals</span>
-        </div>
-
-        <div class="stat-cell">
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <span class="stat-cell-value">2</span>
-          <span class="stat-cell-label">Blocks</span>
-        </div>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div class="link-info">
+            <span class="link-title">Marcus Johnson — Showcase Profile</span>
+            <span class="link-url">ncsa.com</span>
+          </div>
+          <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
 
       </div>
     </div>
@@ -195,7 +208,7 @@
       <div class="overview-section-header">
         <div class="overview-section-title-group">
           <h3 class="overview-section-title">Moments</h3>
-          <span class="overview-section-count">3</span>
+          <span class="overview-section-count">2</span>
         </div>
         <button class="btn-section-ghost" onclick="window.location='moment-create.html'">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -207,34 +220,23 @@
 
         <div class="moment-card" onclick="window.location='moment.html'">
           <div class="moment-thumb">
-            <img src="https://unsplash.it/800?image=50" alt="Opening Tip-Off">
+            <img src="https://unsplash.it/800?image=15" alt="Showcase Warmup">
           </div>
           <div class="moment-info">
-            <p class="moment-date">Oct 5, 2024</p>
-            <p class="moment-title">Opening Tip-Off</p>
-            <p class="moment-caption">First possession of the season. The gym was packed.</p>
+            <p class="moment-date">Nov 10, 2024</p>
+            <p class="moment-title">Showcase Warmup</p>
+            <p class="moment-caption">Getting loose before tip-off. College coaches were already in the gym.</p>
           </div>
         </div>
 
         <div class="moment-card" onclick="window.location='moment.html'">
           <div class="moment-thumb moment-thumb--video">
-            <img src="https://unsplash.it/800?image=60" alt="Fourth Quarter Run">
+            <img src="https://unsplash.it/800?image=16" alt="Post-Game Talk">
           </div>
           <div class="moment-info">
-            <p class="moment-date">Oct 5, 2024</p>
-            <p class="moment-title">Fourth Quarter Run</p>
-            <p class="moment-caption">12–2 run in the final period to seal the win.</p>
-          </div>
-        </div>
-
-        <div class="moment-card" onclick="window.location='moment.html'">
-          <div class="moment-thumb">
-            <img src="https://unsplash.it/800?image=70" alt="Post-Game Celebration">
-          </div>
-          <div class="moment-info">
-            <p class="moment-date">Oct 5, 2024</p>
-            <p class="moment-title">Post-Game Celebration</p>
-            <p class="moment-caption">First W of the season. The whole team on the court.</p>
+            <p class="moment-date">Nov 10, 2024</p>
+            <p class="moment-title">Post-Game Talk</p>
+            <p class="moment-caption">Coach pulled me aside after. Said two programs asked for my number.</p>
           </div>
         </div>
 
@@ -244,50 +246,5 @@
   </main>
 
   <script src="js/main.js"></script>
-  <script>
-    // ── Add stat ────────────────────────────────────────────
-    function addStat(e) {
-      e.preventDefault();
-      const titleInput = document.getElementById('stat-title-input');
-      const valueInput = document.getElementById('stat-value-input');
-      const title = titleInput.value.trim();
-      const value = valueInput.value.trim();
-      if (!title || !value) return;
-
-      const cell = document.createElement('div');
-      cell.className = 'stat-cell stat-cell--new';
-      cell.innerHTML = `
-        <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-        <span class="stat-cell-value">${value}</span>
-        <span class="stat-cell-label">${title}</span>`;
-
-      document.getElementById('stat-grid').appendChild(cell);
-      requestAnimationFrame(() => cell.classList.remove('stat-cell--new'));
-
-      titleInput.value = '';
-      valueInput.value = '';
-      titleInput.focus();
-      syncStatCount();
-    }
-
-    // ── Remove stat ─────────────────────────────────────────
-    function removeStat(btn) {
-      const cell = btn.closest('.stat-cell');
-      cell.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-      cell.style.opacity = '0';
-      cell.style.transform = 'scale(0.92)';
-      setTimeout(() => { cell.remove(); syncStatCount(); }, 200);
-    }
-
-    // ── Sync count ──────────────────────────────────────────
-    function syncStatCount() {
-      const el = document.getElementById('stat-count');
-      if (el) el.textContent = document.querySelectorAll('#stat-grid .stat-cell').length;
-    }
-  </script>
 </body>
 </html>

@@ -18,6 +18,10 @@
     <a href="dashboard.html" class="nav-logo">
       <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
     </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link">Teams</a>
+    </div>
     <div class="dash-nav-right">
       <button class="dash-icon-btn" aria-label="Notifications">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -51,11 +55,17 @@
       </button>
     </div>
     <nav class="dash-drawer-nav">
-      <a href="profile.html" class="dash-drawer-item">
+      <a href="dashboard.html" class="dash-drawer-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
         </svg>
-        Profile
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
       </a>
     </nav>
   </div>
@@ -188,6 +198,64 @@
         </div>
       </div>
 
+      <!-- ── EVENTS ──────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Events</h3>
+            <span class="overview-section-count">3</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Event
+          </button>
+        </div>
+
+        <div class="chapter-events-list">
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">Fall Showcase</h4>
+              <span class="chapter-event-date">Nov 10, 2024</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">2 moments</span>
+              <span class="chapter-event-chip">1 reflection</span>
+              <span class="chapter-event-chip">1 link</span>
+              <span class="chapter-event-chip">1 coach note</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">End of Season Banquet</h4>
+              <span class="chapter-event-date">Mar 20, 2025</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">3 moments</span>
+              <span class="chapter-event-chip">1 reflection</span>
+              <span class="chapter-event-chip">1 coach note</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">Summer Skills Camp</h4>
+              <span class="chapter-event-date">Jul 15, 2024</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">2 moments</span>
+              <span class="chapter-event-chip">2 reflections</span>
+              <span class="chapter-event-chip">1 link</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+        </div>
+      </div>
+
       <!-- ── SCHEDULE ────────────────────────────────── -->
       <div class="overview-section">
         <div class="overview-section-header">
@@ -199,7 +267,7 @@
             <button class="btn-section-ghost" onclick="window.location='schedule-manage.html'">Manage Schedule</button>
             <button class="btn-section-primary" onclick="window.location='event-create.html'">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              Create Event
+              Add Game
             </button>
           </div>
         </div>
@@ -215,7 +283,7 @@
             <span></span>
           </div>
 
-          <a href="event.html" class="event-row">
+          <a href="game.html" class="event-row">
             <div class="event-date">
               <span class="event-date-primary">Oct 5</span>
               <span class="event-date-year">2024</span>
@@ -228,7 +296,7 @@
             <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
 
-          <a href="event.html" class="event-row">
+          <a href="game.html" class="event-row">
             <div class="event-date">
               <span class="event-date-primary">Oct 12</span>
               <span class="event-date-year">2024</span>
@@ -241,7 +309,7 @@
             <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
 
-          <a href="event.html" class="event-row">
+          <a href="game.html" class="event-row">
             <div class="event-date">
               <span class="event-date-primary">Oct 19</span>
               <span class="event-date-year">2024</span>
@@ -254,7 +322,7 @@
             <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
 
-          <a href="event.html" class="event-row">
+          <a href="game.html" class="event-row">
             <div class="event-date">
               <span class="event-date-primary">Oct 26</span>
               <span class="event-date-year">2024</span>
@@ -281,7 +349,7 @@
           </a>
         </div>
 
-        <a href="#" class="schedule-view-all">View all 14 events
+        <a href="#" class="schedule-view-all">View all 14 games
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -291,9 +359,9 @@
         <div class="overview-section-header">
           <div class="overview-section-title-group">
             <h3 class="overview-section-title">Stats</h3>
-            <span class="overview-section-count">4 events</span>
+            <span class="overview-section-count">4 games</span>
           </div>
-          <span class="chapter-stats-note">Totals across all events</span>
+          <span class="chapter-stats-note">Totals across all games</span>
         </div>
 
         <div class="stat-grid chapter-stat-grid">
@@ -346,7 +414,7 @@
 
         <div class="goal-list" id="goal-list">
 
-          <!-- Boolean — in progress -->
+          <!-- Boolean — active -->
           <div class="goal-item" id="goal-1" data-goal-type="boolean">
             <div class="goal-check goal-check--open">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -393,6 +461,16 @@
           </div>
 
         </div>
+
+        <!-- Completed Goals subsection -->
+        <div class="goal-completed-section" id="goal-completed-section">
+          <div class="goal-completed-header">
+            <span class="goal-completed-label">Completed</span>
+            <span class="goal-completed-count" id="goal-completed-count">0</span>
+          </div>
+          <div class="goal-completed-list" id="goal-completed-list"></div>
+        </div>
+
       </div>
 
       <!-- ── MILESTONES ─────────────────────────────── -->
@@ -437,6 +515,194 @@
         </div>
       </div>
 
+      <!-- ── REFLECTIONS ──────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Reflections</h3>
+            <span class="overview-section-count">3</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Reflection
+          </button>
+        </div>
+
+        <div class="reflection-list">
+
+          <div class="reflection-card">
+            <div class="reflection-header">
+              <h4 class="reflection-title">Finding My Rhythm</h4>
+              <span class="reflection-date">Oct 5, 2024</span>
+            </div>
+            <p class="reflection-note">First game of the season and I felt way more composed than last year. The work we put in during preseason paid off — I wasn't rushing my reads or forcing shots in traffic. This is the standard I want to hold myself to.</p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-header">
+              <h4 class="reflection-title">Learning From the Loss</h4>
+              <span class="reflection-date">Oct 12, 2024</span>
+            </div>
+            <p class="reflection-note">Tough road game. We got outworked on the boards in the second half and it cost us. I need to be more vocal on defensive rotations — that's on me as much as anyone.</p>
+          </div>
+
+          <div class="reflection-card">
+            <div class="reflection-header">
+              <h4 class="reflection-title">Comeback Mindset</h4>
+              <span class="reflection-date">Oct 19, 2024</span>
+            </div>
+            <p class="reflection-note">Down six at halftime and nobody panicked. Coach kept the message simple: defend and move the ball. We executed the game plan in the third quarter and it opened everything up.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── COACH RECOGNITION ─────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Coach Recognition</h3>
+            <span class="overview-section-count">2</span>
+          </div>
+        </div>
+
+        <div class="recognition-list">
+
+          <div class="recognition-card">
+            <div class="recognition-card-header">
+              <div class="recognition-coach-info">
+                <div class="recognition-coach-avatar">CW</div>
+                <span class="recognition-coach-name">Coach Williams</span>
+              </div>
+              <span class="recognition-date">Oct 19, 2024</span>
+            </div>
+            <p class="recognition-note">Marcus showed exceptional leadership during the fourth-quarter comeback. His ability to keep the team composed under pressure is something coaches look for at the next level.</p>
+          </div>
+
+          <div class="recognition-card">
+            <div class="recognition-card-header">
+              <div class="recognition-coach-info">
+                <div class="recognition-coach-avatar">CR</div>
+                <span class="recognition-coach-name">Coach Rivera</span>
+              </div>
+              <span class="recognition-date">Oct 26, 2024</span>
+            </div>
+            <p class="recognition-note">Best defensive performance of the tournament. Marcus held their leading scorer to 8 points on 3-of-12 shooting. That kind of effort changes games.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── LINKS ─────────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Links</h3>
+            <span class="overview-section-count">3</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Link
+          </button>
+        </div>
+
+        <div class="links-list">
+
+          <a href="#" class="link-item">
+            <div class="link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
+            <div class="link-info">
+              <span class="link-title">Junior Season Highlights 2024</span>
+              <span class="link-url">youtube.com</span>
+            </div>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="#" class="link-item">
+            <div class="link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
+            <div class="link-info">
+              <span class="link-title">Marcus Johnson — Player Profile</span>
+              <span class="link-url">maxpreps.com</span>
+            </div>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="#" class="link-item">
+            <div class="link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+              </svg>
+            </div>
+            <div class="link-info">
+              <span class="link-title">Tournament Bracket — Fall 2024</span>
+              <span class="link-url">arbiter.com</span>
+            </div>
+            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ── COLLECTIONS ────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Collections</h3>
+            <span class="overview-section-count">4</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Collection
+          </button>
+        </div>
+
+        <div class="collections-grid">
+
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Highlights</h4>
+              <span class="collection-count">5 entries</span>
+            </div>
+            <p class="collection-desc">Best plays and standout moments from the season.</p>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Recruiting</h4>
+              <span class="collection-count">3 entries</span>
+            </div>
+            <p class="collection-desc">Moments and links relevant to the recruiting process.</p>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Comeback Wins</h4>
+              <span class="collection-count">2 entries</span>
+            </div>
+            <p class="collection-desc">Games where we trailed at halftime and came back.</p>
+          </div>
+
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Defense</h4>
+              <span class="collection-count">4 entries</span>
+            </div>
+            <p class="collection-desc">Defensive stops, steals, and blocks worth remembering.</p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
     <!-- TIMELINE PANEL -->
@@ -462,7 +728,7 @@
         <!-- Event: Oct 5 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
-          <a href="event.html" class="tl-card tl-card--event">
+          <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
               <span class="tl-tag tl-tag--event">Event</span>
               <span class="tl-date">Oct 5, 2024</span>
@@ -498,7 +764,7 @@
         <!-- Event: Oct 12 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
-          <a href="event.html" class="tl-card tl-card--event">
+          <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
               <span class="tl-tag tl-tag--event">Event</span>
               <span class="tl-date">Oct 12, 2024</span>
@@ -516,7 +782,7 @@
         <!-- Event: Oct 19 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
-          <a href="event.html" class="tl-card tl-card--event">
+          <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
               <span class="tl-tag tl-tag--event">Event</span>
               <span class="tl-date">Oct 19, 2024</span>
@@ -550,7 +816,7 @@
         <!-- Event: Oct 26 -->
         <div class="timeline-entry" data-type="event">
           <div class="tl-dot tl-dot--event"></div>
-          <a href="event.html" class="tl-card tl-card--event">
+          <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
               <span class="tl-tag tl-tag--event">Event</span>
               <span class="tl-date">Oct 26, 2024</span>
@@ -639,6 +905,44 @@
   </div>
 
   </main>
+
+  <!-- ─── GOAL COMPLETE MODAL ────────────────────────────── -->
+  <div class="modal-overlay" id="goal-complete-overlay" onclick="closeGoalCompleteModal()">
+    <div class="modal goal-complete-modal" onclick="event.stopPropagation()">
+
+      <div class="goal-complete-modal-header">
+        <h2 class="modal-title">Goal Complete</h2>
+        <button class="dash-drawer-close" onclick="closeGoalCompleteModal()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <p class="goal-complete-congrats">Excellent work.</p>
+      <div class="goal-complete-title-block" id="goal-complete-title-display"></div>
+
+      <p class="goal-complete-date-label">When did you complete this goal?</p>
+
+      <div class="goal-complete-date-opts">
+        <button class="goal-date-opt active" id="goal-date-opt-today" onclick="selectDateOpt('today')">
+          <span class="goal-date-opt-name">Today</span>
+          <span class="goal-date-opt-value" id="goal-date-today-value"></span>
+        </button>
+        <button class="goal-date-opt" id="goal-date-opt-custom" onclick="selectDateOpt('custom')">
+          <span class="goal-date-opt-name">Different date</span>
+        </button>
+      </div>
+
+      <div class="goal-custom-date-row" id="goal-custom-date-row">
+        <input type="date" id="goal-custom-date-input" class="create-input goal-date-input">
+      </div>
+
+      <label class="goal-complete-reflection-label" for="goal-complete-reflection">Reflection <span style="font-weight:300;text-transform:none;letter-spacing:0;color:var(--gray-400);">— optional</span></label>
+      <textarea id="goal-complete-reflection" class="goal-complete-reflection-input" placeholder="What did it take to reach this goal? How does it feel?"></textarea>
+
+      <button class="btn-dash-primary goal-complete-confirm-btn" onclick="confirmGoalComplete()">Save</button>
+
+    </div>
+  </div>
 
   <!-- ─── SHARE MODAL ──────────────────────────────────── -->
   <div class="modal-overlay" id="share-modal-overlay" onclick="closeShareModal()">
@@ -763,29 +1067,98 @@
     }
 
 
-    // ── Boolean goal: mark complete → promote to milestone ──
+    // ── Goal complete modal state ───────────────────────────
+    let _pendingGoalId    = null;
+    let _pendingGoalTitle = '';
+    let _pendingGoalDesc  = '';
+    let _selectedDateOpt  = 'today';
+
     function completeGoal(id) {
       const item = document.getElementById(id);
       if (!item || item.dataset.completing) return;
-      item.dataset.completing = 'true';
 
       const title = item.querySelector('.goal-title').textContent.trim();
-      const desc  = item.querySelector('.goal-desc')  ? item.querySelector('.goal-desc').textContent.trim() : '';
+      const desc  = item.querySelector('.goal-desc') ? item.querySelector('.goal-desc').textContent.trim() : '';
+
+      openGoalCompleteModal(id, title, desc);
+    }
+
+    function openGoalCompleteModal(id, title, desc) {
+      _pendingGoalId    = id;
+      _pendingGoalTitle = title;
+      _pendingGoalDesc  = desc;
+      _selectedDateOpt  = 'today';
+
+      // Populate title display
+      document.getElementById('goal-complete-title-display').textContent = title;
+
+      // Set today label
+      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      document.getElementById('goal-date-today-value').textContent = today;
+
+      // Reset to Today option
+      document.getElementById('goal-date-opt-today').classList.add('active');
+      document.getElementById('goal-date-opt-custom').classList.remove('active');
+      document.getElementById('goal-custom-date-row').style.display = 'none';
+      document.getElementById('goal-custom-date-input').value = '';
+      document.getElementById('goal-complete-reflection').value = '';
+
+      const overlay = document.getElementById('goal-complete-overlay');
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGoalCompleteModal() {
+      document.getElementById('goal-complete-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+      _pendingGoalId = null;
+    }
+
+    function selectDateOpt(opt) {
+      _selectedDateOpt = opt;
+      document.getElementById('goal-date-opt-today').classList.toggle('active', opt === 'today');
+      document.getElementById('goal-date-opt-custom').classList.toggle('active', opt === 'custom');
+      const customRow = document.getElementById('goal-custom-date-row');
+      customRow.style.display = opt === 'custom' ? 'block' : 'none';
+      if (opt === 'custom') document.getElementById('goal-custom-date-input').focus();
+    }
+
+    function confirmGoalComplete() {
+      let dateLabel;
+      if (_selectedDateOpt === 'custom') {
+        const raw = document.getElementById('goal-custom-date-input').value;
+        if (!raw) { document.getElementById('goal-custom-date-input').focus(); return; }
+        const d = new Date(raw + 'T00:00:00');
+        dateLabel = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      } else {
+        dateLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      const id         = _pendingGoalId;
+      const title      = _pendingGoalTitle;
+      const desc       = _pendingGoalDesc;
+      const reflection = document.getElementById('goal-complete-reflection').value.trim();
+
+      closeGoalCompleteModal();
+
+      // Animate goal row out, then add to completed
+      const item = document.getElementById(id);
+      if (!item) return;
+      item.dataset.completing = 'true';
+
       const check       = item.querySelector('.goal-check');
       const completeBtn = item.querySelector('.goal-complete-btn');
 
-      // 1. Visually mark complete
       if (check) {
         check.className = 'goal-check goal-check--done';
         check.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
       }
       if (completeBtn) completeBtn.style.display = 'none';
 
-      // 2. Collapse row, then move to milestones
       setTimeout(() => {
         const h = item.offsetHeight;
-        item.style.overflow  = 'hidden';
-        item.style.height    = h + 'px';
+        item.style.overflow   = 'hidden';
+        item.style.height     = h + 'px';
         item.style.transition = 'height 0.4s ease, opacity 0.3s ease, padding 0.4s ease';
         requestAnimationFrame(() => requestAnimationFrame(() => {
           item.style.height        = '0';
@@ -796,36 +1169,35 @@
         setTimeout(() => {
           item.remove();
           syncGoalCount();
-          promoteToMilestone(title, desc);
+          addToCompletedGoals(title, desc, dateLabel, reflection);
         }, 420);
-      }, 700);
+      }, 300);
     }
 
-    // ── Create milestone card ───────────────────────────────
-    function promoteToMilestone(title, desc) {
-      const grid  = document.getElementById('milestone-grid');
-      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    // ── Add to completed goals subsection ──────────────────
+    function addToCompletedGoals(title, desc, dateLabel, reflection) {
+      const section = document.getElementById('goal-completed-section');
+      const list    = document.getElementById('goal-completed-list');
 
-      const card = document.createElement('div');
-      card.className = 'milestone-card';
-      card.style.cssText = 'opacity:0;transform:translateY(-10px);transition:opacity 0.45s ease,transform 0.45s ease;';
-      card.innerHTML = `
-        <div class="milestone-card-top">
-          <div class="milestone-check">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <span class="milestone-achieved-label">Achieved</span>
+      section.classList.add('is-visible');
+
+      const item = document.createElement('div');
+      item.className = 'goal-completed-item';
+      item.style.cssText = 'opacity:0;transition:opacity 0.4s ease;';
+      item.innerHTML = `
+        <div class="goal-check goal-check--done">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <h4 class="milestone-title">${title}</h4>
-        <p class="milestone-desc">${desc}</p>
-        <p class="milestone-date">${today}</p>`;
+        <div class="goal-body">
+          <p class="goal-title">${title}</p>
+          ${desc ? `<p class="goal-desc">${desc}</p>` : ''}
+          ${reflection ? `<p class="goal-completed-reflection">${reflection}</p>` : ''}
+        </div>
+        <span class="goal-completed-date">${dateLabel}</span>`;
 
-      grid.prepend(card);
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        card.style.opacity   = '1';
-        card.style.transform = 'translateY(0)';
-      }));
-      syncMilestoneCount();
+      list.appendChild(item);
+      requestAnimationFrame(() => requestAnimationFrame(() => { item.style.opacity = '1'; }));
+      syncCompletedCount();
     }
 
     // ── Numerical goal: update value ────────────────────────
@@ -875,6 +1247,12 @@
     function syncGoalCount() {
       const el = document.getElementById('goal-count');
       if (el) el.textContent = document.querySelectorAll('#goal-list .goal-item').length;
+    }
+
+    function syncCompletedCount() {
+      const el    = document.getElementById('goal-completed-count');
+      const count = document.querySelectorAll('#goal-completed-list .goal-completed-item').length;
+      if (el) el.textContent = count;
     }
 
     function syncMilestoneCount() {
