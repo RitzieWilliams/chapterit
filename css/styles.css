@@ -1480,6 +1480,112 @@ footer {
   gap: 10px;
 }
 
+/* Season nav */
+.team-season-nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 0;
+}
+
+.team-season-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.team-season-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--gray-400);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 20px 14px 0;
+  margin-bottom: -2px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.team-season-tab:hover {
+  color: var(--black);
+}
+
+.team-season-tab--active {
+  color: var(--black);
+  border-bottom-color: var(--black);
+}
+
+.team-season-tab-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  padding: 2px 6px;
+}
+
+.team-season-add {
+  margin-bottom: 12px;
+}
+
+/* Season panel */
+.team-season-panel {
+  margin-top: 40px;
+}
+
+.team-season-panel--hidden {
+  display: none;
+}
+
+/* Season summary strip */
+.season-summary-strip {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--gray-200);
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+
+.season-summary-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 24px;
+  border-right: 1px solid var(--gray-200);
+}
+
+.season-summary-field:last-child {
+  border-right: none;
+}
+
+.season-summary-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.season-summary-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+  color: var(--black);
+  line-height: 1;
+}
+
 /* Staff section */
 .team-staff-sublabel {
   font-size: 10px;
@@ -5754,6 +5860,34 @@ footer {
 
   .team-item-initials {
     font-size: 17px;
+  }
+
+  /* Season nav */
+  .team-season-tab {
+    font-size: 12px;
+    padding: 12px 14px 12px 0;
+  }
+
+  .season-summary-strip {
+    flex-wrap: wrap;
+  }
+
+  .season-summary-field {
+    flex: 1 0 calc(50% - 1px);
+    min-width: 0;
+  }
+
+  .season-summary-field:nth-child(2) {
+    border-right: none;
+  }
+
+  .season-summary-field:nth-child(3) {
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .season-summary-field:nth-child(4) {
+    border-top: 1px solid var(--gray-200);
+    border-right: none;
   }
 
   /* Team detail */
