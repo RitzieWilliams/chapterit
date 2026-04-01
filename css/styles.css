@@ -912,11 +912,13 @@ footer {
   border-right: 1px solid var(--gray-200);
   z-index: 200;
   transform: translateX(-100%);
-  transition: transform 0.28s ease;
+  visibility: hidden;
+  transition: transform 0.28s ease, visibility 0.28s;
 }
 
 .dash-drawer.is-open {
   transform: translateX(0);
+  visibility: visible;
 }
 
 .dash-drawer-overlay {
