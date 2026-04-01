@@ -14,6 +14,7 @@
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
   --gray-400: #999999;
+  --gray-500: #808080;
   --gray-600: #666666;
   --gray-800: #1a1a1a;
 }
@@ -1240,6 +1241,710 @@ footer {
 
 .chapter-item:hover .chapter-arrow {
   color: var(--black);
+}
+
+/* ─── TEAMS PAGE ──────────────────────────────────── */
+.teams-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.teams-page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 5vw, 56px);
+  letter-spacing: 0.03em;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.teams-page-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.teams-group {
+  margin-bottom: 48px;
+}
+
+.teams-group-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 16px;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--gray-200);
+}
+
+.team-item {
+  display: grid;
+  grid-template-columns: 52px 1fr 20px;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--gray-200);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+
+.team-item:hover {
+  background: var(--gray-100);
+  margin: 0 -48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.team-item-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.team-item-initials {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.team-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.team-item-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-item-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+
+.team-role-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+
+.team-role-badge--athlete {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.team-role-badge--coach {
+  background: var(--black);
+  color: var(--white);
+}
+
+.team-role-badge--admin {
+  background: var(--gray-800);
+  color: var(--white);
+}
+
+.team-item-meta {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.team-item-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.team-item-location svg {
+  flex-shrink: 0;
+  color: var(--gray-400);
+}
+
+/* Active nav link */
+.dash-nav-link--active {
+  color: var(--black) !important;
+}
+
+.dash-drawer-item--active {
+  color: var(--black) !important;
+  font-weight: 600;
+}
+
+/* ─── TEAM DETAIL PAGE ────────────────────────────── */
+.team-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.team-breadcrumb {
+  align-self: flex-start;
+}
+
+.team-detail-identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.team-detail-icon-lg {
+  width: 80px;
+  height: 80px;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.team-detail-initials-lg {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.team-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.team-detail-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 5vw, 60px);
+  letter-spacing: 0.03em;
+  color: var(--black);
+  line-height: 1;
+}
+
+.team-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.team-detail-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 4px 10px;
+}
+
+.team-detail-loc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.team-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Staff section */
+.team-staff-sublabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 4px;
+}
+
+.people-list {
+  border: 1px solid var(--gray-200);
+  margin-bottom: 0;
+}
+
+.people-list .people-row {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.people-list .people-row:last-child {
+  border-bottom: none;
+}
+
+.team-staff-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+.team-staff-badge--admin {
+  background: var(--black);
+  color: var(--white);
+}
+
+.team-staff-badge--coach {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.team-staff-action {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-400);
+  background: none;
+  border: 1px solid var(--gray-200);
+  padding: 5px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.team-staff-action:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+.team-staff-action--remove:hover {
+  color: #e03131;
+  border-color: #e03131;
+}
+
+/* Roster */
+.roster-list {
+  border: 1px solid var(--gray-200);
+}
+
+.roster-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 120px 56px 80px;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px;
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.roster-header-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.roster-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 120px 56px 80px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--gray-200);
+  transition: background 0.15s ease;
+}
+
+.roster-row:last-child {
+  border-bottom: none;
+}
+
+.roster-row:hover {
+  background: var(--gray-100);
+}
+
+.people-avatar--dark {
+  background: var(--black) !important;
+  border-color: var(--black) !important;
+  color: var(--white) !important;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roster-position {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
+.roster-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--black);
+}
+
+.roster-remove {
+  justify-self: end;
+}
+
+.roster-row--more {
+  background: none;
+}
+
+.roster-row--more:hover {
+  background: none;
+}
+
+.roster-show-more {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color 0.15s ease;
+}
+
+.roster-show-more:hover {
+  color: var(--black);
+}
+
+/* Team Chapters list */
+.team-chapters-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--gray-200);
+}
+
+.team-chapter-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--gray-200);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s ease;
+}
+
+.team-chapter-card:hover {
+  background: var(--gray-100);
+  margin: 0 -48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.team-chapter-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.team-chapter-sport {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.team-chapter-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+
+.team-chapter-athlete {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.team-chapter-card-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.team-chapter-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+
+.team-chapter-status--active {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.team-chapter-status--complete {
+  background: var(--gray-100);
+  color: var(--gray-400);
+}
+
+/* Seasons */
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.season-card {
+  border: 1px solid var(--gray-200);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.season-card:hover {
+  border-color: var(--black);
+}
+
+.season-card--active {
+  border-color: var(--black);
+  background: var(--black);
+}
+
+.season-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.season-card-year {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--black);
+}
+
+.season-card--active .season-card-year {
+  color: var(--white);
+}
+
+.season-card-current {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(255,255,255,0.15);
+  padding: 3px 8px;
+}
+
+.season-card-complete {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  background: var(--gray-100);
+  padding: 3px 8px;
+}
+
+.season-card-record {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.season-record-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  letter-spacing: 0.02em;
+  color: var(--black);
+  line-height: 1;
+}
+
+.season-card--active .season-record-num {
+  color: var(--white);
+}
+
+.season-record-dash {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--gray-400);
+  margin: 0 2px;
+}
+
+.season-card--active .season-record-dash {
+  color: rgba(255,255,255,0.3);
+}
+
+.season-card-meta {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.season-card--active .season-card-meta {
+  color: rgba(255,255,255,0.45);
+}
+
+.season-card-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.season-card--active .season-card-footer {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+.season-card-coaches {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-400);
+}
+
+.season-card--active .season-card-coaches {
+  color: rgba(255,255,255,0.4);
+}
+
+/* Share modal */
+.share-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.share-link-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1.5px solid var(--gray-200);
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.share-link-url {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-600);
+  padding: 11px 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: var(--gray-100);
+  font-family: monospace;
+}
+
+.share-link-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--black);
+  border: none;
+  padding: 11px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.share-link-copy:hover {
+  background: var(--gray-800);
+}
+
+/* Invite modal body */
+.invite-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+/* Event type tag in schedule */
+.event-type-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+/* ── Team Create: gender toggle ────────────────────── */
+.team-gender-opts {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--gray-300);
+}
+
+.team-gender-opt {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+  background: none;
+  border: none;
+  border-right: 1.5px solid var(--gray-300);
+  padding: 11px 0;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.01em;
+}
+
+.team-gender-opt:last-child {
+  border-right: none;
+}
+
+.team-gender-opt:hover {
+  background: var(--gray-100);
+  color: var(--black);
+}
+
+.team-gender-opt--active {
+  background: var(--black);
+  color: var(--white);
+}
+
+.team-gender-opt--active:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
 /* ─── CHAPTER DETAIL ──────────────────────────────── */
@@ -4704,6 +5409,8 @@ footer {
   .moment-upload-mobile { display: block; }
   .create-form-panel { padding: 120px 32px 64px; }
   .chapter-item { gap: 32px; margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
+  .team-item:hover { margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
+  .team-chapter-card:hover { margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
   .step-cards { grid-template-columns: repeat(3, 1fr); }
 
   .moments-grid { grid-template-columns: repeat(2, 1fr); }
@@ -5019,5 +5726,77 @@ footer {
     border-top: 1px solid var(--gray-200);
     padding: 24px 20px;
     overflow-y: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .teams-header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .team-item {
+    grid-template-columns: 44px 1fr 20px;
+    gap: 14px;
+  }
+
+  .team-item:hover {
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .team-item-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .team-item-initials {
+    font-size: 17px;
+  }
+
+  /* Team detail */
+  .team-detail-icon-lg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .team-detail-initials-lg {
+    font-size: 24px;
+  }
+
+  .team-detail-actions {
+    flex-wrap: wrap;
+  }
+
+  .roster-header,
+  .roster-row {
+    grid-template-columns: 36px 1fr 56px 80px;
+  }
+
+  .roster-col-pos,
+  .roster-position {
+    display: none;
+  }
+
+  .team-chapter-card:hover {
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .season-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .share-link-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .share-link-url {
+    white-space: normal;
+    word-break: break-all;
   }
 }

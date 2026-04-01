@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Teams</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link dash-nav-link--active">Teams</a>
+    </div>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary" onclick="window.location='team-create.html'">Create Team</button>
+      <button class="dash-icon-btn dash-add-mobile" aria-label="Create Team" onclick="window.location='team-create.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="dashboard.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
+        </svg>
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item dash-drawer-item--active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main">
+
+    <!-- ── MY TEAMS ──────────────────────────────────────── -->
+    <section class="teams-section">
+      <div class="teams-header">
+        <div class="teams-title-group">
+          <h2 class="teams-page-title">Teams</h2>
+          <p class="teams-page-desc">Teams you play on, coach, or manage.</p>
+        </div>
+        <button class="btn-dash-primary" onclick="window.location='team-create.html'">Create Team</button>
+      </div>
+
+      <!-- Playing on -->
+      <div class="teams-group">
+        <h3 class="teams-group-label">Playing On</h3>
+        <div class="team-list">
+
+          <a href="team.html" class="team-item">
+            <div class="team-item-icon">
+              <span class="team-item-initials">LH</span>
+            </div>
+            <div class="team-item-body">
+              <div class="team-item-top">
+                <span class="team-item-name">Lincoln Hornets</span>
+                <span class="team-role-badge team-role-badge--athlete">Athlete</span>
+              </div>
+              <p class="team-item-meta">Basketball &middot; Varsity &middot; Boys</p>
+              <p class="team-item-location">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                Chicago, IL
+              </p>
+            </div>
+            <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+
+          <a href="team.html" class="team-item">
+            <div class="team-item-icon">
+              <span class="team-item-initials">MF</span>
+            </div>
+            <div class="team-item-body">
+              <div class="team-item-top">
+                <span class="team-item-name">Metro FC Academy</span>
+                <span class="team-role-badge team-role-badge--athlete">Athlete</span>
+              </div>
+              <p class="team-item-meta">Soccer &middot; Club &middot; Girls</p>
+              <p class="team-item-location">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                Evanston, IL
+              </p>
+            </div>
+            <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Coaching / Admin -->
+      <div class="teams-group">
+        <h3 class="teams-group-label">Coaching &amp; Managing</h3>
+        <div class="team-list">
+
+          <a href="team.html" class="team-item">
+            <div class="team-item-icon">
+              <span class="team-item-initials">RB</span>
+            </div>
+            <div class="team-item-body">
+              <div class="team-item-top">
+                <span class="team-item-name">Roosevelt Bears</span>
+                <span class="team-role-badge team-role-badge--coach">Coach</span>
+              </div>
+              <p class="team-item-meta">Baseball &middot; Middle School &middot; Boys</p>
+              <p class="team-item-location">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                Oak Park, IL
+              </p>
+            </div>
+            <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

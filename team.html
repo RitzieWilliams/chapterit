@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Lincoln Hornets</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link dash-nav-link--active">Teams</a>
+    </div>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      <button class="btn-dash-primary">Add New</button>
+      <button class="dash-icon-btn dash-add-mobile" aria-label="Add New">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="dashboard.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
+        </svg>
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item dash-drawer-item--active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main chapter-main">
+
+    <!-- ── TEAM HEADER ───────────────────────────────────── -->
+    <div class="team-detail-header">
+
+      <a href="teams.html" class="chapter-breadcrumb team-breadcrumb">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Teams
+      </a>
+
+      <div class="team-detail-identity">
+        <div class="team-detail-icon-lg">
+          <span class="team-detail-initials-lg">LH</span>
+        </div>
+        <div class="team-detail-info">
+          <h1 class="team-detail-name">Lincoln Hornets</h1>
+          <div class="team-detail-tags">
+            <span class="team-detail-tag">Basketball</span>
+            <span class="team-detail-tag">Varsity</span>
+            <span class="team-detail-tag">Boys</span>
+          </div>
+          <p class="team-detail-loc">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Chicago, IL
+          </p>
+        </div>
+      </div>
+
+      <div class="team-detail-actions">
+        <button class="btn-page-ghost" onclick="openShareModal()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          Share
+        </button>
+        <button class="btn-page-ghost">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Edit Team
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ── META STRIP ─────────────────────────────────────── -->
+    <div class="chapter-meta-strip">
+      <div class="chapter-meta-field">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Chicago, IL</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Sport</span>
+        <span class="meta-value">Basketball</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Level</span>
+        <span class="meta-value">Varsity</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Gender</span>
+        <span class="meta-value">Boys</span>
+      </div>
+      <div class="chapter-meta-field">
+        <span class="meta-label">Mascot</span>
+        <span class="meta-value">Hornets</span>
+      </div>
+    </div>
+
+    <!-- ── STAFF ──────────────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Staff</h3>
+          <span class="overview-section-count">3</span>
+        </div>
+        <button class="btn-section-ghost" onclick="openInviteStaffModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Invite
+        </button>
+      </div>
+
+      <p class="team-staff-sublabel">Admin</p>
+      <div class="people-list">
+        <div class="people-row">
+          <div class="people-avatar">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:0.04em;color:var(--gray-600)">DR</span>
+          </div>
+          <div>
+            <p class="people-name">David Reynolds</p>
+            <p class="people-meta">d.reynolds@lincolnhs.edu</p>
+          </div>
+          <span class="team-staff-badge team-staff-badge--admin">Admin</span>
+          <button class="team-staff-action" onclick="openTransferAdminModal()">Transfer</button>
+        </div>
+      </div>
+
+      <p class="team-staff-sublabel" style="margin-top:20px">Coaches</p>
+      <div class="people-list">
+        <div class="people-row">
+          <div class="people-avatar">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:0.04em;color:var(--gray-600)">CW</span>
+          </div>
+          <div>
+            <p class="people-name">Coach Williams</p>
+            <p class="people-meta">Head Coach</p>
+          </div>
+          <span class="team-staff-badge team-staff-badge--coach">Coach</span>
+          <button class="team-staff-action team-staff-action--remove">Remove</button>
+        </div>
+        <div class="people-row">
+          <div class="people-avatar">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:0.04em;color:var(--gray-600)">MT</span>
+          </div>
+          <div>
+            <p class="people-name">Marcus Thompson</p>
+            <p class="people-meta">Assistant Coach</p>
+          </div>
+          <span class="team-staff-badge team-staff-badge--coach">Coach</span>
+          <button class="team-staff-action team-staff-action--remove">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ROSTER ─────────────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Roster</h3>
+          <span class="overview-section-count">12</span>
+        </div>
+        <button class="btn-section-ghost" onclick="openInvitePlayerModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Player
+        </button>
+      </div>
+
+      <div class="roster-list">
+
+        <div class="roster-header">
+          <span></span>
+          <span class="roster-header-label">Player</span>
+          <span class="roster-header-label roster-col-pos">Position</span>
+          <span class="roster-header-label roster-col-num">#</span>
+          <span></span>
+        </div>
+
+        <div class="roster-row">
+          <div class="people-avatar people-row--athlete people-avatar--dark">MJ</div>
+          <div>
+            <p class="people-name">Marcus Johnson</p>
+            <p class="people-meta">Lincoln High School</p>
+          </div>
+          <span class="roster-position">Guard</span>
+          <span class="roster-number">23</span>
+          <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+        </div>
+
+        <div class="roster-row">
+          <div class="people-avatar people-row--athlete people-avatar--dark">JW</div>
+          <div>
+            <p class="people-name">Jordan Wallace</p>
+            <p class="people-meta">Lincoln High School</p>
+          </div>
+          <span class="roster-position">Forward</span>
+          <span class="roster-number">11</span>
+          <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+        </div>
+
+        <div class="roster-row">
+          <div class="people-avatar people-row--athlete people-avatar--dark">DC</div>
+          <div>
+            <p class="people-name">Devon Carter</p>
+            <p class="people-meta">Lincoln High School</p>
+          </div>
+          <span class="roster-position">Center</span>
+          <span class="roster-number">5</span>
+          <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+        </div>
+
+        <div class="roster-row roster-row--more">
+          <span></span>
+          <button class="roster-show-more" onclick="toggleRoster(this)">Show all 12 players</button>
+          <span></span><span></span><span></span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── CHAPTERS ───────────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Chapters</h3>
+          <span class="overview-section-count">2</span>
+        </div>
+      </div>
+
+      <div class="team-chapters-list">
+
+        <a href="chapter.html" class="team-chapter-card">
+          <div class="team-chapter-card-left">
+            <span class="team-chapter-sport">Basketball</span>
+            <p class="team-chapter-name">Junior Season 2024</p>
+            <p class="team-chapter-athlete">Marcus Johnson</p>
+          </div>
+          <div class="team-chapter-card-right">
+            <span class="team-chapter-status team-chapter-status--active">Active</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="#" class="team-chapter-card">
+          <div class="team-chapter-card-left">
+            <span class="team-chapter-sport">Basketball</span>
+            <p class="team-chapter-name">Sophomore Season 2023</p>
+            <p class="team-chapter-athlete">Marcus Johnson</p>
+          </div>
+          <div class="team-chapter-card-right">
+            <span class="team-chapter-status team-chapter-status--complete">Complete</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ── SHARED MOMENTS ────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Moments</h3>
+          <span class="overview-section-count">4</span>
+        </div>
+        <button class="btn-section-ghost" onclick="window.location='moment-create.html'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Moment
+        </button>
+      </div>
+
+      <div class="moments-grid">
+
+        <div class="moment-card" onclick="window.location='moment.html'">
+          <div class="moment-thumb">
+            <img src="https://unsplash.it/800?image=20" alt="Tip-Off">
+          </div>
+          <div class="moment-info">
+            <p class="moment-date">Nov 10, 2024</p>
+            <p class="moment-title">Showcase Warmup</p>
+            <p class="moment-caption">Pre-game warmups. Gym packed early.</p>
+          </div>
+        </div>
+
+        <div class="moment-card" onclick="window.location='moment.html'">
+          <div class="moment-thumb moment-thumb--video">
+            <img src="https://unsplash.it/800?image=21" alt="Practice">
+          </div>
+          <div class="moment-info">
+            <p class="moment-date">Oct 22, 2024</p>
+            <p class="moment-title">Homecoming Night</p>
+            <p class="moment-caption">Full crowd for the first time this season.</p>
+          </div>
+        </div>
+
+        <div class="moment-card" onclick="window.location='moment.html'">
+          <div class="moment-thumb">
+            <img src="https://unsplash.it/800?image=22" alt="After Game">
+          </div>
+          <div class="moment-info">
+            <p class="moment-date">Oct 5, 2024</p>
+            <p class="moment-title">Season Opener</p>
+            <p class="moment-caption">First game of the season. W by 14.</p>
+          </div>
+        </div>
+
+        <div class="moment-card" onclick="window.location='moment.html'">
+          <div class="moment-thumb">
+            <img src="https://unsplash.it/800?image=23" alt="Team Photo">
+          </div>
+          <div class="moment-info">
+            <p class="moment-date">Sep 28, 2024</p>
+            <p class="moment-title">Team Photo Day</p>
+            <p class="moment-caption">Official team photos before the season.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SCHEDULE ───────────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Schedule</h3>
+          <span class="overview-section-count">4 games</span>
+        </div>
+        <div class="schedule-actions">
+          <button class="btn-section-ghost" onclick="openCopyToChapterModal()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copy to Chapter
+          </button>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Game
+          </button>
+        </div>
+      </div>
+
+      <!-- Column headers -->
+      <div class="schedule-list-header">
+        <span class="sched-h sched-h--date">Date</span>
+        <span class="sched-h sched-h--name">Game</span>
+        <span class="sched-h sched-h--opp">Opponent</span>
+        <span class="sched-h sched-h--result">Result</span>
+        <span class="sched-h sched-h--moments">Moments</span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="event-list">
+
+        <a href="game.html" class="event-row">
+          <span class="event-date">Nov 10</span>
+          <span class="event-name">Fall Showcase</span>
+          <span class="event-opponent">Showcase Inv.</span>
+          <span class="event-score event-score--win">W 58–44</span>
+          <span class="event-moments-count" data-count="2">2</span>
+          <span class="event-type-tag">Showcase</span>
+          <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <a href="game.html" class="event-row">
+          <span class="event-date">Oct 19</span>
+          <span class="event-name">Homecoming Game</span>
+          <span class="event-opponent">East Valley HS</span>
+          <span class="event-score event-score--win">W 61–50</span>
+          <span class="event-moments-count" data-count="3">3</span>
+          <span class="event-type-tag"></span>
+          <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <a href="game.html" class="event-row">
+          <span class="event-date">Oct 12</span>
+          <span class="event-name">Away at Riverside</span>
+          <span class="event-opponent">Riverside HS</span>
+          <span class="event-score event-score--loss">L 47–52</span>
+          <span class="event-moments-count" data-count="1">1</span>
+          <span class="event-type-tag"></span>
+          <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <a href="game.html" class="event-row">
+          <span class="event-date">Oct 5</span>
+          <span class="event-name">Season Opener</span>
+          <span class="event-opponent">Westfield HS</span>
+          <span class="event-score event-score--win">W 72–60</span>
+          <span class="event-moments-count" data-count="4">4</span>
+          <span class="event-type-tag"></span>
+          <svg class="event-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ── SEASONS ─────────────────────────────────────────── -->
+    <div class="overview-section">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Seasons</h3>
+          <span class="overview-section-count">2</span>
+        </div>
+        <button class="btn-section-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Season
+        </button>
+      </div>
+
+      <div class="season-grid">
+
+        <div class="season-card season-card--active">
+          <div class="season-card-top">
+            <span class="season-card-year">2024 – 2025</span>
+            <span class="season-card-current">Current</span>
+          </div>
+          <div class="season-card-record">
+            <span class="season-record-num">3</span>
+            <span class="season-record-dash">–</span>
+            <span class="season-record-num">1</span>
+          </div>
+          <p class="season-card-meta">12 players &middot; 4 games played</p>
+          <div class="season-card-footer">
+            <span class="season-card-coaches">Coach Williams, M. Thompson</span>
+          </div>
+        </div>
+
+        <div class="season-card">
+          <div class="season-card-top">
+            <span class="season-card-year">2023 – 2024</span>
+            <span class="season-card-complete">Complete</span>
+          </div>
+          <div class="season-card-record">
+            <span class="season-record-num">18</span>
+            <span class="season-record-dash">–</span>
+            <span class="season-record-num">7</span>
+          </div>
+          <p class="season-card-meta">14 players &middot; 25 games</p>
+          <div class="season-card-footer">
+            <span class="season-card-coaches">Coach Williams</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ─── SHARE MODAL ──────────────────────────────────── -->
+  <div class="modal-overlay" id="share-modal-overlay" onclick="closeShareModal()">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <h2 class="modal-title" id="share-modal-title">Share Team</h2>
+        <button class="dash-drawer-close" onclick="closeShareModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <p class="modal-body">Anyone with this link can view the Lincoln Hornets team page.</p>
+      <div class="share-link-row">
+        <span class="share-link-url">chapterit.app/t/lincoln-hornets</span>
+        <button class="share-link-copy" id="share-copy-btn" onclick="copyShareLink()">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── COPY TO CHAPTER MODAL ────────────────────────── -->
+  <div class="modal-overlay" id="copy-chapter-modal-overlay" onclick="closeCopyToChapterModal()">
+    <div class="modal move-modal" role="dialog" aria-modal="true" aria-labelledby="copy-modal-title" onclick="event.stopPropagation()">
+      <div class="move-modal-header">
+        <h2 class="modal-title" id="copy-modal-title">Copy Schedule to Chapter</h2>
+        <button class="dash-drawer-close" onclick="closeCopyToChapterModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <p class="move-modal-sub">Choose a chapter to copy the current schedule into. Existing games will not be overwritten.</p>
+      <div class="move-modal-list">
+        <button class="move-modal-item" onclick="closeCopyToChapterModal()">
+          <div>
+            <span class="move-modal-item-name">Junior Season 2024</span>
+            <span class="move-modal-item-date" style="display:block;margin-top:2px">Marcus Johnson &middot; Basketball</span>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+        <button class="move-modal-item" onclick="closeCopyToChapterModal()">
+          <div>
+            <span class="move-modal-item-name">Sophomore Season 2023</span>
+            <span class="move-modal-item-date" style="display:block;margin-top:2px">Marcus Johnson &middot; Basketball</span>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── INVITE STAFF MODAL ───────────────────────────── -->
+  <div class="modal-overlay" id="invite-staff-modal-overlay" onclick="closeInviteStaffModal()">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="invite-staff-title" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <h2 class="modal-title" id="invite-staff-title">Invite Staff</h2>
+        <button class="dash-drawer-close" onclick="closeInviteStaffModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="invite-modal-body">
+        <div class="create-field-group">
+          <label class="create-label" for="invite-email">Email address</label>
+          <input type="email" id="invite-email" class="create-input" placeholder="coach@example.com">
+        </div>
+        <div class="create-field-group">
+          <label class="create-label">Role</label>
+          <div class="team-gender-opts">
+            <button type="button" class="team-gender-opt team-gender-opt--active">Coach</button>
+            <button type="button" class="team-gender-opt">Admin</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm" onclick="closeInviteStaffModal()">Send Invite</button>
+        <button class="btn-modal-cancel" onclick="closeInviteStaffModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── INVITE PLAYER MODAL ──────────────────────────── -->
+  <div class="modal-overlay" id="invite-player-modal-overlay" onclick="closeInvitePlayerModal()">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="invite-player-title" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <h2 class="modal-title" id="invite-player-title">Add Player</h2>
+        <button class="dash-drawer-close" onclick="closeInvitePlayerModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="invite-modal-body">
+        <div class="create-field-group">
+          <label class="create-label" for="player-email">Email address</label>
+          <input type="email" id="player-email" class="create-input" placeholder="athlete@example.com">
+        </div>
+        <div class="create-dates">
+          <div class="create-field-group">
+            <label class="create-label" for="player-number">Jersey #</label>
+            <input type="number" id="player-number" class="create-input" placeholder="e.g. 23" min="0" max="99">
+          </div>
+          <div class="create-field-group">
+            <label class="create-label" for="player-pos">Position</label>
+            <input type="text" id="player-pos" class="create-input" placeholder="e.g. Guard">
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm" onclick="closeInvitePlayerModal()">Send Invite</button>
+        <button class="btn-modal-cancel" onclick="closeInvitePlayerModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Gender toggle in invite modal
+    document.querySelectorAll('#invite-staff-modal-overlay .team-gender-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#invite-staff-modal-overlay .team-gender-opt').forEach(b => b.classList.remove('team-gender-opt--active'));
+        btn.classList.add('team-gender-opt--active');
+      });
+    });
+
+    // Share modal
+    function openShareModal() {
+      document.getElementById('share-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeShareModal() {
+      document.getElementById('share-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function copyShareLink() {
+      const btn = document.getElementById('share-copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+    }
+
+    // Copy to chapter modal
+    function openCopyToChapterModal() {
+      document.getElementById('copy-chapter-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCopyToChapterModal() {
+      document.getElementById('copy-chapter-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Invite staff modal
+    function openInviteStaffModal() {
+      document.getElementById('invite-staff-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeInviteStaffModal() {
+      document.getElementById('invite-staff-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Invite player modal
+    function openInvitePlayerModal() {
+      document.getElementById('invite-player-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeInvitePlayerModal() {
+      document.getElementById('invite-player-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Placeholder: transfer admin
+    function openTransferAdminModal() {
+      alert('Transfer admin flow coming soon.');
+    }
+
+    // Show all roster
+    function toggleRoster(btn) {
+      btn.closest('.roster-row--more').style.display = 'none';
+    }
+
+    // Escape key closes all modals
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeShareModal();
+        closeCopyToChapterModal();
+        closeInviteStaffModal();
+        closeInvitePlayerModal();
+      }
+    });
+  </script>
+</body>
+</html>
