@@ -1023,7 +1023,7 @@ footer {
 
 .step-cards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
   background: var(--gray-200);
   border: 1px solid var(--gray-200);

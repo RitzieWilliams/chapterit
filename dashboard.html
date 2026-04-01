@@ -146,23 +146,6 @@
           </button>
         </div>
 
-        <!-- Invite Friends -->
-        <div class="step-card" id="step-invite">
-          <button class="step-dismiss" onclick="dismissStep('step-invite')" aria-label="Dismiss">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <div class="step-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13"/>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-            </svg>
-          </div>
-          <p class="step-title">Invite Friends</p>
-          <p class="step-desc">Share ChapterIt with other families tracking athletes in their lives.</p>
-          <button class="step-action">Send Invite
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
 
       </div>
     </section>
@@ -240,6 +223,10 @@
         card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
         setTimeout(() => {
           card.style.display = 'none';
+          const remaining = document.querySelectorAll('#next-steps-section .step-card:not([style*="display: none"])');
+          if (remaining.length === 0) {
+            document.getElementById('next-steps-section').style.display = 'none';
+          }
         }, 200);
       }
     }
