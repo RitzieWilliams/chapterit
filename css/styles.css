@@ -958,7 +958,11 @@ footer {
 }
 
 .dash-drawer-nav {
+  display: block;
+  position: static;
   padding: 8px 0;
+  background: none;
+  border-bottom: none;
 }
 
 .dash-drawer-item {
