@@ -2626,6 +2626,35 @@ footer {
   color: var(--gray-400);
 }
 
+.overview-section-title-group {
+  cursor: pointer;
+  user-select: none;
+}
+
+.overview-section-chevron {
+  color: var(--gray-400);
+  flex-shrink: 0;
+  align-self: center;
+  transition: transform 0.28s ease;
+}
+
+.overview-section.is-collapsed .overview-section-chevron {
+  transform: rotate(-90deg);
+}
+
+.overview-section-body {
+  overflow: hidden;
+  transition: max-height 0.38s ease;
+}
+
+.overview-section.is-collapsed .overview-section-header {
+  margin-bottom: 0;
+}
+
+.overview-section.is-collapsed {
+  padding: 20px 0;
+}
+
 /* Section action buttons */
 .btn-section-ghost {
   display: inline-flex;
