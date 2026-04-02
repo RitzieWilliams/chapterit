@@ -20,7 +20,9 @@
     </a>
     <div class="dash-nav-links">
       <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="journey.html" class="dash-nav-link">Journey</a>
       <a href="teams.html" class="dash-nav-link">Teams</a>
+      <a href="frame.html" class="dash-nav-link">Frame</a>
     </div>
     <div class="dash-nav-right">
       <button class="dash-icon-btn" aria-label="Notifications">
@@ -55,11 +57,23 @@
         </svg>
         Chapters
       </a>
+      <a href="journey.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 16 12 14 20 10 4 8 12 2 12"/>
+        </svg>
+        Journey
+      </a>
       <a href="teams.html" class="dash-drawer-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
         Teams
+      </a>
+      <a href="frame.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Frame
       </a>
       <a href="profile.html" class="dash-drawer-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -278,64 +292,6 @@
         </div>
       </div>
 
-      <!-- ── EVENTS ──────────────────────────────────── -->
-      <div class="overview-section">
-        <div class="overview-section-header">
-          <div class="overview-section-title-group">
-            <h3 class="overview-section-title">Events</h3>
-            <span class="overview-section-count">3</span>
-          </div>
-          <button class="btn-section-ghost">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            Add Event
-          </button>
-        </div>
-
-        <div class="chapter-events-list">
-
-          <a href="event.html" class="chapter-event-card chapter-event-card--link">
-            <div class="chapter-event-header-left">
-              <h4 class="chapter-event-title">Fall Showcase</h4>
-              <span class="chapter-event-date">Nov 10, 2024</span>
-            </div>
-            <div class="chapter-event-chips">
-              <span class="chapter-event-chip">2 moments</span>
-              <span class="chapter-event-chip">1 reflection</span>
-              <span class="chapter-event-chip">1 link</span>
-              <span class="chapter-event-chip">1 coach note</span>
-            </div>
-            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-
-          <a href="event.html" class="chapter-event-card chapter-event-card--link">
-            <div class="chapter-event-header-left">
-              <h4 class="chapter-event-title">End of Season Banquet</h4>
-              <span class="chapter-event-date">Mar 20, 2025</span>
-            </div>
-            <div class="chapter-event-chips">
-              <span class="chapter-event-chip">3 moments</span>
-              <span class="chapter-event-chip">1 reflection</span>
-              <span class="chapter-event-chip">1 coach note</span>
-            </div>
-            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-
-          <a href="event.html" class="chapter-event-card chapter-event-card--link">
-            <div class="chapter-event-header-left">
-              <h4 class="chapter-event-title">Summer Skills Camp</h4>
-              <span class="chapter-event-date">Jul 15, 2024</span>
-            </div>
-            <div class="chapter-event-chips">
-              <span class="chapter-event-chip">2 moments</span>
-              <span class="chapter-event-chip">2 reflections</span>
-              <span class="chapter-event-chip">1 link</span>
-            </div>
-            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-
-        </div>
-      </div>
-
       <!-- ── SCHEDULE ────────────────────────────────── -->
       <div class="overview-section">
         <div class="overview-section-header">
@@ -434,46 +390,109 @@
         </a>
       </div>
 
-      <!-- ── STATS ───────────────────────────────────── -->
+      <!-- ── EVENTS ──────────────────────────────────── -->
       <div class="overview-section">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <h3 class="overview-section-title">Stats</h3>
-            <span class="overview-section-count">4 games</span>
+            <h3 class="overview-section-title">Events</h3>
+            <span class="overview-section-count">3</span>
           </div>
-          <span class="chapter-stats-note">Totals across all games</span>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Event
+          </button>
         </div>
 
-        <div class="stat-grid chapter-stat-grid">
+        <div class="chapter-events-list">
 
-          <div class="stat-cell">
-            <span class="stat-cell-value">347</span>
-            <span class="stat-cell-label">Points</span>
-            <span class="stat-cell-avg">34.7 / game</span>
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">Fall Showcase</h4>
+              <span class="chapter-event-date">Nov 10, 2024</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">2 moments</span>
+              <span class="chapter-event-chip">1 reflection</span>
+              <span class="chapter-event-chip">1 link</span>
+              <span class="chapter-event-chip">1 coach note</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">End of Season Banquet</h4>
+              <span class="chapter-event-date">Mar 20, 2025</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">3 moments</span>
+              <span class="chapter-event-chip">1 reflection</span>
+              <span class="chapter-event-chip">1 coach note</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">Summer Skills Camp</h4>
+              <span class="chapter-event-date">Jul 15, 2024</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">2 moments</span>
+              <span class="chapter-event-chip">2 reflections</span>
+              <span class="chapter-event-chip">1 link</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ── COLLECTIONS ────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Collections</h3>
+            <span class="overview-section-count">4</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Collection
+          </button>
+        </div>
+
+        <div class="collections-grid">
+
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Highlights</h4>
+              <span class="collection-count">5 entries</span>
+            </div>
+            <p class="collection-desc">Best plays and standout moments from the season.</p>
           </div>
 
-          <div class="stat-cell">
-            <span class="stat-cell-value">89</span>
-            <span class="stat-cell-label">Rebounds</span>
-            <span class="stat-cell-avg">8.9 / game</span>
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Recruiting</h4>
+              <span class="collection-count">3 entries</span>
+            </div>
+            <p class="collection-desc">Moments and links relevant to the recruiting process.</p>
           </div>
 
-          <div class="stat-cell">
-            <span class="stat-cell-value">47</span>
-            <span class="stat-cell-label">Assists</span>
-            <span class="stat-cell-avg">4.7 / game</span>
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Comeback Wins</h4>
+              <span class="collection-count">2 entries</span>
+            </div>
+            <p class="collection-desc">Games where we trailed at halftime and came back.</p>
           </div>
 
-          <div class="stat-cell">
-            <span class="stat-cell-value">28</span>
-            <span class="stat-cell-label">Steals</span>
-            <span class="stat-cell-avg">2.8 / game</span>
-          </div>
-
-          <div class="stat-cell">
-            <span class="stat-cell-value">15</span>
-            <span class="stat-cell-label">Blocks</span>
-            <span class="stat-cell-avg">1.5 / game</span>
+          <div class="collection-card">
+            <div class="collection-card-top">
+              <h4 class="collection-name">Defense</h4>
+              <span class="collection-count">4 entries</span>
+            </div>
+            <p class="collection-desc">Defensive stops, steals, and blocks worth remembering.</p>
           </div>
 
         </div>
@@ -673,6 +692,51 @@
         </div>
       </div>
 
+      <!-- ── STATS ───────────────────────────────────── -->
+      <div class="overview-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Stats</h3>
+            <span class="overview-section-count">4 games</span>
+          </div>
+          <span class="chapter-stats-note">Totals across all games</span>
+        </div>
+
+        <div class="stat-grid chapter-stat-grid">
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">347</span>
+            <span class="stat-cell-label">Points</span>
+            <span class="stat-cell-avg">34.7 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">89</span>
+            <span class="stat-cell-label">Rebounds</span>
+            <span class="stat-cell-avg">8.9 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">47</span>
+            <span class="stat-cell-label">Assists</span>
+            <span class="stat-cell-avg">4.7 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">28</span>
+            <span class="stat-cell-label">Steals</span>
+            <span class="stat-cell-avg">2.8 / game</span>
+          </div>
+
+          <div class="stat-cell">
+            <span class="stat-cell-value">15</span>
+            <span class="stat-cell-label">Blocks</span>
+            <span class="stat-cell-avg">1.5 / game</span>
+          </div>
+
+        </div>
+      </div>
+
       <!-- ── LINKS ─────────────────────────────────────── -->
       <div class="overview-section">
         <div class="overview-section-header">
@@ -729,56 +793,6 @@
             </div>
             <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-
-        </div>
-      </div>
-
-      <!-- ── COLLECTIONS ────────────────────────────────── -->
-      <div class="overview-section">
-        <div class="overview-section-header">
-          <div class="overview-section-title-group">
-            <h3 class="overview-section-title">Collections</h3>
-            <span class="overview-section-count">4</span>
-          </div>
-          <button class="btn-section-ghost">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            New Collection
-          </button>
-        </div>
-
-        <div class="collections-grid">
-
-          <div class="collection-card">
-            <div class="collection-card-top">
-              <h4 class="collection-name">Highlights</h4>
-              <span class="collection-count">5 entries</span>
-            </div>
-            <p class="collection-desc">Best plays and standout moments from the season.</p>
-          </div>
-
-          <div class="collection-card">
-            <div class="collection-card-top">
-              <h4 class="collection-name">Recruiting</h4>
-              <span class="collection-count">3 entries</span>
-            </div>
-            <p class="collection-desc">Moments and links relevant to the recruiting process.</p>
-          </div>
-
-          <div class="collection-card">
-            <div class="collection-card-top">
-              <h4 class="collection-name">Comeback Wins</h4>
-              <span class="collection-count">2 entries</span>
-            </div>
-            <p class="collection-desc">Games where we trailed at halftime and came back.</p>
-          </div>
-
-          <div class="collection-card">
-            <div class="collection-card-top">
-              <h4 class="collection-name">Defense</h4>
-              <span class="collection-count">4 entries</span>
-            </div>
-            <p class="collection-desc">Defensive stops, steals, and blocks worth remembering.</p>
-          </div>
 
         </div>
       </div>
