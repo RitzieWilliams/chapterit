@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/Ritzi/AppData/Roaming/**)",
+      "Bash(cmd //c \"where node\")",
+      "Bash(cmd //c \"where node && where npm && where npx\" 2>&1)",
+      "Bash(cmd //c \"where bun && where deno && where pnpm\" 2>&1)",
+      "Bash(cmd //c \"winget list nodejs\")",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(grep:*)",
+      "Bash(node -e \":*)",
+      "Bash(powershell -Command \":*)",
+      "Bash(python3 -c ':*)",
+      "Bash(python -c ':*)",
+      "Bash(where node:*)",
+      "Bash(powershell:*)",
+      "Bash(python3 -)",
+      "Bash(python -)",
+      "Bash(perl --version)",
+      "Bash(perl -i -0pe ':*)",
+      "Bash(perl reorder.pl)",
+      "Bash(ls /e/Design/ChapterIt/Site/*.html)"
+    ]
+  }
+}
