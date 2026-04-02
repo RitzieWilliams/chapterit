@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Frames</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="journey.html" class="dash-nav-link">Journey</a>
+      <a href="teams.html" class="dash-nav-link">Teams</a>
+      <a href="frame.html" class="dash-nav-link dash-nav-link--active">Frame</a>
+    </div>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="dashboard.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
+        </svg>
+        Chapters
+      </a>
+      <a href="journey.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 16 12 14 20 10 4 8 12 2 12"/>
+        </svg>
+        Journey
+      </a>
+      <a href="teams.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
+      </a>
+      <a href="frame.html" class="dash-drawer-item dash-drawer-item--active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Frame
+      </a>
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main">
+
+    <section class="frames-section">
+
+      <div class="frames-header">
+        <div class="frames-title-group">
+          <h2 class="frames-title">Frames</h2>
+          <p class="frames-desc">Every completed chapter generates a Frame — a permanent digital sports card capturing that season's stats, highlights, and story.</p>
+        </div>
+      </div>
+
+      <div class="frames-grid">
+
+        <!-- ── Marcus Johnson · Junior Season 2024 ── -->
+        <div class="frame-entry">
+          <div class="frame-entry-meta">
+            <span class="frame-entry-athlete">Marcus Johnson</span>
+            <span class="frame-entry-sep">&middot;</span>
+            <span class="frame-entry-chapter">Junior Season 2024</span>
+          </div>
+          <a href="chapter.html" class="frame-card frame-card--link">
+            <div class="frame-card-accent-bar"></div>
+            <div class="frame-card-top">
+              <span class="frame-card-season">2024 &ndash; 2025</span>
+              <span class="frame-card-level">Varsity</span>
+            </div>
+            <div class="frame-card-name-block">
+              <div class="frame-card-initials" aria-hidden="true">MJ</div>
+              <p class="frame-card-firstname">Marcus</p>
+              <p class="frame-card-lastname">Johnson</p>
+            </div>
+            <div class="frame-card-team-block">
+              <span class="frame-card-school">Lincoln High School</span>
+              <span class="frame-card-sport">Basketball</span>
+            </div>
+            <div class="frame-card-divider"></div>
+            <div class="frame-card-record">
+              <div class="frame-record-col">
+                <span class="frame-record-num">3</span>
+                <span class="frame-record-label">W</span>
+              </div>
+              <span class="frame-record-dash">&mdash;</span>
+              <div class="frame-record-col">
+                <span class="frame-record-num">1</span>
+                <span class="frame-record-label">L</span>
+              </div>
+              <span class="frame-record-tag">Season Record</span>
+            </div>
+            <div class="frame-card-divider"></div>
+            <div class="frame-card-stats">
+              <div class="frame-stat">
+                <span class="frame-stat-value">34.7</span>
+                <span class="frame-stat-label">PPG</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">8.9</span>
+                <span class="frame-stat-label">RPG</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">4.7</span>
+                <span class="frame-stat-label">APG</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">2.8</span>
+                <span class="frame-stat-label">SPG</span>
+              </div>
+            </div>
+            <div class="frame-card-footer">
+              <span class="frame-card-chapter-name">Junior Season 2024</span>
+              <span class="frame-card-brand">ChapterIt</span>
+            </div>
+          </a>
+          <div class="frame-entry-actions">
+            <button class="frame-action-share">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Share
+            </button>
+            <a href="chapter.html" class="frame-action-chapter">
+              View Chapter
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Emma Rodriguez · Fall Classic 2023 ── -->
+        <div class="frame-entry">
+          <div class="frame-entry-meta">
+            <span class="frame-entry-athlete">Emma Rodriguez</span>
+            <span class="frame-entry-sep">&middot;</span>
+            <span class="frame-entry-chapter">Fall Classic 2023</span>
+          </div>
+          <a href="#" class="frame-card frame-card--link">
+            <div class="frame-card-accent-bar"></div>
+            <div class="frame-card-top">
+              <span class="frame-card-season">2023 &ndash; 2024</span>
+              <span class="frame-card-level">U17 Elite</span>
+            </div>
+            <div class="frame-card-name-block">
+              <div class="frame-card-initials" aria-hidden="true">ER</div>
+              <p class="frame-card-firstname">Emma</p>
+              <p class="frame-card-lastname">Rodriguez</p>
+            </div>
+            <div class="frame-card-team-block">
+              <span class="frame-card-school">Metro FC Academy</span>
+              <span class="frame-card-sport">Soccer</span>
+            </div>
+            <div class="frame-card-divider"></div>
+            <div class="frame-card-record">
+              <div class="frame-record-col">
+                <span class="frame-record-num">11</span>
+                <span class="frame-record-label">W</span>
+              </div>
+              <span class="frame-record-dash">&mdash;</span>
+              <div class="frame-record-col">
+                <span class="frame-record-num">3</span>
+                <span class="frame-record-label">L</span>
+              </div>
+              <span class="frame-record-tag">Season Record</span>
+            </div>
+            <div class="frame-card-divider"></div>
+            <div class="frame-card-stats">
+              <div class="frame-stat">
+                <span class="frame-stat-value">18</span>
+                <span class="frame-stat-label">Goals</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">11</span>
+                <span class="frame-stat-label">Assists</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">7</span>
+                <span class="frame-stat-label">CS</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">62</span>
+                <span class="frame-stat-label">Shots</span>
+              </div>
+            </div>
+            <div class="frame-card-footer">
+              <span class="frame-card-chapter-name">Fall Classic 2023</span>
+              <span class="frame-card-brand">ChapterIt</span>
+            </div>
+          </a>
+          <div class="frame-entry-actions">
+            <button class="frame-action-share">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Share
+            </button>
+            <a href="#" class="frame-action-chapter">
+              View Chapter
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Tyler Chen · Summer League ── -->
+        <div class="frame-entry">
+          <div class="frame-entry-meta">
+            <span class="frame-entry-athlete">Tyler Chen</span>
+            <span class="frame-entry-sep">&middot;</span>
+            <span class="frame-entry-chapter">Summer League</span>
+          </div>
+          <a href="#" class="frame-card frame-card--link">
+            <div class="frame-card-accent-bar"></div>
+            <div class="frame-card-top">
+              <span class="frame-card-season">Summer 2023</span>
+              <span class="frame-card-level">JV</span>
+            </div>
+            <div class="frame-card-name-block">
+              <div class="frame-card-initials" aria-hidden="true">TC</div>
+              <p class="frame-card-firstname">Tyler</p>
+              <p class="frame-card-lastname">Chen</p>
+            </div>
+            <div class="frame-card-team-block">
+              <span class="frame-card-school">Roosevelt Middle School</span>
+              <span class="frame-card-sport">Baseball</span>
+            </div>
+            <div class="frame-card-divider"></div>
+            <div class="frame-card-record">
+              <div class="frame-record-col">
+                <span class="frame-record-num">14</span>
+                <span class="frame-record-label">W</span>
+              </div>
+              <span class="frame-record-dash">&mdash;</span>
+              <div class="frame-record-col">
+                <span class="frame-record-num">6</span>
+                <span class="frame-record-label">L</span>
+              </div>
+              <span class="frame-record-tag">Season Record</span>
+            </div>
+            <div class="frame-card-divider"></div>
+            <div class="frame-card-stats">
+              <div class="frame-stat">
+                <span class="frame-stat-value">.342</span>
+                <span class="frame-stat-label">AVG</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">9</span>
+                <span class="frame-stat-label">HR</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">38</span>
+                <span class="frame-stat-label">RBI</span>
+              </div>
+              <div class="frame-stat">
+                <span class="frame-stat-value">21</span>
+                <span class="frame-stat-label">SB</span>
+              </div>
+            </div>
+            <div class="frame-card-footer">
+              <span class="frame-card-chapter-name">Summer League</span>
+              <span class="frame-card-brand">ChapterIt</span>
+            </div>
+          </a>
+          <div class="frame-entry-actions">
+            <button class="frame-action-share">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              Share
+            </button>
+            <a href="#" class="frame-action-chapter">
+              View Chapter
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>

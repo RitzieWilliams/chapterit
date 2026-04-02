@@ -2546,6 +2546,134 @@ footer {
   }
 }
 
+/* ─── FRAMES PAGE ──────────────────────────────────── */
+.frames-section {
+  border-top: 1px solid var(--gray-200);
+  padding-top: 48px;
+}
+
+.frames-header {
+  margin-bottom: 64px;
+}
+
+.frames-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 0.03em;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.frames-desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gray-600);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+.frames-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  gap: 56px 48px;
+}
+
+.frame-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.frame-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.frame-entry-athlete {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--black);
+}
+
+.frame-entry-sep {
+  color: var(--gray-300);
+  font-size: 13px;
+}
+
+.frame-entry-chapter {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.frame-card--link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.frame-card--link:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 48px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+.frame-entry-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.frame-action-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.frame-action-share:hover {
+  color: var(--black);
+}
+
+.frame-action-chapter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.frame-action-chapter:hover {
+  color: var(--black);
+}
+
+/* Frames page responsive */
+@media (max-width: 768px) {
+  .frames-title { font-size: 40px; }
+  .frames-grid { grid-template-columns: 1fr; gap: 48px; }
+  .frame-entry { align-items: center; }
+  .frame-entry-meta { justify-content: center; }
+  .frame-entry-actions { width: 288px; }
+}
+
 /* View Tabs */
 .chapter-views {
   display: flex;
