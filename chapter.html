@@ -230,16 +230,17 @@
 
       <!-- ── SECTION FILTERS ───────────────────────── -->
       <div class="overview-filters">
-        <button class="ov-filter active" data-target="moments">Moments</button>
-        <button class="ov-filter active" data-target="schedule">Schedule</button>
-        <button class="ov-filter active" data-target="events">Events</button>
-        <button class="ov-filter active" data-target="collections">Collections</button>
-        <button class="ov-filter active" data-target="goals">Goals</button>
-        <button class="ov-filter active" data-target="milestones">Milestones</button>
-        <button class="ov-filter active" data-target="reflections">Reflections</button>
-        <button class="ov-filter active" data-target="coach-recognition">Coach Recognition</button>
-        <button class="ov-filter active" data-target="stats">Stats</button>
-        <button class="ov-filter active" data-target="links">Links</button>
+        <button class="ov-filter active" data-target="all">All</button>
+        <button class="ov-filter" data-target="moments">Moments</button>
+        <button class="ov-filter" data-target="schedule">Schedule</button>
+        <button class="ov-filter" data-target="events">Events</button>
+        <button class="ov-filter" data-target="collections">Collections</button>
+        <button class="ov-filter" data-target="goals">Goals</button>
+        <button class="ov-filter" data-target="milestones">Milestones</button>
+        <button class="ov-filter" data-target="reflections">Reflections</button>
+        <button class="ov-filter" data-target="coach-recognition">Coach Recognition</button>
+        <button class="ov-filter" data-target="stats">Stats</button>
+        <button class="ov-filter" data-target="links">Links</button>
       </div>
 
       <!-- ── MOMENTS ─────────────────────────────────── -->
@@ -1094,13 +1095,45 @@
   <script src="js/main.js"></script>
   <script>
     // ── Overview section toggles ────────────────────────────
-    document.querySelectorAll('.ov-filter').forEach(btn => {
+    const ovFilters = document.querySelectorAll('.ov-filter');
+    const allSections = document.querySelectorAll('.overview-section');
+
+    function showAllSections() {
+      allSections.forEach(s => s.classList.remove('is-hidden'));
+      ovFilters.forEach(b => b.classList.remove('active'));
+      document.querySelector('.ov-filter[data-target="all"]').classList.add('active');
+    }
+
+    showAllSections();
+
+    ovFilters.forEach(btn => {
       btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+
+        if (target === 'all') {
+          showAllSections();
+          return;
+        }
+
+        const allBtn = document.querySelector('.ov-filter[data-target="all"]');
+        const wasAllMode = allBtn.classList.contains('active');
+
+        if (wasAllMode) {
+          // Switch from "all" mode: hide everything, show only clicked
+          allBtn.classList.remove('active');
+          allSections.forEach(s => s.classList.add('is-hidden'));
+          ovFilters.forEach(b => { if (b !== allBtn) b.classList.remove('active'); });
+        }
+
+        // Toggle this section on/off
         const isActive = btn.classList.contains('active');
         btn.classList.toggle('active', !isActive);
-        const target = btn.dataset.target;
         const section = document.querySelector(`.overview-section[data-section="${target}"]`);
         if (section) section.classList.toggle('is-hidden', isActive);
+
+        // If nothing is active, revert to All
+        const anyActive = [...ovFilters].some(b => b.dataset.target !== 'all' && b.classList.contains('active'));
+        if (!anyActive) showAllSections();
       });
     });
 
