@@ -228,11 +228,24 @@
     <!-- OVERVIEW PANEL -->
     <div class="chapter-view-panel active" id="view-overview">
 
+      <!-- ── SECTION FILTERS ───────────────────────── -->
+      <div class="overview-filters">
+        <button class="ov-filter active" data-target="moments">Moments</button>
+        <button class="ov-filter active" data-target="schedule">Schedule</button>
+        <button class="ov-filter active" data-target="events">Events</button>
+        <button class="ov-filter active" data-target="collections">Collections</button>
+        <button class="ov-filter active" data-target="goals">Goals</button>
+        <button class="ov-filter active" data-target="milestones">Milestones</button>
+        <button class="ov-filter active" data-target="reflections">Reflections</button>
+        <button class="ov-filter active" data-target="coach-recognition">Coach Recognition</button>
+        <button class="ov-filter active" data-target="stats">Stats</button>
+        <button class="ov-filter active" data-target="links">Links</button>
+      </div>
+
       <!-- ── MOMENTS ─────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="moments">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Moments</h3>
             <span class="overview-section-count">8</span>
           </div>
@@ -287,10 +300,9 @@
       </div>
 
       <!-- ── SCHEDULE ────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="schedule">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Schedule</h3>
             <span class="overview-section-count">14</span>
           </div>
@@ -386,10 +398,9 @@
       </div>
 
       <!-- ── EVENTS ──────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="events">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Events</h3>
             <span class="overview-section-count">3</span>
           </div>
@@ -445,10 +456,9 @@
       </div>
 
       <!-- ── COLLECTIONS ────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="collections">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Collections</h3>
             <span class="overview-section-count">4</span>
           </div>
@@ -496,10 +506,9 @@
       </div>
 
       <!-- ── GOALS ──────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="goals">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Goals</h3>
             <span class="overview-section-count" id="goal-count">2</span>
           </div>
@@ -571,10 +580,9 @@
       </div>
 
       <!-- ── MILESTONES ─────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="milestones">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Milestones</h3>
             <span class="overview-section-count" id="milestone-count">2</span>
           </div>
@@ -614,10 +622,9 @@
       </div>
 
       <!-- ── REFLECTIONS ──────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="reflections">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Reflections</h3>
             <span class="overview-section-count">3</span>
           </div>
@@ -657,10 +664,9 @@
       </div>
 
       <!-- ── COACH RECOGNITION ─────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="coach-recognition">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Coach Recognition</h3>
             <span class="overview-section-count">2</span>
           </div>
@@ -694,10 +700,9 @@
       </div>
 
       <!-- ── STATS ───────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="stats">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Stats</h3>
             <span class="overview-section-count">4 games</span>
           </div>
@@ -740,10 +745,9 @@
       </div>
 
       <!-- ── LINKS ─────────────────────────────────────── -->
-      <div class="overview-section">
+      <div class="overview-section" data-section="links">
         <div class="overview-section-header">
           <div class="overview-section-title-group">
-            <svg class="overview-section-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             <h3 class="overview-section-title">Links</h3>
             <span class="overview-section-count">3</span>
           </div>
@@ -1089,30 +1093,14 @@
 
   <script src="js/main.js"></script>
   <script>
-    // ── Collapsible overview sections ───────────────────────
-    document.querySelectorAll('.overview-section').forEach(section => {
-      const header = section.querySelector('.overview-section-header');
-      const body = document.createElement('div');
-      body.className = 'overview-section-body';
-      [...section.children].forEach(child => {
-        if (child !== header) body.appendChild(child);
-      });
-      section.appendChild(body);
-
-      header.querySelector('.overview-section-title-group').addEventListener('click', () => {
-        const isCollapsed = section.classList.contains('is-collapsed');
-        if (isCollapsed) {
-          body.style.maxHeight = body.scrollHeight + 'px';
-          section.classList.remove('is-collapsed');
-          body.addEventListener('transitionend', () => {
-            body.style.maxHeight = '';
-          }, { once: true });
-        } else {
-          body.style.maxHeight = body.scrollHeight + 'px';
-          body.offsetHeight; // force reflow
-          section.classList.add('is-collapsed');
-          body.style.maxHeight = '0';
-        }
+    // ── Overview section toggles ────────────────────────────
+    document.querySelectorAll('.ov-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isActive = btn.classList.contains('active');
+        btn.classList.toggle('active', !isActive);
+        const target = btn.dataset.target;
+        const section = document.querySelector(`.overview-section[data-section="${target}"]`);
+        if (section) section.classList.toggle('is-hidden', isActive);
       });
     });
 
