@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Add Team</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link dash-nav-link--active">Teams</a>
+      <a href="frame.html" class="dash-nav-link">Frame</a>
+    </div>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">0</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="dashboard.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
+        </svg>
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item dash-drawer-item--active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
+      </a>
+      <a href="frame.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Frame
+      </a>
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main">
+    <section class="teams-section">
+
+      <!-- Page header -->
+      <div class="teams-header" style="margin-bottom:24px">
+        <div class="teams-title-group">
+          <a href="teams.html" class="chapter-breadcrumb" style="margin-bottom:10px; display:inline-flex">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M11 6l-6 6 6 6"/>
+            </svg>
+            Teams
+          </a>
+          <h2 class="teams-page-title">Add Team</h2>
+          <p class="teams-page-desc">Browse teams and join one, or create your own.</p>
+        </div>
+        <a href="team-create.html" class="btn-dash-primary">Create a Team</a>
+      </div>
+
+      <!-- Search -->
+      <div class="add-team-search-wrap" style="margin-bottom:12px">
+        <svg class="add-team-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" class="add-team-search" id="add-team-search" placeholder="Search by name, sport, or city…" autocomplete="off">
+      </div>
+
+      <!-- Filters -->
+      <div class="add-team-filters" style="margin-bottom:16px">
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-sport">
+            <option value="">Sport</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-season">
+            <option value="">Season</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-state">
+            <option value="">State</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-city">
+            <option value="">City</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+
+      <!-- Results bar -->
+      <div class="add-team-results-bar">
+        <span id="add-team-count"></span>
+        <button class="add-team-clear" id="add-team-clear" style="display:none">Clear filters</button>
+      </div>
+
+      <!-- Team list -->
+      <div class="team-list" id="add-team-list">
+        <!-- populated by JS -->
+      </div>
+
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    const TEAMS_DATA = [
+      { initials:'LH', name:'Lincoln Hornets',    sport:'Basketball', season:'Winter', level:'Varsity',      gender:'Boys',  city:'Chicago',    state:'IL', admin:'Marcus Webb'   },
+      { initials:'MF', name:'Metro FC Academy',   sport:'Soccer',     season:'Fall',   level:'Club',         gender:'Girls', city:'Evanston',   state:'IL', admin:'Sofia Reyes'   },
+      { initials:'RB', name:'Roosevelt Bears',    sport:'Baseball',   season:'Spring', level:'Middle School',gender:'Boys',  city:'Oak Park',   state:'IL', admin:'Derek Santos'  },
+      { initials:'NT', name:'Northside Tigers',   sport:'Football',   season:'Fall',   level:'JV',           gender:'Boys',  city:'Waukegan',   state:'IL', admin:'James Carter'  },
+      { initials:'LS', name:'Lakewood Storm',     sport:'Volleyball', season:'Fall',   level:'Club',         gender:'Girls', city:'Naperville', state:'IL', admin:'Priya Mehta'   },
+      { initials:'EE', name:'Eastside Eagles',    sport:'Basketball', season:'Winter', level:'AAU',          gender:'Boys',  city:'Gary',       state:'IN', admin:'Tony Williams' },
+      { initials:'CP', name:'Crestwood Panthers', sport:'Soccer',     season:'Spring', level:'Youth',        gender:'Co-Ed', city:'Aurora',     state:'IL', admin:'Lisa Park'     },
+      { initials:'WF', name:'Westlake Falcons',   sport:'Track',      season:'Spring', level:'Varsity',      gender:'Girls', city:'Joliet',     state:'IL', admin:'Sandra Brooks' },
+      { initials:'RR', name:'Riverside Rockets',  sport:'Swimming',   season:'Winter', level:'Club',         gender:'Co-Ed', city:'Elgin',      state:'IL', admin:'Brian Torres'  },
+      { initials:'HC', name:'Highland Chargers',  sport:'Baseball',   season:'Spring', level:'Varsity',      gender:'Boys',  city:'Schaumburg', state:'IL', admin:'Kevin Nash'    },
+      { initials:'BW', name:'Bridgeview Warriors',sport:'Basketball', season:'Winter', level:'Varsity',      gender:'Girls', city:'Bridgeview', state:'IL', admin:'Dana Miles'    },
+      { initials:'SA', name:'Southside Aces',     sport:'Tennis',     season:'Summer', level:'Club',         gender:'Co-Ed', city:'Chicago',    state:'IL', admin:'Marco Diaz'    },
+      { initials:'GH', name:'Greenfield Hawks',   sport:'Football',   season:'Fall',   level:'Varsity',      gender:'Boys',  city:'Rockford',   state:'IL', admin:'Tanya Ford'    },
+      { initials:'PL', name:'Plainfield Lions',   sport:'Soccer',     season:'Fall',   level:'Varsity',      gender:'Boys',  city:'Plainfield', state:'IL', admin:'Chris Bell'    },
+      { initials:'MK', name:'Muncie Komets',      sport:'Hockey',     season:'Winter', level:'AAU',          gender:'Boys',  city:'Muncie',     state:'IN', admin:'Ray Kowalski'  },
+    ];
+
+    function populateFilter(id, key) {
+      const sel = document.getElementById(id);
+      const vals = [...new Set(TEAMS_DATA.map(t => t[key]))].sort();
+      vals.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        sel.appendChild(opt);
+      });
+    }
+    populateFilter('filter-sport',  'sport');
+    populateFilter('filter-season', 'season');
+    populateFilter('filter-state',  'state');
+    populateFilter('filter-city',   'city');
+
+    function getFilters() {
+      return {
+        q:      document.getElementById('add-team-search').value.toLowerCase().trim(),
+        sport:  document.getElementById('filter-sport').value,
+        season: document.getElementById('filter-season').value,
+        state:  document.getElementById('filter-state').value,
+        city:   document.getElementById('filter-city').value,
+      };
+    }
+
+    function hasActiveFilters(f) {
+      return f.q || f.sport || f.season || f.state || f.city;
+    }
+
+    function applyFilters() {
+      const f = getFilters();
+      const list = TEAMS_DATA.filter(t =>
+        (!f.q      || t.name.toLowerCase().includes(f.q) || t.sport.toLowerCase().includes(f.q) || t.city.toLowerCase().includes(f.q)) &&
+        (!f.sport  || t.sport  === f.sport)  &&
+        (!f.season || t.season === f.season) &&
+        (!f.state  || t.state  === f.state)  &&
+        (!f.city   || t.city   === f.city)
+      );
+      renderTeams(list);
+      document.getElementById('add-team-count').textContent = list.length + ' team' + (list.length !== 1 ? 's' : '');
+      document.getElementById('add-team-clear').style.display = hasActiveFilters(f) ? 'inline' : 'none';
+    }
+
+    function renderTeams(list) {
+      const container = document.getElementById('add-team-list');
+      if (list.length === 0) {
+        container.innerHTML = '<p class="add-team-empty">No teams match your filters.</p>';
+        return;
+      }
+      container.innerHTML = list.map(t => `
+        <a href="team.html" class="team-item">
+          <div class="team-item-icon">
+            <span class="team-item-initials">${t.initials}</span>
+          </div>
+          <div class="team-item-body">
+            <div class="team-item-top">
+              <span class="team-item-name">${t.name}</span>
+              <span class="add-team-admin-pill">${t.admin}</span>
+            </div>
+            <p class="team-item-meta">${t.sport} &middot; ${t.season} &middot; ${t.level} &middot; ${t.gender}</p>
+            <p class="team-item-location">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              ${t.city}, ${t.state}
+            </p>
+          </div>
+          <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+      `).join('');
+    }
+
+    applyFilters();
+
+    document.getElementById('add-team-search').addEventListener('input', applyFilters);
+    document.getElementById('filter-sport').addEventListener('change', applyFilters);
+    document.getElementById('filter-season').addEventListener('change', applyFilters);
+    document.getElementById('filter-state').addEventListener('change', applyFilters);
+    document.getElementById('filter-city').addEventListener('change', applyFilters);
+
+    document.getElementById('add-team-clear').addEventListener('click', () => {
+      document.getElementById('add-team-search').value = '';
+      ['filter-sport','filter-season','filter-state','filter-city'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

@@ -993,6 +993,7 @@ footer {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-decoration: none;
   border: none;
   padding: 14px 32px;
   cursor: pointer;
@@ -6485,6 +6486,8 @@ footer {
   gap: 14px;
   padding: 14px 16px;
   border: 1.5px solid var(--gray-200);
+  text-decoration: none;
+  color: inherit;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
@@ -6547,6 +6550,12 @@ footer {
   font-size: 12px;
   font-weight: 500;
   color: var(--gray-600);
+}
+
+.add-team-admin-pill {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-500);
 }
 
 .add-team-empty {
