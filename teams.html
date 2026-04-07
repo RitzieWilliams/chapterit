@@ -201,6 +201,38 @@
         <input type="text" class="add-team-search" id="add-team-search" placeholder="Search by name, sport, or city…" autocomplete="off">
       </div>
 
+      <div class="add-team-filters">
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-sport">
+            <option value="">Sport</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-season">
+            <option value="">Season</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-state">
+            <option value="">State</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="add-team-filter-wrap">
+          <select class="add-team-filter" id="filter-city">
+            <option value="">City</option>
+          </select>
+          <svg class="add-team-filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+
+      <div class="add-team-results-bar">
+        <span id="add-team-count"></span>
+        <button class="add-team-clear" id="add-team-clear" style="display:none">Clear filters</button>
+      </div>
+
       <div class="add-team-list" id="add-team-list">
         <!-- populated by JS -->
       </div>
@@ -216,24 +248,71 @@
   <script src="js/main.js"></script>
   <script>
     const TEAMS_DATA = [
-      { initials:'LH', name:'Lincoln Hornets',       sport:'Basketball', level:'Varsity',     gender:'Boys',  city:'Chicago',    state:'IL', admin:'Marcus Webb',    date:'2019' },
-      { initials:'MF', name:'Metro FC Academy',      sport:'Soccer',     level:'Club',        gender:'Girls', city:'Evanston',   state:'IL', admin:'Sofia Reyes',    date:'2021' },
-      { initials:'RB', name:'Roosevelt Bears',       sport:'Baseball',   level:'Middle School',gender:'Boys', city:'Oak Park',   state:'IL', admin:'Derek Santos',   date:'2020' },
-      { initials:'NT', name:'Northside Tigers',      sport:'Football',   level:'JV',          gender:'Boys',  city:'Waukegan',   state:'IL', admin:'James Carter',   date:'2022' },
-      { initials:'LS', name:'Lakewood Storm',        sport:'Volleyball', level:'Club',        gender:'Girls', city:'Naperville', state:'IL', admin:'Priya Mehta',    date:'2018' },
-      { initials:'EE', name:'Eastside Eagles',       sport:'Basketball', level:'AAU',         gender:'Boys',  city:'Gary',       state:'IN', admin:'Tony Williams',  date:'2023' },
-      { initials:'CP', name:'Crestwood Panthers',    sport:'Soccer',     level:'Youth',       gender:'Co-Ed', city:'Aurora',     state:'IL', admin:'Lisa Park',      date:'2021' },
-      { initials:'WF', name:'Westlake Falcons',      sport:'Track',      level:'Varsity',     gender:'Girls', city:'Joliet',     state:'IL', admin:'Sandra Brooks',  date:'2017' },
-      { initials:'RR', name:'Riverside Rockets',     sport:'Swimming',   level:'Club',        gender:'Co-Ed', city:'Elgin',      state:'IL', admin:'Brian Torres',   date:'2020' },
-      { initials:'HC', name:'Highland Chargers',     sport:'Baseball',   level:'Varsity',     gender:'Boys',  city:'Schaumburg', state:'IL', admin:'Kevin Nash',     date:'2016' },
+      { initials:'LH', name:'Lincoln Hornets',    sport:'Basketball', season:'Winter', level:'Varsity',      gender:'Boys',  city:'Chicago',    state:'IL', admin:'Marcus Webb'   },
+      { initials:'MF', name:'Metro FC Academy',   sport:'Soccer',     season:'Fall',   level:'Club',         gender:'Girls', city:'Evanston',   state:'IL', admin:'Sofia Reyes'   },
+      { initials:'RB', name:'Roosevelt Bears',    sport:'Baseball',   season:'Spring', level:'Middle School',gender:'Boys',  city:'Oak Park',   state:'IL', admin:'Derek Santos'  },
+      { initials:'NT', name:'Northside Tigers',   sport:'Football',   season:'Fall',   level:'JV',           gender:'Boys',  city:'Waukegan',   state:'IL', admin:'James Carter'  },
+      { initials:'LS', name:'Lakewood Storm',     sport:'Volleyball', season:'Fall',   level:'Club',         gender:'Girls', city:'Naperville', state:'IL', admin:'Priya Mehta'   },
+      { initials:'EE', name:'Eastside Eagles',    sport:'Basketball', season:'Winter', level:'AAU',          gender:'Boys',  city:'Gary',       state:'IN', admin:'Tony Williams' },
+      { initials:'CP', name:'Crestwood Panthers', sport:'Soccer',     season:'Spring', level:'Youth',        gender:'Co-Ed', city:'Aurora',     state:'IL', admin:'Lisa Park'     },
+      { initials:'WF', name:'Westlake Falcons',   sport:'Track',      season:'Spring', level:'Varsity',      gender:'Girls', city:'Joliet',     state:'IL', admin:'Sandra Brooks' },
+      { initials:'RR', name:'Riverside Rockets',  sport:'Swimming',   season:'Winter', level:'Club',         gender:'Co-Ed', city:'Elgin',      state:'IL', admin:'Brian Torres'  },
+      { initials:'HC', name:'Highland Chargers',  sport:'Baseball',   season:'Spring', level:'Varsity',      gender:'Boys',  city:'Schaumburg', state:'IL', admin:'Kevin Nash'    },
+      { initials:'BW', name:'Bridgeview Warriors',sport:'Basketball', season:'Winter', level:'Varsity',      gender:'Girls', city:'Bridgeview', state:'IL', admin:'Dana Miles'    },
+      { initials:'SA', name:'Southside Aces',     sport:'Tennis',     season:'Summer', level:'Club',         gender:'Co-Ed', city:'Chicago',    state:'IL', admin:'Marco Diaz'    },
+      { initials:'GH', name:'Greenfield Hawks',   sport:'Football',   season:'Fall',   level:'Varsity',      gender:'Boys',  city:'Rockford',   state:'IL', admin:'Tanya Ford'    },
+      { initials:'PL', name:'Plainfield Lions',   sport:'Soccer',     season:'Fall',   level:'Varsity',      gender:'Boys',  city:'Plainfield', state:'IL', admin:'Chris Bell'    },
+      { initials:'MK', name:'Muncie Komets',      sport:'Hockey',     season:'Winter', level:'AAU',          gender:'Boys',  city:'Muncie',     state:'IN', admin:'Ray Kowalski'  },
     ];
 
-    let filtered = [...TEAMS_DATA];
+    // Populate filter dropdowns from data
+    function populateFilter(id, key) {
+      const sel = document.getElementById(id);
+      const vals = [...new Set(TEAMS_DATA.map(t => t[key]))].sort();
+      vals.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        sel.appendChild(opt);
+      });
+    }
+    populateFilter('filter-sport',  'sport');
+    populateFilter('filter-season', 'season');
+    populateFilter('filter-state',  'state');
+    populateFilter('filter-city',   'city');
+
+    function getFilters() {
+      return {
+        q:      document.getElementById('add-team-search').value.toLowerCase().trim(),
+        sport:  document.getElementById('filter-sport').value,
+        season: document.getElementById('filter-season').value,
+        state:  document.getElementById('filter-state').value,
+        city:   document.getElementById('filter-city').value,
+      };
+    }
+
+    function hasActiveFilters(f) {
+      return f.q || f.sport || f.season || f.state || f.city;
+    }
+
+    function applyFilters() {
+      const f = getFilters();
+      const list = TEAMS_DATA.filter(t =>
+        (!f.q      || t.name.toLowerCase().includes(f.q) || t.sport.toLowerCase().includes(f.q) || t.city.toLowerCase().includes(f.q)) &&
+        (!f.sport  || t.sport  === f.sport)  &&
+        (!f.season || t.season === f.season) &&
+        (!f.state  || t.state  === f.state)  &&
+        (!f.city   || t.city   === f.city)
+      );
+      renderTeams(list);
+      document.getElementById('add-team-count').textContent = list.length + ' team' + (list.length !== 1 ? 's' : '');
+      document.getElementById('add-team-clear').style.display = hasActiveFilters(f) ? 'inline' : 'none';
+    }
 
     function renderTeams(list) {
       const container = document.getElementById('add-team-list');
       if (list.length === 0) {
-        container.innerHTML = '<p class="add-team-empty">No teams match your search.</p>';
+        container.innerHTML = '<p class="add-team-empty">No teams match your filters.</p>';
         return;
       }
       container.innerHTML = list.map(t => `
@@ -243,7 +322,7 @@
           </div>
           <div class="add-team-item-body">
             <div class="add-team-item-name">${t.name}</div>
-            <div class="add-team-item-meta">${t.sport} &middot; ${t.level} &middot; ${t.gender}</div>
+            <div class="add-team-item-meta">${t.sport} &middot; ${t.season} &middot; ${t.level} &middot; ${t.gender}</div>
             <div class="add-team-item-location">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
@@ -259,16 +338,20 @@
       `).join('');
     }
 
-    renderTeams(TEAMS_DATA);
+    applyFilters();
 
-    document.getElementById('add-team-search').addEventListener('input', function() {
-      const q = this.value.toLowerCase().trim();
-      filtered = TEAMS_DATA.filter(t =>
-        t.name.toLowerCase().includes(q) ||
-        t.sport.toLowerCase().includes(q) ||
-        t.city.toLowerCase().includes(q)
-      );
-      renderTeams(filtered);
+    document.getElementById('add-team-search').addEventListener('input', applyFilters);
+    document.getElementById('filter-sport').addEventListener('change', applyFilters);
+    document.getElementById('filter-season').addEventListener('change', applyFilters);
+    document.getElementById('filter-state').addEventListener('change', applyFilters);
+    document.getElementById('filter-city').addEventListener('change', applyFilters);
+
+    document.getElementById('add-team-clear').addEventListener('click', () => {
+      document.getElementById('add-team-search').value = '';
+      ['filter-sport','filter-season','filter-state','filter-city'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      applyFilters();
     });
 
     const addTeamOverlay = document.getElementById('add-team-overlay');
@@ -281,7 +364,10 @@
     function closeAddTeam() {
       addTeamOverlay.classList.remove('is-open');
       document.getElementById('add-team-search').value = '';
-      renderTeams(TEAMS_DATA);
+      ['filter-sport','filter-season','filter-state','filter-city'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      applyFilters();
     }
 
     document.getElementById('add-team-close').addEventListener('click', closeAddTeam);
