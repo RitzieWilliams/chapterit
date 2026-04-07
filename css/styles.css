@@ -3312,6 +3312,56 @@ footer {
   border-color: var(--black);
 }
 
+.goal-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.goal-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: 1.5px solid var(--gray-200);
+  color: var(--gray-400);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.goal-edit-btn:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+/* ── Goal edit modal ──────────────────────────────── */
+.goal-edit-modal {
+  max-width: 460px;
+  padding: 36px 40px 40px;
+}
+
+.goal-edit-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.goal-edit-modal-header .modal-title {
+  margin: 0;
+}
+
+.goal-edit-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 /* ── Completed Goals subsection ───────────────────── */
 .goal-completed-section {
   display: none;
