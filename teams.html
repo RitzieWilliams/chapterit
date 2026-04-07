@@ -89,7 +89,7 @@
           <h2 class="teams-page-title">Teams</h2>
           <p class="teams-page-desc">Teams you play on, coach, or manage.</p>
         </div>
-        <button class="btn-dash-primary" onclick="window.location='team-create.html'">Create Team</button>
+        <button class="btn-dash-primary" id="add-team-btn">Add Team</button>
       </div>
 
       <!-- Playing on -->
@@ -178,6 +178,115 @@
 
   </main>
 
+  <!-- ─── ADD TEAM MODAL ──────────────────────────────── -->
+  <div class="modal-overlay" id="add-team-overlay" role="dialog" aria-modal="true" aria-labelledby="add-team-title">
+    <div class="modal add-team-modal">
+
+      <div class="add-team-modal-header">
+        <div>
+          <h2 class="modal-title" id="add-team-title">Add Team</h2>
+          <p class="add-team-modal-sub">Find your team and request to join.</p>
+        </div>
+        <button class="add-team-close" id="add-team-close" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="add-team-search-wrap">
+        <svg class="add-team-search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" class="add-team-search" id="add-team-search" placeholder="Search by name, sport, or city…" autocomplete="off">
+      </div>
+
+      <div class="add-team-list" id="add-team-list">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="add-team-footer">
+        <span class="add-team-footer-text">Don't see your team?</span>
+        <a href="team-create.html" class="add-team-create-link">Create a new team</a>
+      </div>
+
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    const TEAMS_DATA = [
+      { initials:'LH', name:'Lincoln Hornets',       sport:'Basketball', level:'Varsity',     gender:'Boys',  city:'Chicago',    state:'IL', admin:'Marcus Webb',    date:'2019' },
+      { initials:'MF', name:'Metro FC Academy',      sport:'Soccer',     level:'Club',        gender:'Girls', city:'Evanston',   state:'IL', admin:'Sofia Reyes',    date:'2021' },
+      { initials:'RB', name:'Roosevelt Bears',       sport:'Baseball',   level:'Middle School',gender:'Boys', city:'Oak Park',   state:'IL', admin:'Derek Santos',   date:'2020' },
+      { initials:'NT', name:'Northside Tigers',      sport:'Football',   level:'JV',          gender:'Boys',  city:'Waukegan',   state:'IL', admin:'James Carter',   date:'2022' },
+      { initials:'LS', name:'Lakewood Storm',        sport:'Volleyball', level:'Club',        gender:'Girls', city:'Naperville', state:'IL', admin:'Priya Mehta',    date:'2018' },
+      { initials:'EE', name:'Eastside Eagles',       sport:'Basketball', level:'AAU',         gender:'Boys',  city:'Gary',       state:'IN', admin:'Tony Williams',  date:'2023' },
+      { initials:'CP', name:'Crestwood Panthers',    sport:'Soccer',     level:'Youth',       gender:'Co-Ed', city:'Aurora',     state:'IL', admin:'Lisa Park',      date:'2021' },
+      { initials:'WF', name:'Westlake Falcons',      sport:'Track',      level:'Varsity',     gender:'Girls', city:'Joliet',     state:'IL', admin:'Sandra Brooks',  date:'2017' },
+      { initials:'RR', name:'Riverside Rockets',     sport:'Swimming',   level:'Club',        gender:'Co-Ed', city:'Elgin',      state:'IL', admin:'Brian Torres',   date:'2020' },
+      { initials:'HC', name:'Highland Chargers',     sport:'Baseball',   level:'Varsity',     gender:'Boys',  city:'Schaumburg', state:'IL', admin:'Kevin Nash',     date:'2016' },
+    ];
+
+    let filtered = [...TEAMS_DATA];
+
+    function renderTeams(list) {
+      const container = document.getElementById('add-team-list');
+      if (list.length === 0) {
+        container.innerHTML = '<p class="add-team-empty">No teams match your search.</p>';
+        return;
+      }
+      container.innerHTML = list.map(t => `
+        <div class="add-team-item">
+          <div class="team-item-icon add-team-item-icon">
+            <span class="team-item-initials">${t.initials}</span>
+          </div>
+          <div class="add-team-item-body">
+            <div class="add-team-item-name">${t.name}</div>
+            <div class="add-team-item-meta">${t.sport} &middot; ${t.level} &middot; ${t.gender}</div>
+            <div class="add-team-item-location">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              ${t.city}, ${t.state}
+            </div>
+          </div>
+          <div class="add-team-item-right">
+            <span class="add-team-admin-label">Admin</span>
+            <span class="add-team-admin-name">${t.admin}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    renderTeams(TEAMS_DATA);
+
+    document.getElementById('add-team-search').addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      filtered = TEAMS_DATA.filter(t =>
+        t.name.toLowerCase().includes(q) ||
+        t.sport.toLowerCase().includes(q) ||
+        t.city.toLowerCase().includes(q)
+      );
+      renderTeams(filtered);
+    });
+
+    const addTeamOverlay = document.getElementById('add-team-overlay');
+
+    document.getElementById('add-team-btn').addEventListener('click', () => {
+      addTeamOverlay.classList.add('is-open');
+      document.getElementById('add-team-search').focus();
+    });
+
+    function closeAddTeam() {
+      addTeamOverlay.classList.remove('is-open');
+      document.getElementById('add-team-search').value = '';
+      renderTeams(TEAMS_DATA);
+    }
+
+    document.getElementById('add-team-close').addEventListener('click', closeAddTeam);
+    addTeamOverlay.addEventListener('click', e => { if (e.target === addTeamOverlay) closeAddTeam(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAddTeam(); });
+  </script>
 </body>
 </html>
