@@ -6144,6 +6144,31 @@ footer {
   color: var(--black);
 }
 
+.move-modal-item-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.move-modal-item-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+}
+
+.move-modal-item-type--game {
+  background: var(--black);
+  color: var(--white);
+}
+
+.move-modal-item-type--event {
+  border: 1.5px solid var(--gray-300);
+  color: var(--gray-500);
+}
+
 .move-modal-item-date {
   font-size: 11px;
   font-weight: 500;
