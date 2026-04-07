@@ -136,20 +136,21 @@
           <h3 class="overview-section-title">Stats</h3>
           <span class="overview-section-count" id="stat-count">5</span>
         </div>
-      </div>
-
-      <form class="stat-add-form" onsubmit="addStat(event)">
-        <input type="text" class="stat-field stat-field--title" id="stat-title-input" placeholder="Stat (e.g. Points)" autocomplete="off" required>
-        <input type="text" class="stat-field stat-field--value" id="stat-value-input" placeholder="Value" autocomplete="off" required>
-        <button type="submit" class="btn-section-primary">
+        <button class="btn-section-primary" onclick="openStatModal()">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           Add Stat
         </button>
-      </form>
+      </div>
 
       <div class="stat-grid" id="stat-grid">
 
         <div class="stat-cell">
+          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
           <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -158,6 +159,12 @@
         </div>
 
         <div class="stat-cell">
+          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
           <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -166,6 +173,12 @@
         </div>
 
         <div class="stat-cell">
+          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
           <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -174,6 +187,12 @@
         </div>
 
         <div class="stat-cell">
+          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
           <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -182,6 +201,12 @@
         </div>
 
         <div class="stat-cell">
+          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
           <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -277,34 +302,96 @@
 
   </main>
 
+  <!-- ─── STAT MODAL ──────────────────────────────────── -->
+  <div class="modal-overlay" id="stat-modal-overlay" onclick="closeStatModal()">
+    <div class="modal goal-edit-modal" onclick="event.stopPropagation()">
+
+      <div class="goal-edit-modal-header">
+        <h2 class="modal-title" id="stat-modal-title">Add Stat</h2>
+        <button class="dash-drawer-close" onclick="closeStatModal()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <label class="goal-complete-reflection-label" for="stat-modal-label">Stat</label>
+      <input type="text" id="stat-modal-label" class="create-input" placeholder="e.g. Points">
+
+      <label class="goal-complete-reflection-label" for="stat-modal-value" style="margin-top:20px;">Value</label>
+      <input type="text" id="stat-modal-value" class="create-input" placeholder="e.g. 24">
+
+      <div class="goal-edit-footer">
+        <button class="btn-page-ghost" onclick="closeStatModal()">Cancel</button>
+        <button class="btn-dash-primary" id="stat-modal-save" onclick="saveStatModal()">Add</button>
+      </div>
+
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
-    function addStat(e) {
-      e.preventDefault();
-      const titleInput = document.getElementById('stat-title-input');
-      const valueInput = document.getElementById('stat-value-input');
-      const title = titleInput.value.trim();
-      const value = valueInput.value.trim();
-      if (!title || !value) return;
+    let _editingStatCell = null;
 
-      const cell = document.createElement('div');
-      cell.className = 'stat-cell stat-cell--new';
-      cell.innerHTML = `
-        <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-        <span class="stat-cell-value">${value}</span>
-        <span class="stat-cell-label">${title}</span>`;
+    function openStatModal() {
+      _editingStatCell = null;
+      document.getElementById('stat-modal-title').textContent = 'Add Stat';
+      document.getElementById('stat-modal-save').textContent = 'Add';
+      document.getElementById('stat-modal-label').value = '';
+      document.getElementById('stat-modal-value').value = '';
+      document.getElementById('stat-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('stat-modal-label').focus();
+    }
 
-      document.getElementById('stat-grid').appendChild(cell);
-      requestAnimationFrame(() => cell.classList.remove('stat-cell--new'));
+    function openStatEdit(btn) {
+      const cell = btn.closest('.stat-cell');
+      _editingStatCell = cell;
+      document.getElementById('stat-modal-title').textContent = 'Edit Stat';
+      document.getElementById('stat-modal-save').textContent = 'Save';
+      document.getElementById('stat-modal-label').value = cell.querySelector('.stat-cell-label').textContent.trim();
+      document.getElementById('stat-modal-value').value = cell.querySelector('.stat-cell-value').textContent.trim();
+      document.getElementById('stat-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('stat-modal-label').focus();
+    }
 
-      titleInput.value = '';
-      valueInput.value = '';
-      titleInput.focus();
-      syncStatCount();
+    function closeStatModal() {
+      document.getElementById('stat-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+      _editingStatCell = null;
+    }
+
+    function saveStatModal() {
+      const label = document.getElementById('stat-modal-label').value.trim();
+      const value = document.getElementById('stat-modal-value').value.trim();
+      if (!label) { document.getElementById('stat-modal-label').focus(); return; }
+      if (!value) { document.getElementById('stat-modal-value').focus(); return; }
+
+      if (_editingStatCell) {
+        _editingStatCell.querySelector('.stat-cell-label').textContent = label;
+        _editingStatCell.querySelector('.stat-cell-value').textContent = value;
+      } else {
+        const cell = document.createElement('div');
+        cell.className = 'stat-cell stat-cell--new';
+        cell.innerHTML = `
+          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+          </button>
+          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <span class="stat-cell-value">${value}</span>
+          <span class="stat-cell-label">${label}</span>`;
+        document.getElementById('stat-grid').appendChild(cell);
+        requestAnimationFrame(() => cell.classList.remove('stat-cell--new'));
+        syncStatCount();
+      }
+
+      closeStatModal();
     }
 
     function removeStat(btn) {
