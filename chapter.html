@@ -610,24 +610,40 @@
 
         <div class="milestone-grid" id="milestone-grid">
 
-          <div class="milestone-card">
+          <div class="milestone-card" id="milestone-1">
             <div class="milestone-card-top">
               <div class="milestone-check">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span class="milestone-achieved-label">Achieved</span>
+              <div class="milestone-card-top-right">
+                <span class="milestone-achieved-label">Achieved</span>
+                <button class="milestone-edit-btn" onclick="openMilestoneEdit('milestone-1')" aria-label="Edit milestone">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+              </div>
             </div>
             <h4 class="milestone-title">First Varsity Start</h4>
             <p class="milestone-desc">Earned the starting position in the Season Opener against Riverside HS.</p>
             <p class="milestone-date">Oct 5, 2024</p>
           </div>
 
-          <div class="milestone-card">
+          <div class="milestone-card" id="milestone-2">
             <div class="milestone-card-top">
               <div class="milestone-check">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <span class="milestone-achieved-label">Achieved</span>
+              <div class="milestone-card-top-right">
+                <span class="milestone-achieved-label">Achieved</span>
+                <button class="milestone-edit-btn" onclick="openMilestoneEdit('milestone-2')" aria-label="Edit milestone">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+              </div>
             </div>
             <h4 class="milestone-title">20-Point Average Reached</h4>
             <p class="milestone-desc">Crossed the 20 PPG threshold after the Home vs. Eastview game.</p>
@@ -1031,6 +1047,34 @@
     </div>
   </div>
 
+  <!-- ─── MILESTONE EDIT MODAL ─────────────────────────── -->
+  <div class="modal-overlay" id="milestone-edit-overlay" onclick="closeMilestoneEdit()">
+    <div class="modal goal-edit-modal" onclick="event.stopPropagation()">
+
+      <div class="goal-edit-modal-header">
+        <h2 class="modal-title">Edit Milestone</h2>
+        <button class="dash-drawer-close" onclick="closeMilestoneEdit()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <label class="goal-complete-reflection-label" for="milestone-edit-title">Milestone</label>
+      <input type="text" id="milestone-edit-title" class="create-input" placeholder="What did you achieve?">
+
+      <label class="goal-complete-reflection-label" for="milestone-edit-desc" style="margin-top:20px;">Description <span style="font-weight:300;text-transform:none;letter-spacing:0;color:var(--gray-400);">— optional</span></label>
+      <input type="text" id="milestone-edit-desc" class="create-input" placeholder="Add more detail">
+
+      <label class="goal-complete-reflection-label" for="milestone-edit-date" style="margin-top:20px;">Date</label>
+      <input type="text" id="milestone-edit-date" class="create-input" placeholder="e.g. Oct 5, 2024">
+
+      <div class="goal-edit-footer">
+        <button class="btn-page-ghost" onclick="closeMilestoneEdit()">Cancel</button>
+        <button class="btn-dash-primary" onclick="saveMilestoneEdit()">Save</button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ─── SHARE MODAL ──────────────────────────────────── -->
   <div class="modal-overlay" id="share-modal-overlay" onclick="closeShareModal()">
     <div class="modal share-modal" onclick="event.stopPropagation()">
@@ -1261,6 +1305,43 @@
       }
 
       closeGoalEdit();
+    }
+
+    // ── Milestone edit modal ────────────────────────────────
+    let _editingMilestoneId = null;
+
+    function openMilestoneEdit(id) {
+      const card = document.getElementById(id);
+      if (!card) return;
+      _editingMilestoneId = id;
+      document.getElementById('milestone-edit-title').value = card.querySelector('.milestone-title').textContent.trim();
+      const descEl = card.querySelector('.milestone-desc');
+      document.getElementById('milestone-edit-desc').value = descEl ? descEl.textContent.trim() : '';
+      const dateEl = card.querySelector('.milestone-date');
+      document.getElementById('milestone-edit-date').value = dateEl ? dateEl.textContent.trim() : '';
+      document.getElementById('milestone-edit-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('milestone-edit-title').focus();
+    }
+
+    function closeMilestoneEdit() {
+      document.getElementById('milestone-edit-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+      _editingMilestoneId = null;
+    }
+
+    function saveMilestoneEdit() {
+      const id = _editingMilestoneId;
+      if (!id) return;
+      const newTitle = document.getElementById('milestone-edit-title').value.trim();
+      if (!newTitle) { document.getElementById('milestone-edit-title').focus(); return; }
+      const card = document.getElementById(id);
+      card.querySelector('.milestone-title').textContent = newTitle;
+      const descEl = card.querySelector('.milestone-desc');
+      if (descEl) descEl.textContent = document.getElementById('milestone-edit-desc').value.trim();
+      const dateEl = card.querySelector('.milestone-date');
+      if (dateEl) dateEl.textContent = document.getElementById('milestone-edit-date').value.trim();
+      closeMilestoneEdit();
     }
 
     // ── Goal complete modal state ───────────────────────────
