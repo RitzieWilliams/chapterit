@@ -145,71 +145,71 @@
       <div class="stat-grid" id="stat-grid">
 
         <div class="stat-cell">
-          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
+          <div class="stat-cell-menu">
+            <button class="stat-cell-overflow" onclick="toggleStatMenu(this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="stat-cell-dropdown">
+              <button class="stat-dropdown-item" onclick="openStatEdit(this)">Edit</button>
+              <button class="stat-dropdown-item stat-dropdown-item--delete" onclick="removeStat(this)">Delete</button>
+            </div>
+          </div>
           <span class="stat-cell-value">24</span>
           <span class="stat-cell-label">Points</span>
         </div>
 
         <div class="stat-cell">
-          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
+          <div class="stat-cell-menu">
+            <button class="stat-cell-overflow" onclick="toggleStatMenu(this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="stat-cell-dropdown">
+              <button class="stat-dropdown-item" onclick="openStatEdit(this)">Edit</button>
+              <button class="stat-dropdown-item stat-dropdown-item--delete" onclick="removeStat(this)">Delete</button>
+            </div>
+          </div>
           <span class="stat-cell-value">8</span>
           <span class="stat-cell-label">Rebounds</span>
         </div>
 
         <div class="stat-cell">
-          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
+          <div class="stat-cell-menu">
+            <button class="stat-cell-overflow" onclick="toggleStatMenu(this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="stat-cell-dropdown">
+              <button class="stat-dropdown-item" onclick="openStatEdit(this)">Edit</button>
+              <button class="stat-dropdown-item stat-dropdown-item--delete" onclick="removeStat(this)">Delete</button>
+            </div>
+          </div>
           <span class="stat-cell-value">5</span>
           <span class="stat-cell-label">Assists</span>
         </div>
 
         <div class="stat-cell">
-          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
+          <div class="stat-cell-menu">
+            <button class="stat-cell-overflow" onclick="toggleStatMenu(this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="stat-cell-dropdown">
+              <button class="stat-dropdown-item" onclick="openStatEdit(this)">Edit</button>
+              <button class="stat-dropdown-item stat-dropdown-item--delete" onclick="removeStat(this)">Delete</button>
+            </div>
+          </div>
           <span class="stat-cell-value">3</span>
           <span class="stat-cell-label">Steals</span>
         </div>
 
         <div class="stat-cell">
-          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
+          <div class="stat-cell-menu">
+            <button class="stat-cell-overflow" onclick="toggleStatMenu(this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="stat-cell-dropdown">
+              <button class="stat-dropdown-item" onclick="openStatEdit(this)">Edit</button>
+              <button class="stat-dropdown-item stat-dropdown-item--delete" onclick="removeStat(this)">Delete</button>
+            </div>
+          </div>
           <span class="stat-cell-value">2</span>
           <span class="stat-cell-label">Blocks</span>
         </div>
@@ -329,7 +329,33 @@
 
   <script src="js/main.js"></script>
   <script>
+    const STAT_MENU_HTML = `
+      <div class="stat-cell-menu">
+        <button class="stat-cell-overflow" onclick="toggleStatMenu(this)" aria-label="Options">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+        </button>
+        <div class="stat-cell-dropdown">
+          <button class="stat-dropdown-item" onclick="openStatEdit(this)">Edit</button>
+          <button class="stat-dropdown-item stat-dropdown-item--delete" onclick="removeStat(this)">Delete</button>
+        </div>
+      </div>`;
+
     let _editingStatCell = null;
+
+    // Close any open stat dropdown when clicking outside
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.stat-cell-menu')) {
+        document.querySelectorAll('.stat-cell-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+      }
+    });
+
+    function toggleStatMenu(btn) {
+      const dropdown = btn.nextElementSibling;
+      const isOpen = dropdown.classList.contains('is-open');
+      // Close all others first
+      document.querySelectorAll('.stat-cell-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+      if (!isOpen) dropdown.classList.add('is-open');
+    }
 
     function openStatModal() {
       _editingStatCell = null;
@@ -344,6 +370,7 @@
 
     function openStatEdit(btn) {
       const cell = btn.closest('.stat-cell');
+      btn.closest('.stat-cell-dropdown').classList.remove('is-open');
       _editingStatCell = cell;
       document.getElementById('stat-modal-title').textContent = 'Edit Stat';
       document.getElementById('stat-modal-save').textContent = 'Save';
@@ -372,18 +399,7 @@
       } else {
         const cell = document.createElement('div');
         cell.className = 'stat-cell stat-cell--new';
-        cell.innerHTML = `
-          <button class="stat-cell-edit" onclick="openStatEdit(this)" aria-label="Edit">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="stat-cell-remove" onclick="removeStat(this)" aria-label="Remove">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
+        cell.innerHTML = `${STAT_MENU_HTML}
           <span class="stat-cell-value">${value}</span>
           <span class="stat-cell-label">${label}</span>`;
         document.getElementById('stat-grid').appendChild(cell);

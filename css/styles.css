@@ -3788,15 +3788,18 @@ footer {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.stat-cell-edit {
+.stat-cell-menu {
   position: absolute;
   top: 10px;
-  left: 10px;
-  width: 22px;
-  height: 22px;
+  right: 10px;
+}
+
+.stat-cell-overflow {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
   background: none;
   border: none;
   color: var(--gray-400);
@@ -3806,29 +3809,43 @@ footer {
   transition: opacity 0.15s ease, color 0.15s ease;
 }
 
-.stat-cell:hover .stat-cell-edit { opacity: 1; }
-.stat-cell-edit:hover { color: var(--black); }
+.stat-cell:hover .stat-cell-overflow { opacity: 1; }
+.stat-cell-overflow:hover { color: var(--black); }
 
-.stat-cell-remove {
+.stat-cell-dropdown {
+  display: none;
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 22px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--gray-300);
-  opacity: 0;
-  transition: opacity 0.15s ease, color 0.15s ease;
-  padding: 0;
+  top: 100%;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  min-width: 100px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.stat-cell:hover .stat-cell-remove { opacity: 1; }
-.stat-cell-remove:hover { color: var(--black); }
+.stat-cell-dropdown.is-open { display: block; }
+
+.stat-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: var(--black);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.stat-dropdown-item:hover { background: var(--gray-100); }
+
+.stat-dropdown-item--delete { color: #c0392b; }
+.stat-dropdown-item--delete:hover { background: #fdf0ef; }
+
 
 .stat-cell-value {
   font-family: 'Bebas Neue', sans-serif;
