@@ -114,6 +114,14 @@
           </svg>
           Edit
         </a>
+        <button class="moment-panel-action" onclick="openShareModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          Share
+        </button>
         <button class="moment-panel-action" onclick="openMoveModal()">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="5 9 2 12 5 15"/>
@@ -143,6 +151,47 @@
       </div>
 
     </aside>
+  </div>
+
+  <!-- ─── SHARE MODAL ────────────────────────────── -->
+  <div class="modal-overlay" id="share-modal-overlay" onclick="closeShareModal()">
+    <div class="modal share-modal" onclick="event.stopPropagation()">
+
+      <div class="share-modal-header">
+        <h2 class="modal-title">Share Moment</h2>
+        <button class="dash-drawer-close" onclick="closeShareModal()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <p class="share-modal-sub">Invite someone by email or copy a link to share directly.</p>
+
+      <div class="share-section">
+        <label class="share-label">Invite by Email</label>
+        <div class="share-email-row">
+          <input type="email" id="share-email-input" class="create-input share-email-input" placeholder="name@example.com">
+          <button class="btn-dash-primary share-send-btn" onclick="sendInvite()">Send</button>
+        </div>
+        <div class="share-sent-msg" id="share-sent-msg">Invite sent!</div>
+      </div>
+
+      <div class="share-divider"><span>or</span></div>
+
+      <div class="share-section">
+        <label class="share-label">Moment Link</label>
+        <div class="share-link-row">
+          <span class="share-link-text" id="share-link-text">chapterit.app/m/opening-tip-off</span>
+          <button class="btn-page-ghost share-copy-btn" id="share-copy-btn" onclick="copyLink()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- ─── DELETE MODAL ────────────────────────────── -->
@@ -232,6 +281,30 @@
 
   <script src="js/main.js"></script>
   <script>
+    function openShareModal() {
+      document.getElementById('share-modal-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeShareModal() {
+      document.getElementById('share-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+      document.getElementById('share-email-input').value = '';
+      document.getElementById('share-sent-msg').classList.remove('is-visible');
+    }
+    function sendInvite() {
+      const input = document.getElementById('share-email-input');
+      if (!input.value || !input.validity.valid) { input.focus(); return; }
+      document.getElementById('share-sent-msg').classList.add('is-visible');
+      input.value = '';
+    }
+    function copyLink() {
+      const link = document.getElementById('share-link-text').textContent;
+      navigator.clipboard.writeText(link).catch(() => {});
+      const btn = document.getElementById('share-copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link`, 2000);
+    }
+
     function openDeleteModal() {
       document.getElementById('delete-modal-overlay').classList.add('is-open');
       document.body.style.overflow = 'hidden';
@@ -252,6 +325,7 @@
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
+        closeShareModal();
         closeDeleteModal();
         closeMoveModal();
       }
