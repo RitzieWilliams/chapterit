@@ -45,6 +45,43 @@ const observer = new IntersectionObserver(
 
 fadeEls.forEach(el => observer.observe(el));
 
+// ─── NOTIFICATIONS PANEL ───────────────────────────
+const notifBtn     = document.getElementById('notif-btn');
+const notifPanel   = document.getElementById('notif-panel');
+const notifBdrop   = document.getElementById('notif-backdrop');
+
+function openNotifPanel() {
+  if (!notifPanel) return;
+  notifPanel.classList.add('is-open');
+  notifPanel.setAttribute('aria-hidden', 'false');
+  notifBdrop.classList.add('is-open');
+}
+function closeNotifPanel() {
+  if (!notifPanel) return;
+  notifPanel.classList.remove('is-open');
+  notifPanel.setAttribute('aria-hidden', 'true');
+  notifBdrop.classList.remove('is-open');
+}
+
+if (notifBtn) {
+  notifBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    notifPanel.classList.contains('is-open') ? closeNotifPanel() : openNotifPanel();
+  });
+}
+if (notifBdrop) notifBdrop.addEventListener('click', closeNotifPanel);
+
+const notifMarkAll = document.getElementById('notif-mark-all');
+if (notifMarkAll) {
+  notifMarkAll.addEventListener('click', () => {
+    document.querySelectorAll('.notif-item').forEach(el => el.classList.remove('notif-item--unread'));
+    document.querySelectorAll('.notif-dot').forEach(el => el.style.visibility = 'hidden');
+    const badge = document.querySelector('.dash-badge');
+    if (badge) badge.textContent = '0';
+    closeNotifPanel();
+  });
+}
+
 // ─── AUTH TABS ─────────────────────────────────────
 const tabs = document.querySelectorAll('.auth-tab');
 const panels = document.querySelectorAll('.auth-panel');

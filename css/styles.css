@@ -899,6 +899,27 @@ footer {
 /* Mobile add button — hidden on desktop */
 .dash-add-mobile {
   display: none;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
 }
 
 /* ── Mobile Drawer ──────────────────────────────── */
@@ -1613,6 +1634,94 @@ footer {
   border-right: none;
 }
 
+.season-summary-field--coach {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.season-summary-field--coach:hover {
+  background: var(--gray-100);
+}
+
+.season-coach-manage {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  transition: color 0.15s ease;
+}
+
+.season-summary-field--coach:hover .season-coach-manage {
+  color: var(--black);
+}
+
+/* Manage coach modal */
+.coach-current-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px solid var(--gray-200);
+  margin-bottom: 24px;
+}
+
+.coach-current-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.coach-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coach-remove-btn {
+  color: #e03131 !important;
+}
+
+.coach-remove-btn:hover {
+  color: #c92a2a !important;
+}
+
+.coach-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.coach-back-btn:hover {
+  color: var(--black);
+}
+
+.coach-select-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coach-select-meta {
+  display: block;
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: 2px;
+}
+
 .season-summary-label {
   font-size: 10px;
   font-weight: 700;
@@ -1693,6 +1802,16 @@ footer {
 .team-staff-action--remove:hover {
   color: #e03131;
   border-color: #e03131;
+}
+
+/* Staff row responsive */
+.people-row-info {
+  min-width: 0;
+}
+
+.staff-badge-mobile {
+  display: none;
+  margin-top: 5px;
 }
 
 /* Roster */
@@ -3455,6 +3574,25 @@ footer {
 
 .tl-add-btn {
   flex-shrink: 0;
+}
+
+.tl-add-mobile {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .timeline-filters {
@@ -5899,6 +6037,7 @@ footer {
   .dash-avatar-btn { display: none; }
   .btn-dash-primary { display: none; }
   .dash-add-mobile { display: flex; }
+  .tl-add-mobile { display: flex; }
   .dash-main { padding: 112px 24px 48px; }
   .chapters-title { font-size: 40px; }
   .chapter-item { grid-template-columns: 1fr auto; gap: 24px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
@@ -5939,6 +6078,8 @@ footer {
   .profile-fields { grid-template-columns: 1fr 1fr; }
   .profile-page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .people-row { grid-template-columns: 40px 1fr auto auto; gap: 12px; padding: 14px 16px; }
+  .staff-badge-desktop { display: none; }
+  .staff-badge-mobile { display: inline-block; }
   .create-form-panel { padding: 112px 24px 48px; }
   .create-dates { grid-template-columns: 1fr; gap: 0; }
   .sched-header { display: none; }
@@ -6595,5 +6736,150 @@ footer {
 @media (max-width: 540px) {
   .add-team-filters {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Notifications Panel ────────────────────────── */
+.notif-panel {
+  position: fixed;
+  top: 65px;
+  right: 20px;
+  width: 360px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  z-index: 250;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.notif-panel.is-open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.notif-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.notif-panel-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--black);
+}
+
+.notif-mark-all {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.notif-mark-all:hover {
+  color: var(--black);
+}
+
+.notif-list {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.notif-item {
+  display: grid;
+  grid-template-columns: 32px 1fr 10px;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gray-200);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.notif-item:last-child {
+  border-bottom: none;
+}
+
+.notif-item:hover {
+  background: var(--gray-100);
+}
+
+.notif-item--unread {
+  background: #fafafa;
+}
+
+.notif-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-icon--star    { background: #fff8e1; color: #f59f00; }
+.notif-icon--request { background: #e8f4fd; color: #1971c2; }
+.notif-icon--tag     { background: #f3f0ff; color: #7048e8; }
+
+.notif-body {
+  min-width: 0;
+}
+
+.notif-text {
+  font-size: 13px;
+  color: var(--black);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.notif-text strong {
+  font-weight: 600;
+}
+
+.notif-time {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+.notif-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--black);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.notif-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 249;
+  display: none;
+}
+
+.notif-backdrop.is-open {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .notif-panel {
+    right: 0;
+    left: 0;
+    width: 100%;
+    top: 61px;
   }
 }
