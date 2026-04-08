@@ -4889,12 +4889,34 @@ footer {
 .coll-modal-footer {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 12px;
   padding: 20px 36px;
   border-top: 1px solid var(--gray-200);
   flex-shrink: 0;
 }
+
+.coll-modal-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coll-delete-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.15s ease;
+}
+
+.coll-delete-btn:hover { opacity: 0.7; }
 
 /* ─── CREATE CHAPTER ──────────────────────────────── */
 .create-layout {

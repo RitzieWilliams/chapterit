@@ -1384,8 +1384,11 @@
 
       <!-- Footer -->
       <div class="coll-modal-footer">
-        <button class="btn-page-ghost" onclick="closeNewCollection()">Cancel</button>
-        <button class="btn-dash-primary" onclick="saveNewCollection()">Create Collection</button>
+        <button class="coll-delete-btn" id="coll-delete-btn" onclick="deleteCollection()">Delete</button>
+        <div class="coll-modal-footer-right">
+          <button class="btn-page-ghost" onclick="closeNewCollection()">Cancel</button>
+          <button class="btn-dash-primary" onclick="saveNewCollection()">Create Collection</button>
+        </div>
       </div>
 
     </div>
@@ -1864,6 +1867,7 @@
     function openNewCollection() {
       _collEditCard = null;
       document.querySelector('#coll-overlay .btn-dash-primary').textContent = 'Create Collection';
+      document.getElementById('coll-delete-btn').style.display = 'none';
       document.getElementById('coll-overlay').classList.add('is-open');
       document.body.style.overflow = 'hidden';
       setTimeout(() => document.getElementById('coll-name-input').focus(), 100);
@@ -1871,6 +1875,7 @@
 
     function openEditCollection(card) {
       _collEditCard = card;
+      document.getElementById('coll-delete-btn').style.display = '';
 
       // Pre-fill name
       const name = card.dataset.collName || '';
@@ -1977,6 +1982,15 @@
         if (countEl) countEl.textContent = grid.querySelectorAll('.collection-card').length;
       }
 
+      closeNewCollection();
+    }
+
+    function deleteCollection() {
+      if (!_collEditCard) return;
+      const grid = document.querySelector('.collections-grid');
+      _collEditCard.remove();
+      const countEl = document.querySelector('.overview-section[data-section="collections"] .overview-section-count');
+      if (countEl) countEl.textContent = grid.querySelectorAll('.collection-card').length;
       closeNewCollection();
     }
 
