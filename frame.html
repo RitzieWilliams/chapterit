@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -217,6 +217,12 @@
               </svg>
               Share
             </button>
+            <button class="frame-action-customize" onclick="openCustomize('marcus')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+              </svg>
+              Customize
+            </button>
             <a href="chapter.html" class="frame-action-chapter">
               View Chapter
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -290,6 +296,12 @@
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
               </svg>
               Share
+            </button>
+            <button class="frame-action-customize" onclick="openCustomize('emma')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+              </svg>
+              Customize
             </button>
             <a href="#" class="frame-action-chapter">
               View Chapter
@@ -365,6 +377,12 @@
               </svg>
               Share
             </button>
+            <button class="frame-action-customize" onclick="openCustomize('tyler')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+              </svg>
+              Customize
+            </button>
             <a href="#" class="frame-action-chapter">
               View Chapter
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -377,7 +395,100 @@
 
   </main>
 
+  <!-- ─── CUSTOMIZE FRAME PANEL ───────────────────────── -->
+  <div class="customize-overlay" id="customize-overlay" aria-hidden="true">
+    <div class="customize-header">
+      <button class="customize-close-btn" onclick="closeCustomize()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        Close
+      </button>
+      <h2 class="customize-heading">Customize Frame</h2>
+      <button class="customize-apply-btn" onclick="applyCustomize()">Apply Changes</button>
+    </div>
+    <div class="customize-body">
+
+      <!-- Left: live preview -->
+      <div class="customize-preview-pane">
+        <p class="customize-pane-label">Preview</p>
+        <div id="customize-preview-card"></div>
+      </div>
+
+      <!-- Right: options -->
+      <div class="customize-options-pane">
+
+        <!-- Photo -->
+        <div class="customize-section">
+          <h3 class="customize-section-title">Photo</h3>
+          <div class="customize-drop-zone" id="customize-drop-zone">
+            <svg class="customize-drop-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span class="customize-drop-label">Drop your photo here</span>
+            <span class="customize-drop-hint">or</span>
+            <button class="customize-browse-btn" type="button" onclick="document.getElementById('customize-file-input').click()">Browse Files</button>
+            <input type="file" id="customize-file-input" accept="image/*" hidden>
+          </div>
+          <div class="customize-photo-preview" id="customize-photo-preview" style="display:none">
+            <img class="customize-photo-thumb" id="customize-photo-img" src="" alt="Uploaded photo">
+            <span class="customize-photo-name" id="customize-photo-name"></span>
+            <button class="customize-photo-remove" type="button" onclick="removeCustomPhoto()">Remove</button>
+          </div>
+        </div>
+
+        <!-- Template -->
+        <div class="customize-section">
+          <h3 class="customize-section-title">Template</h3>
+          <div class="customize-templates" id="customize-templates">
+            <button class="customize-tpl is-active" data-tpl="gold" type="button" onclick="selectTemplate('gold', this)">
+              <span class="customize-tpl-swatch" style="background: linear-gradient(135deg, #c9a84c 0%, #e8c96d 50%, #c9a84c 100%)"></span>
+              <span class="customize-tpl-name">Gold</span>
+            </button>
+            <button class="customize-tpl" data-tpl="crimson" type="button" onclick="selectTemplate('crimson', this)">
+              <span class="customize-tpl-swatch" style="background: linear-gradient(135deg, #8B1F1F, #c94444)"></span>
+              <span class="customize-tpl-name">Crimson</span>
+            </button>
+            <button class="customize-tpl" data-tpl="navy" type="button" onclick="selectTemplate('navy', this)">
+              <span class="customize-tpl-swatch" style="background: linear-gradient(135deg, #1A366B, #2d5ba8)"></span>
+              <span class="customize-tpl-name">Navy</span>
+            </button>
+            <button class="customize-tpl" data-tpl="forest" type="button" onclick="selectTemplate('forest', this)">
+              <span class="customize-tpl-swatch" style="background: linear-gradient(135deg, #1A4D2E, #2e7a4f)"></span>
+              <span class="customize-tpl-name">Forest</span>
+            </button>
+            <button class="customize-tpl" data-tpl="classic" type="button" onclick="selectTemplate('classic', this)">
+              <span class="customize-tpl-swatch" style="background: linear-gradient(135deg, #222, #555)"></span>
+              <span class="customize-tpl-name">Classic</span>
+            </button>
+            <button class="customize-tpl" data-tpl="violet" type="button" onclick="selectTemplate('violet', this)">
+              <span class="customize-tpl-swatch" style="background: linear-gradient(135deg, #5B2D8E, #8B5BC8)"></span>
+              <span class="customize-tpl-name">Violet</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="customize-section">
+          <h3 class="customize-section-title">
+            Stats
+            <span class="customize-section-limit">Select up to 4</span>
+          </h3>
+          <div class="customize-pills" id="customize-stats-pills"></div>
+        </div>
+
+        <!-- Milestones -->
+        <div class="customize-section">
+          <h3 class="customize-section-title">Milestones</h3>
+          <div class="customize-pills" id="customize-milestones-pills"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script src="js/customize.js"></script>
 
 </body>
 </html>

@@ -205,7 +205,7 @@
         <h2 class="chapter-frame-headline">Your Frame<br>is ready.</h2>
         <p class="chapter-frame-desc">A Frame is your digital sports card — a permanent record of this chapter's stats, highlights, and story. Share it with coaches, colleges, or anyone who follows your journey.</p>
         <div class="chapter-frame-ctas">
-          <button class="chapter-frame-btn-primary">Customize Frame</button>
+          <button class="chapter-frame-btn-primary" onclick="openCustomize('marcus')">Customize Frame</button>
           <button class="chapter-frame-btn-ghost">Share Frame</button>
         </div>
         <p class="chapter-frame-customize-hint">Choose your colors, layout, background, and more.</p>
@@ -844,11 +844,20 @@
 
       <!-- TIMELINE TOOLBAR -->
       <div class="tl-toolbar">
-        <div class="timeline-filters">
-          <button class="tl-filter active" data-filter="all">All</button>
-          <button class="tl-filter" data-filter="event">Events</button>
-          <button class="tl-filter" data-filter="moment">Moments</button>
-          <button class="tl-filter" data-filter="milestone">Milestones</button>
+        <div class="tl-filters-wrap">
+          <div class="timeline-filters">
+            <button class="tl-filter active" data-filter="all">All</button>
+            <button class="tl-filter" data-filter="event">Events</button>
+            <button class="tl-filter" data-filter="moment">Moments</button>
+            <button class="tl-filter" data-filter="milestone">Milestones</button>
+          </div>
+          <div class="tl-coll-filters" id="tl-coll-filters">
+            <button class="tl-coll-filter active" data-coll="all">All Collections</button>
+            <button class="tl-coll-filter" data-coll="Highlights">Highlights</button>
+            <button class="tl-coll-filter" data-coll="Recruiting">Recruiting</button>
+            <button class="tl-coll-filter" data-coll="Comeback Wins">Comeback Wins</button>
+            <button class="tl-coll-filter" data-coll="Defense">Defense</button>
+          </div>
         </div>
         <button class="btn-dash-primary tl-add-btn" onclick="openTlPicker()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -864,7 +873,7 @@
       <div class="timeline-list">
 
         <!-- Event: Oct 5 -->
-        <div class="timeline-entry" data-type="event">
+        <div class="timeline-entry" data-type="event" data-collections="Highlights">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
@@ -885,7 +894,7 @@
         </div>
 
         <!-- Moment: Oct 5 -->
-        <div class="timeline-entry" data-type="moment">
+        <div class="timeline-entry" data-type="moment" data-collections="Highlights">
           <div class="tl-dot tl-dot--moment"></div>
           <div class="tl-card tl-card--moment">
             <div class="tl-card-header">
@@ -906,7 +915,7 @@
         </div>
 
         <!-- Event: Oct 12 -->
-        <div class="timeline-entry" data-type="event">
+        <div class="timeline-entry" data-type="event" data-collections="">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
@@ -924,7 +933,7 @@
         </div>
 
         <!-- Event: Oct 19 -->
-        <div class="timeline-entry" data-type="event">
+        <div class="timeline-entry" data-type="event" data-collections="Comeback Wins,Defense">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
@@ -946,7 +955,7 @@
         </div>
 
         <!-- Milestone: Oct 19 -->
-        <div class="timeline-entry" data-type="milestone">
+        <div class="timeline-entry" data-type="milestone" data-collections="Highlights">
           <div class="tl-dot tl-dot--milestone"></div>
           <div class="tl-card tl-card--milestone">
             <div class="tl-card-header">
@@ -965,7 +974,7 @@
         </div>
 
         <!-- Event: Oct 26 -->
-        <div class="timeline-entry" data-type="event">
+        <div class="timeline-entry" data-type="event" data-collections="">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
             <div class="tl-card-header">
@@ -983,7 +992,7 @@
         </div>
 
         <!-- Moment: Oct 26 -->
-        <div class="timeline-entry" data-type="moment">
+        <div class="timeline-entry" data-type="moment" data-collections="Recruiting">
           <div class="tl-dot tl-dot--moment"></div>
           <div class="tl-card tl-card--moment">
             <div class="tl-card-header">
@@ -1480,6 +1489,7 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/customize.js"></script>
   <script>
     // ── Overview section toggles ────────────────────────────
     const ovFilters = document.querySelectorAll('.ov-filter');
@@ -1535,14 +1545,33 @@
     });
 
     // ── Timeline filters ────────────────────────────────────
+    let _tlType = 'all';
+    let _tlColl = 'all';
+
+    function applyTlFilters() {
+      document.querySelectorAll('.timeline-entry').forEach(entry => {
+        const typeMatch = _tlType === 'all' || entry.dataset.type === _tlType;
+        const entryColls = (entry.dataset.collections || '').split(',').map(s => s.trim()).filter(Boolean);
+        const collMatch  = _tlColl === 'all' || entryColls.includes(_tlColl);
+        entry.style.display = (typeMatch && collMatch) ? '' : 'none';
+      });
+    }
+
     document.querySelectorAll('.tl-filter').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.tl-filter').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.timeline-entry').forEach(entry => {
-          entry.style.display = (filter === 'all' || entry.dataset.type === filter) ? '' : 'none';
-        });
+        _tlType = btn.dataset.filter;
+        applyTlFilters();
+      });
+    });
+
+    document.querySelectorAll('.tl-coll-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tl-coll-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        _tlColl = btn.dataset.coll;
+        applyTlFilters();
       });
     });
 
