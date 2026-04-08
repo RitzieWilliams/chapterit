@@ -513,7 +513,7 @@
             <h3 class="overview-section-title">Collections</h3>
             <span class="overview-section-count">4</span>
           </div>
-          <button class="btn-section-ghost">
+          <button class="btn-section-ghost" onclick="openNewCollection()">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             New Collection
           </button>
@@ -521,7 +521,7 @@
 
         <div class="collections-grid">
 
-          <div class="collection-card">
+          <div class="collection-card" data-coll-name="Highlights" data-coll-desc="Best plays and standout moments from the season." data-coll-entries="m1,m2,g1,g3,ms2" onclick="openEditCollection(this)">
             <div class="collection-card-top">
               <h4 class="collection-name">Highlights</h4>
               <span class="collection-count">5 entries</span>
@@ -529,7 +529,7 @@
             <p class="collection-desc">Best plays and standout moments from the season.</p>
           </div>
 
-          <div class="collection-card">
+          <div class="collection-card" data-coll-name="Recruiting" data-coll-desc="Moments and links relevant to the recruiting process." data-coll-entries="m3,e1,e2" onclick="openEditCollection(this)">
             <div class="collection-card-top">
               <h4 class="collection-name">Recruiting</h4>
               <span class="collection-count">3 entries</span>
@@ -537,7 +537,7 @@
             <p class="collection-desc">Moments and links relevant to the recruiting process.</p>
           </div>
 
-          <div class="collection-card">
+          <div class="collection-card" data-coll-name="Comeback Wins" data-coll-desc="Games where we trailed at halftime and came back." data-coll-entries="g3,g4" onclick="openEditCollection(this)">
             <div class="collection-card-top">
               <h4 class="collection-name">Comeback Wins</h4>
               <span class="collection-count">2 entries</span>
@@ -545,7 +545,7 @@
             <p class="collection-desc">Games where we trailed at halftime and came back.</p>
           </div>
 
-          <div class="collection-card">
+          <div class="collection-card" data-coll-name="Defense" data-coll-desc="Defensive stops, steals, and blocks worth remembering." data-coll-entries="g2,g3,g4,ms1" onclick="openEditCollection(this)">
             <div class="collection-card-top">
               <h4 class="collection-name">Defense</h4>
               <span class="collection-count">4 entries</span>
@@ -868,6 +868,9 @@
               <span class="tl-team tl-team--opp">Riverside HS</span>
               <span class="tl-result tl-result--win">W</span>
             </div>
+            <div class="tl-collections-row">
+              <span class="tl-coll-chip">Highlights</span>
+            </div>
           </a>
         </div>
 
@@ -885,6 +888,9 @@
                 <h4 class="tl-title">Opening Tip-Off</h4>
                 <p class="tl-caption">First possession of the season. The gym was packed and the energy was unlike anything.</p>
               </div>
+            </div>
+            <div class="tl-collections-row">
+              <span class="tl-coll-chip">Highlights</span>
             </div>
           </div>
         </div>
@@ -922,6 +928,10 @@
               <span class="tl-team tl-team--opp">Eastview HS</span>
               <span class="tl-result tl-result--win">W</span>
             </div>
+            <div class="tl-collections-row">
+              <span class="tl-coll-chip">Comeback Wins</span>
+              <span class="tl-coll-chip">Defense</span>
+            </div>
           </a>
         </div>
 
@@ -938,6 +948,9 @@
             </div>
             <h4 class="tl-title">20-Point Average Reached</h4>
             <p class="tl-caption">Crossed the 20 PPG threshold after the Home vs. Eastview game.</p>
+            <div class="tl-collections-row">
+              <span class="tl-coll-chip">Highlights</span>
+            </div>
           </div>
         </div>
 
@@ -973,6 +986,9 @@
                 <h4 class="tl-title">Post-Game Interview</h4>
                 <p class="tl-caption">Coach breaks down the defensive adjustments that turned the tournament opener around.</p>
               </div>
+            </div>
+            <div class="tl-collections-row">
+              <span class="tl-coll-chip">Recruiting</span>
             </div>
           </div>
         </div>
@@ -1176,6 +1192,256 @@
     </div>
   </div>
 
+  <!-- ─── NEW COLLECTION MODAL ─────────────────────────── -->
+  <div class="modal-overlay coll-overlay" id="coll-overlay" onclick="closeNewCollection()">
+    <div class="coll-modal" onclick="event.stopPropagation()">
+
+      <!-- Header -->
+      <div class="coll-modal-header">
+        <h2 class="modal-title">New Collection</h2>
+        <button class="dash-drawer-close" onclick="closeNewCollection()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Name -->
+      <div class="coll-name-row">
+        <label class="coll-field-label" for="coll-name-input">Collection Name <span class="create-required">*</span></label>
+        <input type="text" id="coll-name-input" class="create-input" placeholder="e.g. Highlights, Recruiting, Comeback Wins">
+      </div>
+
+      <!-- Entries -->
+      <div class="coll-entries-section">
+        <div class="coll-entries-header">
+          <span class="coll-field-label">Add Entries</span>
+          <span class="coll-selected-count" id="coll-selected-count"></span>
+        </div>
+
+        <!-- Type filter tabs -->
+        <div class="coll-tabs">
+          <button class="coll-tab active" data-coll-filter="all">All</button>
+          <button class="coll-tab" data-coll-filter="event">Events</button>
+          <button class="coll-tab" data-coll-filter="moment">Moments</button>
+          <button class="coll-tab" data-coll-filter="game">Games</button>
+          <button class="coll-tab" data-coll-filter="milestone">Milestones</button>
+        </div>
+
+        <!-- Entry list -->
+        <div class="coll-entry-list" id="coll-entry-list">
+
+          <div class="coll-entry-item" data-entry-type="moment" data-entry-id="m1" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--moment"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Championship Game Dunk</span>
+              <span class="coll-entry-meta">Moment &middot; Mar 15, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="moment" data-entry-id="m2" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--moment"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Season Opener Warmup</span>
+              <span class="coll-entry-meta">Moment &middot; Oct 5, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="moment" data-entry-id="m3" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--moment"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Post-Game Interview</span>
+              <span class="coll-entry-meta">Moment &middot; Nov 2, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="moment" data-entry-id="m4" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--moment"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Halftime Huddle</span>
+              <span class="coll-entry-meta">Moment &middot; Jan 18, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="game" data-entry-id="g1" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--game"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Season Opener</span>
+              <span class="coll-entry-meta">Game &middot; Oct 5, 2024 &middot; <span class="coll-result coll-result--win">W</span> 68&ndash;52</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="game" data-entry-id="g2" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--game"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Away at Westside</span>
+              <span class="coll-entry-meta">Game &middot; Oct 12, 2024 &middot; <span class="coll-result coll-result--loss">L</span> 44&ndash;61</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="game" data-entry-id="g3" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--game"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Home vs. Eastview</span>
+              <span class="coll-entry-meta">Game &middot; Oct 19, 2024 &middot; <span class="coll-result coll-result--win">W</span> 73&ndash;55</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="game" data-entry-id="g4" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--game"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Tournament &ndash; Round 1</span>
+              <span class="coll-entry-meta">Game &middot; Oct 26, 2024 &middot; <span class="coll-result coll-result--win">W</span> 58&ndash;50</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="event" data-entry-id="e1" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--event"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Fall Showcase</span>
+              <span class="coll-entry-meta">Event &middot; Nov 10, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="event" data-entry-id="e2" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--event"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">End of Season Banquet</span>
+              <span class="coll-entry-meta">Event &middot; Mar 20, 2025</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="event" data-entry-id="e3" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--event"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">Summer Skills Camp</span>
+              <span class="coll-entry-meta">Event &middot; Jul 15, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="milestone" data-entry-id="ms1" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--milestone"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">First Varsity Start</span>
+              <span class="coll-entry-meta">Milestone &middot; Oct 5, 2024</span>
+            </div>
+          </div>
+
+          <div class="coll-entry-item" data-entry-type="milestone" data-entry-id="ms2" onclick="toggleCollEntry(this)">
+            <div class="coll-entry-check">
+              <svg class="coll-check-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="coll-entry-type-dot coll-entry-type-dot--milestone"></div>
+            <div class="coll-entry-info">
+              <span class="coll-entry-name">20-Point Average Reached</span>
+              <span class="coll-entry-meta">Milestone &middot; Oct 19, 2024</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Create new entry -->
+        <button class="coll-create-entry-btn" onclick="openCollEntryPicker()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Create a new entry
+        </button>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="coll-modal-footer">
+        <button class="btn-page-ghost" onclick="closeNewCollection()">Cancel</button>
+        <button class="btn-dash-primary" onclick="saveNewCollection()">Create Collection</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── COLLECTION ENTRY PICKER (sub-picker) ─────────── -->
+  <div class="modal-overlay" id="coll-entry-picker-overlay" onclick="closeCollEntryPicker()">
+    <div class="tl-picker" onclick="event.stopPropagation()">
+      <div class="tl-picker-header">
+        <p class="tl-picker-title">What would you like to create?</p>
+        <button class="dash-drawer-close" onclick="closeCollEntryPicker()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="tl-picker-options">
+        <a href="event-create.html" class="tl-picker-option">
+          <div class="tl-picker-icon tl-picker-icon--event">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="tl-picker-text">
+            <span class="tl-picker-name">Event</span>
+            <span class="tl-picker-desc">A game, match, or competition</span>
+          </div>
+          <svg class="tl-picker-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+        <a href="moment-create.html" class="tl-picker-option">
+          <div class="tl-picker-icon tl-picker-icon--moment">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <div class="tl-picker-text">
+            <span class="tl-picker-name">Moment</span>
+            <span class="tl-picker-desc">A photo or video worth keeping</span>
+          </div>
+          <svg class="tl-picker-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+        <a href="milestone-create.html" class="tl-picker-option">
+          <div class="tl-picker-icon tl-picker-icon--milestone">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="tl-picker-text">
+            <span class="tl-picker-name">Milestone</span>
+            <span class="tl-picker-desc">An achievement worth celebrating</span>
+          </div>
+          <svg class="tl-picker-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
     // ── Overview section toggles ────────────────────────────
@@ -1279,7 +1545,7 @@
     }
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { closeShareModal(); closeTlPicker(); }
+      if (e.key === 'Escape') { closeShareModal(); closeTlPicker(); closeNewCollection(); closeCollEntryPicker(); }
     });
 
     // ── Timeline entry picker ───────────────────────────────
@@ -1590,6 +1856,142 @@
     function syncMilestoneCount() {
       const el = document.getElementById('milestone-count');
       if (el) el.textContent = document.querySelectorAll('#milestone-grid .milestone-card').length;
+    }
+
+    // ── New / Edit Collection modal ─────────────────────────
+    let _collEditCard = null;
+
+    function openNewCollection() {
+      _collEditCard = null;
+      document.querySelector('#coll-overlay .btn-dash-primary').textContent = 'Create Collection';
+      document.getElementById('coll-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('coll-name-input').focus(), 100);
+    }
+
+    function openEditCollection(card) {
+      _collEditCard = card;
+
+      // Pre-fill name
+      const name = card.dataset.collName || '';
+      document.getElementById('coll-name-input').value = name;
+
+      // Pre-select entries
+      const ids = (card.dataset.collEntries || '').split(',').map(s => s.trim()).filter(Boolean);
+      document.querySelectorAll('.coll-entry-item').forEach(item => {
+        item.classList.toggle('coll-entry-item--selected', ids.includes(item.dataset.entryId));
+      });
+
+      // Reset tabs to All
+      document.querySelectorAll('.coll-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.coll-tab[data-coll-filter="all"]').classList.add('active');
+      document.querySelectorAll('.coll-entry-item').forEach(el => el.style.display = '');
+
+      updateCollSelectedCount();
+      document.querySelector('#coll-overlay .btn-dash-primary').textContent = 'Save Changes';
+      document.getElementById('coll-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('coll-name-input').focus(), 100);
+    }
+
+    function closeNewCollection() {
+      const overlay = document.getElementById('coll-overlay');
+      if (!overlay.classList.contains('is-open')) return;
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+      _collEditCard = null;
+      // Reset state
+      document.getElementById('coll-name-input').value = '';
+      document.querySelectorAll('.coll-entry-item--selected').forEach(el => el.classList.remove('coll-entry-item--selected'));
+      document.querySelectorAll('.coll-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.coll-tab[data-coll-filter="all"]').classList.add('active');
+      document.querySelectorAll('.coll-entry-item').forEach(el => el.style.display = '');
+      updateCollSelectedCount();
+    }
+
+    function toggleCollEntry(el) {
+      el.classList.toggle('coll-entry-item--selected');
+      updateCollSelectedCount();
+    }
+
+    function updateCollSelectedCount() {
+      const count = document.querySelectorAll('.coll-entry-item--selected').length;
+      const el = document.getElementById('coll-selected-count');
+      el.textContent = count > 0 ? count + ' selected' : '';
+    }
+
+    // Tab filtering
+    document.querySelectorAll('.coll-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.coll-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.collFilter;
+        document.querySelectorAll('.coll-entry-item').forEach(item => {
+          item.style.display = (filter === 'all' || item.dataset.entryType === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    function saveNewCollection() {
+      const nameInput = document.getElementById('coll-name-input');
+      const name = nameInput.value.trim();
+      if (!name) { nameInput.focus(); return; }
+
+      const selected = document.querySelectorAll('.coll-entry-item--selected');
+      const count = selected.length;
+      const selectedIds = [...selected].map(el => el.dataset.entryId).join(',');
+
+      // Build description from selected items
+      const names = [...selected].map(el => el.querySelector('.coll-entry-name').textContent);
+      const desc = names.length > 0
+        ? names.slice(0, 2).join(', ') + (names.length > 2 ? ` and ${names.length - 2} more` : '')
+        : 'No entries yet.';
+
+      if (_collEditCard) {
+        // Edit mode — update existing card in place
+        _collEditCard.dataset.collName    = name;
+        _collEditCard.dataset.collDesc    = desc;
+        _collEditCard.dataset.collEntries = selectedIds;
+        _collEditCard.querySelector('.collection-name').textContent = name;
+        _collEditCard.querySelector('.collection-count').textContent = `${count} entr${count === 1 ? 'y' : 'ies'}`;
+        _collEditCard.querySelector('.collection-desc').textContent  = desc;
+      } else {
+        // Create mode — append new card
+        const grid = document.querySelector('.collections-grid');
+        const card = document.createElement('div');
+        card.className = 'collection-card';
+        card.dataset.collName    = name;
+        card.dataset.collDesc    = desc;
+        card.dataset.collEntries = selectedIds;
+        card.setAttribute('onclick', 'openEditCollection(this)');
+        card.innerHTML = `
+          <div class="collection-card-top">
+            <h4 class="collection-name">${name}</h4>
+            <span class="collection-count">${count} entr${count === 1 ? 'y' : 'ies'}</span>
+          </div>
+          <p class="collection-desc">${desc}</p>`;
+        grid.appendChild(card);
+
+        // Update section count
+        const countEl = document.querySelector('.overview-section[data-section="collections"] .overview-section-count');
+        if (countEl) countEl.textContent = grid.querySelectorAll('.collection-card').length;
+      }
+
+      closeNewCollection();
+    }
+
+    // ── Collection entry sub-picker ─────────────────────────
+    function openCollEntryPicker() {
+      closeNewCollection();
+      setTimeout(() => {
+        document.getElementById('coll-entry-picker-overlay').classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }, 50);
+    }
+
+    function closeCollEntryPicker() {
+      document.getElementById('coll-entry-picker-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
     }
   </script>
 </body>
