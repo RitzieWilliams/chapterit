@@ -1182,6 +1182,39 @@ footer {
   max-width: 620px;
 }
 
+/* Athlete Filter */
+.athlete-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.athlete-pill {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: 1px solid var(--gray-300);
+  background: transparent;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.athlete-pill:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.athlete-pill--active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
 /* Chapter List */
 .chapter-list {
   border-top: 1px solid var(--gray-200);
@@ -1821,7 +1854,7 @@ footer {
 
 .roster-header {
   display: grid;
-  grid-template-columns: 40px 1fr 120px 56px 80px;
+  grid-template-columns: 40px 1fr 120px 56px 190px;
   align-items: center;
   gap: 16px;
   padding: 10px 18px;
@@ -1839,7 +1872,7 @@ footer {
 
 .roster-row {
   display: grid;
-  grid-template-columns: 40px 1fr 120px 56px 80px;
+  grid-template-columns: 40px 1fr 120px 56px 190px;
   align-items: center;
   gap: 16px;
   padding: 14px 18px;
@@ -1881,6 +1914,191 @@ footer {
 }
 
 .roster-remove {
+  justify-self: end;
+}
+
+/* ─── SHARED TEAM MEDIA ──────────────────────────── */
+.team-media-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.team-media-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-media-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.team-media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.team-media-item:hover .team-media-thumb img {
+  transform: scale(1.04);
+}
+
+.team-media-thumb--video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+}
+
+.team-media-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: var(--white);
+}
+
+.team-media-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+}
+
+.team-media-overflow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.team-media-item:hover .team-media-overflow {
+  opacity: 1;
+}
+
+.team-media-overflow:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.team-media-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  min-width: 100px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.team-media-dropdown.is-open {
+  display: block;
+}
+
+.team-media-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2px;
+}
+
+.team-media-uploader {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--black);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-media-date {
+  font-size: 10px;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+/* Upload drop zone */
+.upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 24px;
+  border: 1px dashed var(--gray-300);
+  color: var(--gray-400);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.upload-drop-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-top: 8px;
+}
+
+.upload-drop-sub {
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.upload-browse-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 8px 20px;
+  border: 1px solid var(--black);
+  background: none;
+  color: var(--black);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.upload-browse-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.upload-drop-hint {
+  font-size: 11px;
+  color: var(--gray-400);
+}
+
+@media (max-width: 768px) {
+  .team-media-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .team-media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.roster-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   justify-self: end;
 }
 
@@ -2256,6 +2474,44 @@ footer {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.event-overflow-wrap {
+  position: relative;
+}
+
+.event-overflow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--gray-200);
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.event-overflow-btn:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.event-overflow-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  min-width: 140px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.event-overflow-dropdown.is-open {
+  display: block;
 }
 
 .btn-page-ghost {
@@ -5221,17 +5477,18 @@ footer {
 .profile-fields {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  background: var(--gray-200);
+  gap: 0;
   border: 1px solid var(--gray-200);
+  overflow: hidden;
 }
 
 .profile-field {
-  background: var(--white);
   padding: 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  border-right: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
 }
 
 .profile-field-label {
@@ -6346,11 +6603,15 @@ footer {
   .chapter-arrow { display: none; }
   .chapter-name { font-size: 28px; }
   .chapter-header {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "breadcrumb actions"
+      "title      title";
+    align-items: center;
   }
-  .chapter-header .chapter-detail-name { order: 2; margin-bottom: 12px; }
-  .chapter-header .chapter-actions { order: 3; margin-bottom: 40px; }
+  .chapter-header .chapter-detail-name { margin-bottom: 12px; }
+  .chapter-header .chapter-actions { margin-bottom: 0; }
   .profile-fields { grid-template-columns: 1fr 1fr; }
   .profile-page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .people-row { grid-template-columns: 40px 1fr auto auto; gap: 12px; padding: 14px 16px; }
@@ -6698,7 +6959,7 @@ footer {
 
   .roster-header,
   .roster-row {
-    grid-template-columns: 36px 1fr 56px 80px;
+    grid-template-columns: 36px 1fr 56px 190px;
   }
 
   .roster-col-pos,
@@ -7138,6 +7399,210 @@ footer {
   border-radius: 50%;
   flex-shrink: 0;
   margin-top: 5px;
+}
+
+/* Notification approve/decline actions */
+.notif-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.notif-action-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border: 1px solid var(--gray-200);
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.notif-action-btn--approve {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.notif-action-btn--approve:hover {
+  background: var(--gray-800, #222);
+}
+
+.notif-action-btn--decline {
+  color: var(--gray-500);
+}
+
+.notif-action-btn--decline:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+/* Recognition approval modal */
+.recognition-approval-modal {
+  max-width: 420px;
+  width: 100%;
+}
+
+.recog-step-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 14px;
+}
+
+.recog-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--gray-400);
+}
+
+.recog-chapter-list,
+.recog-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 24px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.recog-chapter-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--gray-200);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.recog-chapter-item:hover {
+  border-color: var(--gray-400);
+  background: var(--gray-100);
+}
+
+.recog-chapter-item.is-selected {
+  border-color: var(--black);
+  background: var(--black);
+}
+
+.recog-chapter-sport {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.recog-chapter-item.is-selected .recog-chapter-sport {
+  color: rgba(255,255,255,0.6);
+}
+
+.recog-chapter-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  color: var(--black);
+  line-height: 1;
+}
+
+.recog-chapter-item.is-selected .recog-chapter-name {
+  color: var(--white);
+}
+
+.recog-chapter-athlete {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
+
+.recog-chapter-item.is-selected .recog-chapter-athlete {
+  color: rgba(255,255,255,0.7);
+}
+
+.recog-entry-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-200);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.recog-entry-item:hover {
+  border-color: var(--gray-400);
+  background: var(--gray-100);
+}
+
+.recog-entry-item.is-selected {
+  border-color: var(--black);
+  background: var(--black);
+  color: var(--white);
+}
+
+.recog-entry-item--none {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-500);
+  grid-template-columns: 1fr;
+}
+
+.recog-entry-item--none.is-selected {
+  color: var(--white);
+}
+
+.recog-entry-type {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.recog-entry-item.is-selected .recog-entry-type {
+  color: rgba(255,255,255,0.6);
+}
+
+.recog-entry-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.recog-entry-item.is-selected .recog-entry-label {
+  color: var(--white);
+}
+
+.recog-entry-date {
+  font-size: 12px;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+.recog-entry-item.is-selected .recog-entry-date {
+  color: rgba(255,255,255,0.6);
+}
+
+.recog-empty {
+  font-size: 13px;
+  color: var(--gray-400);
+  padding: 12px 0;
 }
 
 .notif-backdrop {

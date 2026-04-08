@@ -93,9 +93,14 @@
         <div class="notif-body">
           <p class="notif-text"><strong>Coach Williams</strong> sent recognition on Marcus Johnson's <strong>Junior Season 2024</strong> chapter.</p>
           <span class="notif-time">2h ago</span>
+          <div class="notif-actions">
+            <button class="notif-action-btn notif-action-btn--approve" onclick="openRecognitionApproval()">Approve</button>
+            <button class="notif-action-btn notif-action-btn--decline" onclick="declineRecognition(this)">Decline</button>
+          </div>
         </div>
         <span class="notif-dot"></span>
       </div>
+      <!--
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--star">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -106,6 +111,7 @@
         </div>
         <span class="notif-dot"></span>
       </div>
+      -->
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--request">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>

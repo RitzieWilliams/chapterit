@@ -93,9 +93,14 @@
         <div class="notif-body">
           <p class="notif-text"><strong>Coach Williams</strong> sent recognition on Marcus Johnson's <strong>Junior Season 2024</strong> chapter.</p>
           <span class="notif-time">2h ago</span>
+          <div class="notif-actions">
+            <button class="notif-action-btn notif-action-btn--approve" onclick="openRecognitionApproval()">Approve</button>
+            <button class="notif-action-btn notif-action-btn--decline" onclick="declineRecognition(this)">Decline</button>
+          </div>
         </div>
         <span class="notif-dot"></span>
       </div>
+      <!--
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--star">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -106,6 +111,7 @@
         </div>
         <span class="notif-dot"></span>
       </div>
+      -->
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--request">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
@@ -191,8 +197,158 @@
       </div>
     </div>
 
+    <!-- ── VIEW TABS ────────────────────────────────────────── -->
+    <div class="chapter-views">
+      <button class="chapter-view-tab active" data-view="overview">Overview</button>
+      <button class="chapter-view-tab" data-view="timeline">Timeline</button>
+    </div>
+
+    <!-- ══ OVERVIEW PANEL ══════════════════════════════════════ -->
+    <div class="chapter-view-panel active" id="view-overview">
+
+      <!-- SECTION FILTERS -->
+      <div class="overview-filters">
+        <button class="ov-filter active" data-target="all">All</button>
+        <button class="ov-filter" data-target="media">Media</button>
+        <button class="ov-filter" data-target="roster">Roster</button>
+        <button class="ov-filter" data-target="schedule">Schedule</button>
+        <button class="ov-filter" data-target="events">Events</button>
+      </div>
+
+    <!-- ── SHARED TEAM MEDIA ─────────────────────────────── -->
+    <div class="overview-section" data-section="media">
+      <div class="overview-section-header">
+        <div class="overview-section-title-group">
+          <h3 class="overview-section-title">Shared Team Media</h3>
+          <span class="overview-section-count">6</span>
+        </div>
+        <button class="btn-section-ghost" onclick="openUploadMediaModal()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Upload
+        </button>
+      </div>
+
+      <div class="team-media-grid" id="team-media-grid">
+
+        <div class="team-media-item">
+          <div class="team-media-thumb">
+            <img src="https://unsplash.it/400/400?image=50" alt="Season Opener">
+          </div>
+          <div class="team-media-overlay">
+            <button class="team-media-overflow" onclick="toggleMediaMenu(event, this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="team-media-dropdown">
+              <button class="link-dropdown-item" onclick="deleteMediaItem(event, this)">Delete</button>
+            </div>
+          </div>
+          <div class="team-media-info">
+            <span class="team-media-uploader">Coach Williams</span>
+            <span class="team-media-date">Oct 5, 2024</span>
+          </div>
+        </div>
+
+        <div class="team-media-item">
+          <div class="team-media-thumb team-media-thumb--video">
+            <img src="https://unsplash.it/400/400?image=60" alt="Homecoming Night">
+            <div class="team-media-play">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="team-media-overlay">
+            <button class="team-media-overflow" onclick="toggleMediaMenu(event, this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="team-media-dropdown">
+              <button class="link-dropdown-item" onclick="deleteMediaItem(event, this)">Delete</button>
+            </div>
+          </div>
+          <div class="team-media-info">
+            <span class="team-media-uploader">Marcus Johnson</span>
+            <span class="team-media-date">Oct 22, 2024</span>
+          </div>
+        </div>
+
+        <div class="team-media-item">
+          <div class="team-media-thumb">
+            <img src="https://unsplash.it/400/400?image=70" alt="Team Photo Day">
+          </div>
+          <div class="team-media-overlay">
+            <button class="team-media-overflow" onclick="toggleMediaMenu(event, this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="team-media-dropdown">
+              <button class="link-dropdown-item" onclick="deleteMediaItem(event, this)">Delete</button>
+            </div>
+          </div>
+          <div class="team-media-info">
+            <span class="team-media-uploader">Jane Smith</span>
+            <span class="team-media-date">Sep 28, 2024</span>
+          </div>
+        </div>
+
+        <div class="team-media-item">
+          <div class="team-media-thumb">
+            <img src="https://unsplash.it/400/400?image=80" alt="Warmup Drills">
+          </div>
+          <div class="team-media-overlay">
+            <button class="team-media-overflow" onclick="toggleMediaMenu(event, this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="team-media-dropdown">
+              <button class="link-dropdown-item" onclick="deleteMediaItem(event, this)">Delete</button>
+            </div>
+          </div>
+          <div class="team-media-info">
+            <span class="team-media-uploader">Coach Williams</span>
+            <span class="team-media-date">Nov 10, 2024</span>
+          </div>
+        </div>
+
+        <div class="team-media-item">
+          <div class="team-media-thumb team-media-thumb--video">
+            <img src="https://unsplash.it/400/400?image=90" alt="Post-Game Huddle">
+            <div class="team-media-play">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="team-media-overlay">
+            <button class="team-media-overflow" onclick="toggleMediaMenu(event, this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="team-media-dropdown">
+              <button class="link-dropdown-item" onclick="deleteMediaItem(event, this)">Delete</button>
+            </div>
+          </div>
+          <div class="team-media-info">
+            <span class="team-media-uploader">Jordan Wallace</span>
+            <span class="team-media-date">Oct 5, 2024</span>
+          </div>
+        </div>
+
+        <div class="team-media-item">
+          <div class="team-media-thumb">
+            <img src="https://unsplash.it/400/400?image=100" alt="Bench Celebration">
+          </div>
+          <div class="team-media-overlay">
+            <button class="team-media-overflow" onclick="toggleMediaMenu(event, this)" aria-label="Options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+            <div class="team-media-dropdown">
+              <button class="link-dropdown-item" onclick="deleteMediaItem(event, this)">Delete</button>
+            </div>
+          </div>
+          <div class="team-media-info">
+            <span class="team-media-uploader">Jane Smith</span>
+            <span class="team-media-date">Oct 22, 2024</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- ── ROSTER ─────────────────────────────────────────── -->
-    <div class="overview-section">
+    <div class="overview-section" data-section="roster">
       <div class="overview-section-header">
         <div class="overview-section-title-group">
           <h3 class="overview-section-title">Roster</h3>
@@ -222,7 +378,10 @@
           </div>
           <span class="roster-position">Guard</span>
           <span class="roster-number">23</span>
-          <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+          <div class="roster-actions">
+            <button class="team-staff-action" onclick="openSendRecognition('Marcus Johnson')">Recognize</button>
+            <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+          </div>
         </div>
 
         <div class="roster-row">
@@ -233,7 +392,10 @@
           </div>
           <span class="roster-position">Forward</span>
           <span class="roster-number">11</span>
-          <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+          <div class="roster-actions">
+            <button class="team-staff-action" onclick="openSendRecognition('Jordan Wallace')">Recognize</button>
+            <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+          </div>
         </div>
 
         <div class="roster-row">
@@ -244,7 +406,10 @@
           </div>
           <span class="roster-position">Center</span>
           <span class="roster-number">5</span>
-          <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+          <div class="roster-actions">
+            <button class="team-staff-action" onclick="openSendRecognition('Devon Carter')">Recognize</button>
+            <button class="team-staff-action team-staff-action--remove roster-remove">Remove</button>
+          </div>
         </div>
 
         <div class="roster-row roster-row--more">
@@ -256,70 +421,8 @@
       </div>
     </div>
 
-    <!-- ── MOMENTS ───────────────────────────────────────── -->
-    <div class="overview-section">
-      <div class="overview-section-header">
-        <div class="overview-section-title-group">
-          <h3 class="overview-section-title">Moments</h3>
-          <span class="overview-section-count">4</span>
-        </div>
-        <button class="btn-section-ghost" onclick="window.location='moment-create.html'">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Moment
-        </button>
-      </div>
-
-      <div class="moments-grid">
-
-        <div class="moment-card" onclick="window.location='moment.html'">
-          <div class="moment-thumb">
-            <img src="https://unsplash.it/800?image=20" alt="Tip-Off">
-          </div>
-          <div class="moment-info">
-            <p class="moment-date">Nov 10, 2024</p>
-            <p class="moment-title">Showcase Warmup</p>
-            <p class="moment-caption">Pre-game warmups. Gym packed early.</p>
-          </div>
-        </div>
-
-        <div class="moment-card" onclick="window.location='moment.html'">
-          <div class="moment-thumb moment-thumb--video">
-            <img src="https://unsplash.it/800?image=21" alt="Practice">
-          </div>
-          <div class="moment-info">
-            <p class="moment-date">Oct 22, 2024</p>
-            <p class="moment-title">Homecoming Night</p>
-            <p class="moment-caption">Full crowd for the first time this season.</p>
-          </div>
-        </div>
-
-        <div class="moment-card" onclick="window.location='moment.html'">
-          <div class="moment-thumb">
-            <img src="https://unsplash.it/800?image=22" alt="After Game">
-          </div>
-          <div class="moment-info">
-            <p class="moment-date">Oct 5, 2024</p>
-            <p class="moment-title">Season Opener</p>
-            <p class="moment-caption">First game of the season. W by 14.</p>
-          </div>
-        </div>
-
-        <div class="moment-card" onclick="window.location='moment.html'">
-          <div class="moment-thumb">
-            <img src="https://unsplash.it/800?image=23" alt="Team Photo">
-          </div>
-          <div class="moment-info">
-            <p class="moment-date">Sep 28, 2024</p>
-            <p class="moment-title">Team Photo Day</p>
-            <p class="moment-caption">Official team photos before the season.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
     <!-- ── SCHEDULE ───────────────────────────────────────── -->
-    <div class="overview-section">
+    <div class="overview-section" data-section="schedule">
       <div class="overview-section-header">
         <div class="overview-section-title-group">
           <h3 class="overview-section-title">Schedule</h3>
@@ -393,6 +496,169 @@
 
       </div>
     </div>
+
+      <!-- ── EVENTS ───────────────────────────────────────── -->
+      <div class="overview-section" data-section="events">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Events</h3>
+            <span class="overview-section-count">3</span>
+          </div>
+          <button class="btn-section-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Event
+          </button>
+        </div>
+
+        <div class="chapter-events-list">
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">Fall Showcase</h4>
+              <span class="chapter-event-date">Nov 10, 2024</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">4 media</span>
+              <span class="chapter-event-chip">1 coach note</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">End of Season Banquet</h4>
+              <span class="chapter-event-date">Mar 20, 2025</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">6 media</span>
+              <span class="chapter-event-chip">2 coach notes</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <a href="event.html" class="chapter-event-card chapter-event-card--link">
+            <div class="chapter-event-header-left">
+              <h4 class="chapter-event-title">Media Day</h4>
+              <span class="chapter-event-date">Sep 28, 2024</span>
+            </div>
+            <div class="chapter-event-chips">
+              <span class="chapter-event-chip">12 media</span>
+            </div>
+            <svg class="chapter-event-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div><!-- /view-overview -->
+
+    <!-- ══ TIMELINE PANEL ══════════════════════════════════════ -->
+    <div class="chapter-view-panel" id="view-timeline">
+
+      <div class="tl-toolbar">
+        <div class="timeline-filters">
+          <button class="tl-filter active" data-filter="all">All</button>
+          <button class="tl-filter" data-filter="game">Games</button>
+          <button class="tl-filter" data-filter="event">Events</button>
+        </div>
+      </div>
+
+      <div class="timeline-list">
+
+        <div class="timeline-entry" data-type="game">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="game.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Game</span>
+              <span class="tl-date">Oct 5, 2024</span>
+            </div>
+            <h4 class="tl-title">Season Opener</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln Hornets</span>
+              <span class="tl-score">72 &ndash; 60</span>
+              <span class="tl-team tl-team--opp">Westfield HS</span>
+              <span class="tl-result tl-result--win">W</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="timeline-entry" data-type="game">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="game.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Game</span>
+              <span class="tl-date">Oct 12, 2024</span>
+            </div>
+            <h4 class="tl-title">Away at Riverside</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln Hornets</span>
+              <span class="tl-score">47 &ndash; 52</span>
+              <span class="tl-team tl-team--opp">Riverside HS</span>
+              <span class="tl-result tl-result--loss">L</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="timeline-entry" data-type="game">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="game.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Game</span>
+              <span class="tl-date">Oct 19, 2024</span>
+            </div>
+            <h4 class="tl-title">Homecoming Game</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln Hornets</span>
+              <span class="tl-score">61 &ndash; 50</span>
+              <span class="tl-team tl-team--opp">East Valley HS</span>
+              <span class="tl-result tl-result--win">W</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="timeline-entry" data-type="event">
+          <div class="tl-dot tl-dot--milestone"></div>
+          <a href="event.html" class="tl-card tl-card--milestone">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--milestone">Event</span>
+              <span class="tl-date">Nov 10, 2024</span>
+            </div>
+            <h4 class="tl-title">Fall Showcase</h4>
+            <p class="tl-caption">Recruiting showcase &middot; Riverside Sports Complex</p>
+          </a>
+        </div>
+
+        <div class="timeline-entry" data-type="game">
+          <div class="tl-dot tl-dot--event"></div>
+          <a href="game.html" class="tl-card tl-card--event">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--event">Game</span>
+              <span class="tl-date">Nov 10, 2024</span>
+            </div>
+            <h4 class="tl-title">Fall Showcase</h4>
+            <div class="tl-score-row">
+              <span class="tl-team">Lincoln Hornets</span>
+              <span class="tl-score">58 &ndash; 44</span>
+              <span class="tl-team tl-team--opp">Showcase Inv.</span>
+              <span class="tl-result tl-result--win">W</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="timeline-entry" data-type="event">
+          <div class="tl-dot tl-dot--milestone"></div>
+          <a href="event.html" class="tl-card tl-card--milestone">
+            <div class="tl-card-header">
+              <span class="tl-tag tl-tag--milestone">Event</span>
+              <span class="tl-date">Mar 20, 2025</span>
+            </div>
+            <h4 class="tl-title">End of Season Banquet</h4>
+            <p class="tl-caption">Team awards &middot; Lincoln High School</p>
+          </a>
+        </div>
+
+      </div>
+    </div><!-- /view-timeline -->
 
   </main>
 
@@ -550,8 +816,158 @@
     </div>
   </div>
 
+  <!-- ─── UPLOAD MEDIA MODAL ──────────────────────────────── -->
+  <div class="modal-overlay" id="upload-media-overlay" onclick="closeUploadMediaModal()">
+    <div class="modal goal-edit-modal" onclick="event.stopPropagation()">
+
+      <div class="goal-edit-modal-header">
+        <h2 class="modal-title">Upload Media</h2>
+        <button class="dash-drawer-close" onclick="closeUploadMediaModal()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="upload-drop-zone" id="upload-drop-zone">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <p class="upload-drop-label">Drag photos or videos here</p>
+        <p class="upload-drop-sub">or</p>
+        <label class="upload-browse-btn">
+          Browse Files
+          <input type="file" accept="image/*,video/*" multiple style="display:none;" onchange="handleMediaFiles(this.files)">
+        </label>
+        <p class="upload-drop-hint">Photos and videos up to 500MB</p>
+      </div>
+
+      <div class="goal-edit-footer">
+        <button class="btn-page-ghost" onclick="closeUploadMediaModal()">Cancel</button>
+        <button class="btn-dash-primary" onclick="closeUploadMediaModal()">Done</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── SEND RECOGNITION MODAL ─────────────────────────── -->
+  <div class="modal-overlay" id="recognition-modal-overlay" onclick="closeSendRecognition()">
+    <div class="modal goal-edit-modal" onclick="event.stopPropagation()">
+
+      <div class="goal-edit-modal-header">
+        <h2 class="modal-title">Send Recognition</h2>
+        <button class="dash-drawer-close" onclick="closeSendRecognition()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:24px;">Write a recognition for <strong id="recognition-player-name"></strong> that will be added to their chapter.</p>
+
+      <label class="goal-complete-reflection-label" for="recognition-message">Message</label>
+      <textarea id="recognition-message" class="create-input" placeholder="Share what stood out about this player's performance, attitude, or growth..." style="min-height:120px;resize:vertical;"></textarea>
+
+      <div class="goal-edit-footer">
+        <button class="btn-page-ghost" onclick="closeSendRecognition()">Cancel</button>
+        <button class="btn-dash-primary" onclick="submitRecognition()">Send</button>
+      </div>
+
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
+    // ── View tabs (Overview / Timeline) ────────────────────
+    document.querySelectorAll('.chapter-view-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.chapter-view-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.chapter-view-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('view-' + tab.dataset.view).classList.add('active');
+      });
+    });
+
+    // ── Overview section filters ────────────────────────────
+    document.querySelectorAll('.ov-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.ov-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.target;
+        document.querySelectorAll('#view-overview .overview-section').forEach(s => {
+          s.classList.toggle('is-hidden', target !== 'all' && s.dataset.section !== target);
+        });
+      });
+    });
+
+    // ── Timeline filters ────────────────────────────────────
+    document.querySelectorAll('.tl-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tl-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.timeline-entry').forEach(entry => {
+          entry.style.display = (filter === 'all' || entry.dataset.type === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    // Upload media modal
+    function openUploadMediaModal() {
+      document.getElementById('upload-media-overlay').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeUploadMediaModal() {
+      document.getElementById('upload-media-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function handleMediaFiles(files) {
+      // TODO: wire to backend upload
+    }
+
+    // Team media overflow menu
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.team-media-overlay')) {
+        document.querySelectorAll('.team-media-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+      }
+    });
+    function toggleMediaMenu(e, btn) {
+      e.stopPropagation();
+      const dropdown = btn.nextElementSibling;
+      const isOpen = dropdown.classList.contains('is-open');
+      document.querySelectorAll('.team-media-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+      if (!isOpen) dropdown.classList.add('is-open');
+    }
+    function deleteMediaItem(e, btn) {
+      e.stopPropagation();
+      const item = btn.closest('.team-media-item');
+      item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        item.remove();
+        const count = document.querySelectorAll('#team-media-grid .team-media-item').length;
+        document.querySelector('[data-section="shared-media"] .overview-section-count, .overview-section-count');
+      }, 200);
+    }
+
+    // Send recognition modal
+    function openSendRecognition(playerName) {
+      document.getElementById('recognition-player-name').textContent = playerName;
+      document.getElementById('recognition-message').value = '';
+      const overlay = document.getElementById('recognition-modal-overlay');
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('recognition-message').focus();
+    }
+    function closeSendRecognition() {
+      document.getElementById('recognition-modal-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function submitRecognition() {
+      const msg = document.getElementById('recognition-message').value.trim();
+      if (!msg) { document.getElementById('recognition-message').focus(); return; }
+      closeSendRecognition();
+    }
+
     // Share modal
     function openShareModal() {
       document.getElementById('share-modal-overlay').classList.add('is-open');

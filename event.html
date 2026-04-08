@@ -93,9 +93,14 @@
         <div class="notif-body">
           <p class="notif-text"><strong>Coach Williams</strong> sent recognition on Marcus Johnson's <strong>Junior Season 2024</strong> chapter.</p>
           <span class="notif-time">2h ago</span>
+          <div class="notif-actions">
+            <button class="notif-action-btn notif-action-btn--approve" onclick="openRecognitionApproval()">Approve</button>
+            <button class="notif-action-btn notif-action-btn--decline" onclick="declineRecognition(this)">Decline</button>
+          </div>
         </div>
         <span class="notif-dot"></span>
       </div>
+      <!--
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--star">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -106,6 +111,7 @@
         </div>
         <span class="notif-dot"></span>
       </div>
+      -->
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--request">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
@@ -148,13 +154,15 @@
 
       <!-- ACTIONS -->
       <div class="chapter-actions">
-        <button class="btn-page-ghost">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-          </svg>
-          Edit Event
-        </button>
+        <div class="event-overflow-wrap" id="event-overflow-wrap">
+          <button class="event-overflow-btn" id="event-overflow-btn" onclick="toggleEventMenu()" aria-label="Event options">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+          </button>
+          <div class="event-overflow-dropdown" id="event-overflow-dropdown">
+            <button class="link-dropdown-item" onclick="closeEventMenu()">Edit Event</button>
+            <button class="link-dropdown-item link-dropdown-item--delete" onclick="openDeleteEventModal()">Delete Event</button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -312,6 +320,18 @@
 
   </main>
 
+  <!-- ─── DELETE EVENT MODAL ────────────────────────────── -->
+  <div class="modal-overlay" id="delete-event-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h2 class="modal-title">Delete Event</h2>
+      <p class="modal-body">Are you sure you want to delete <strong>Fall Showcase</strong>? This cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm" onclick="window.location='chapter.html'">Delete</button>
+        <button class="btn-modal-cancel" onclick="closeDeleteEventModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ─── LINK EDIT MODAL ─────────────────────────────── -->
   <div class="modal-overlay" id="link-edit-overlay" onclick="closeLinkEdit()">
     <div class="modal goal-edit-modal" onclick="event.stopPropagation()">
@@ -339,11 +359,38 @@
 
   <script src="js/main.js"></script>
   <script>
+    // Event overflow menu
+    function toggleEventMenu() {
+      document.getElementById('event-overflow-dropdown').classList.toggle('is-open');
+    }
+
+    function closeEventMenu() {
+      document.getElementById('event-overflow-dropdown').classList.remove('is-open');
+    }
+
+    function openDeleteEventModal() {
+      closeEventMenu();
+      const overlay = document.getElementById('delete-event-overlay');
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeDeleteEventModal() {
+      const overlay = document.getElementById('delete-event-overlay');
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('delete-event-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeDeleteEventModal();
+    });
+
     let _editingLinkItem = null;
 
     document.addEventListener('click', e => {
-      if (!e.target.closest('.link-menu')) {
+      if (!e.target.closest('.link-menu') && !e.target.closest('#event-overflow-wrap')) {
         document.querySelectorAll('.link-dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+        closeEventMenu();
       }
     });
 

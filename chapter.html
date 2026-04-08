@@ -93,9 +93,14 @@
         <div class="notif-body">
           <p class="notif-text"><strong>Coach Williams</strong> sent recognition on Marcus Johnson's <strong>Junior Season 2024</strong> chapter.</p>
           <span class="notif-time">2h ago</span>
+          <div class="notif-actions">
+            <button class="notif-action-btn notif-action-btn--approve" onclick="openRecognitionApproval()">Approve</button>
+            <button class="notif-action-btn notif-action-btn--decline" onclick="declineRecognition(this)">Decline</button>
+          </div>
         </div>
         <span class="notif-dot"></span>
       </div>
+      <!--
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--star">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -106,6 +111,7 @@
         </div>
         <span class="notif-dot"></span>
       </div>
+      -->
       <div class="notif-item notif-item--unread">
         <div class="notif-icon notif-icon--request">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
@@ -753,6 +759,10 @@
             <h3 class="overview-section-title">Coach Recognition</h3>
             <span class="overview-section-count">2</span>
           </div>
+          <button class="btn-section-ghost" onclick="openRequestRecognition()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            Request Recognition
+          </button>
         </div>
 
         <div class="recognition-list">
@@ -1146,6 +1156,30 @@
     </div>
   </div>
 
+  <!-- ─── REQUEST RECOGNITION MODAL ─────────────────────── -->
+  <div class="modal-overlay" id="recognition-request-overlay" onclick="closeRequestRecognition()">
+    <div class="modal goal-edit-modal" onclick="event.stopPropagation()">
+
+      <div class="goal-edit-modal-header">
+        <h2 class="modal-title">Request Recognition</h2>
+        <button class="dash-drawer-close" onclick="closeRequestRecognition()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:24px;">Enter your coach's email and we'll send them a request to leave recognition on this chapter.</p>
+
+      <label class="goal-complete-reflection-label" for="recognition-coach-email">Coach's Email</label>
+      <input type="email" id="recognition-coach-email" class="create-input" placeholder="coach@school.edu" autocomplete="email">
+
+      <div class="goal-edit-footer">
+        <button class="btn-page-ghost" onclick="closeRequestRecognition()">Cancel</button>
+        <button class="btn-dash-primary" onclick="sendRecognitionRequest()">Send Request</button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ─── SHARE MODAL ──────────────────────────────────── -->
   <div class="modal-overlay" id="share-modal-overlay" onclick="closeShareModal()">
     <div class="modal share-modal" onclick="event.stopPropagation()">
@@ -1513,6 +1547,29 @@
     });
 
     // ── Share modal ─────────────────────────────────────────
+    // ── Request Recognition ─────────────────────────────────
+    function openRequestRecognition() {
+      document.getElementById('recognition-coach-email').value = '';
+      const overlay = document.getElementById('recognition-request-overlay');
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('recognition-coach-email').focus();
+    }
+
+    function closeRequestRecognition() {
+      document.getElementById('recognition-request-overlay').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function sendRecognitionRequest() {
+      const email = document.getElementById('recognition-coach-email').value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById('recognition-coach-email').focus();
+        return;
+      }
+      closeRequestRecognition();
+    }
+
     function openShareModal() {
       document.getElementById('share-modal-overlay').classList.add('is-open');
       document.body.style.overflow = 'hidden';
