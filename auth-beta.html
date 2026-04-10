@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Beta Access</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .beta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 4px 10px;
+      margin-bottom: 32px;
+    }
+    .beta-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.7;
+    }
+
+    .auth-login-header {
+      margin-bottom: 32px;
+    }
+    .auth-login-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      color: #111;
+      margin: 0 0 6px;
+      line-height: 1;
+    }
+    .auth-login-sub {
+      font-size: 14px;
+      color: #999;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AUTH NAV -->
+  <nav class="auth-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+  </nav>
+
+  <div class="auth-page">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <div class="auth-left-bg"></div>
+      <a href="index.html" class="auth-left-logo">
+        <img src="assets/logo-white.svg" alt="ChapterIt" class="logo-img logo-img--dark">
+      </a>
+      <div class="auth-left-content">
+        <div class="beta-badge">
+          <span class="beta-badge-dot"></span>
+          Beta
+        </div>
+        <h2 class="auth-left-headline">
+          You're<br>
+          in<br>
+          <span class="outline">early.</span>
+        </h2>
+        <p class="auth-left-tagline">
+          Welcome to the ChapterIt beta. Log in to start building the story of your season.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+
+        <div class="auth-login-header">
+          <h1 class="auth-login-title">Log In</h1>
+          <p class="auth-login-sub">Welcome back. Sign in to your account.</p>
+        </div>
+
+        <form id="form-signin" novalidate>
+
+          <div class="form-group">
+            <label for="signin-email">Email</label>
+            <input type="email" id="signin-email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="signin-password">Password</label>
+            <input type="password" id="signin-password" placeholder="Your password" autocomplete="current-password" required>
+          </div>
+
+          <a href="#" class="form-forgot">Forgot password?</a>
+
+          <button type="submit" class="btn-form" onclick="window.location='account-create.html'">Log In</button>
+
+        </form>
+
+        <div class="auth-divider"><span>or</span></div>
+
+        <button class="btn-social" type="button">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+            <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/>
+            <path d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+          </svg>
+          Continue with Google
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -5,6 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChapterIt — Teams</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Empty state visibility ── */
+    body.state--empty .teams-group    { display: none; }
+    body.state--empty .dash-add-mobile { display: none; }
+    body.state--empty .teams-empty    { display: flex; }
+
+    .teams-empty {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 64px 24px;
+      gap: 12px;
+    }
+    .teams-empty-icon {
+      width: 48px;
+      height: 48px;
+      color: #ccc;
+      margin-bottom: 4px;
+    }
+    .teams-empty-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #111;
+      margin: 0;
+    }
+    .teams-empty-desc {
+      font-size: 14px;
+      color: #888;
+      margin: 0;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+    .teams-empty .btn-dash-primary { margin-top: 8px; }
+  </style>
 </head>
 <body class="dash-body">
 
@@ -149,6 +184,17 @@
         <a href="team-add.html" class="btn-dash-primary">Add Team</a>
       </div>
 
+      <!-- EMPTY STATE -->
+      <div class="teams-empty">
+        <svg class="teams-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <p class="teams-empty-title">No teams yet</p>
+        <p class="teams-empty-desc">Add a team you play on, coach, or manage to get started.</p>
+        <a href="team-add.html" class="btn-dash-primary">Add Team</a>
+      </div>
+
       <!-- Playing on -->
       <div class="teams-group">
         <h3 class="teams-group-label">Playing On</h3>
@@ -241,5 +287,12 @@
   </a>
 
   <script src="js/main.js"></script>
+  <script>
+    // State switching via ?state=empty
+    (function () {
+      const state = new URLSearchParams(window.location.search).get('state');
+      if (state) document.body.classList.add('state--' + state);
+    })();
+  </script>
 </body>
 </html>

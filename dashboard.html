@@ -5,6 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChapterIt — Dashboard</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Empty state visibility ── */
+    body.state--empty .athlete-filter { display: none; }
+    body.state--empty #chapter-list   { display: none; }
+    body.state--empty .chapters-empty { display: flex; }
+
+    .chapters-empty {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 64px 24px;
+      gap: 12px;
+    }
+    .chapters-empty-icon {
+      width: 48px;
+      height: 48px;
+      color: #ccc;
+      margin-bottom: 4px;
+    }
+    .chapters-empty-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #111;
+      margin: 0;
+    }
+    .chapters-empty-desc {
+      font-size: 14px;
+      color: #888;
+      margin: 0;
+      max-width: 280px;
+      line-height: 1.5;
+    }
+    .chapters-empty .btn-dash-primary { margin-top: 8px; }
+  </style>
 </head>
 <body class="dash-body">
 
@@ -287,6 +322,19 @@
         </a>
 
       </div>
+
+      <!-- EMPTY STATE -->
+      <div class="chapters-empty">
+        <svg class="chapters-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 21h8"/><path d="M12 17v4"/>
+          <path d="M7 4H4v3a4 4 0 0 0 4 4"/><path d="M17 4h3v3a4 4 0 0 1-4 4"/>
+          <path d="M7 4h10v6a5 5 0 0 1-10 0V4z"/>
+        </svg>
+        <p class="chapters-empty-title">No chapters yet</p>
+        <p class="chapters-empty-desc">Create a chapter to start organizing an athlete's season — games, stats, and moments all in one place.</p>
+        <button class="btn-dash-primary" onclick="window.location='chapter-create.html'">Create Chapter</button>
+      </div>
+
     </section>
 
   </main>
@@ -298,6 +346,12 @@
 
   <script src="js/main.js"></script>
   <script>
+    // State switching via ?state=empty
+    (function () {
+      const state = new URLSearchParams(window.location.search).get('state');
+      if (state) document.body.classList.add('state--' + state);
+    })();
+
     // Athlete filter
     function applyFilter(filter) {
       document.querySelectorAll('#chapter-list .chapter-item').forEach(item => {

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Add an Athlete</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .ac-header {
+      margin-bottom: 32px;
+    }
+    .ac-step {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin: 0 0 10px;
+    }
+    .ac-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      color: #111;
+      margin: 0 0 6px;
+      line-height: 1;
+    }
+    .ac-sub {
+      font-size: 14px;
+      color: #999;
+      margin: 0;
+    }
+
+    /* ── Select field ── */
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #111;
+      background: #f8f8f8;
+      border: 1px solid #e8e8e8;
+      border-radius: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaa' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+    .form-group select:focus {
+      outline: none;
+      border-color: #111;
+      background-color: #fff;
+    }
+    .form-group select option[value=""] { color: #aaa; }
+
+    /* ── Skip link ── */
+    .skip-link {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .skip-link:hover { color: #666; }
+  </style>
+</head>
+<body>
+
+  <!-- AUTH NAV -->
+  <nav class="auth-nav">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+  </nav>
+
+  <div class="auth-page">
+
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <div class="auth-left-bg"></div>
+      <a href="index.html" class="auth-left-logo">
+        <img src="assets/logo-white.svg" alt="ChapterIt" class="logo-img logo-img--dark">
+      </a>
+      <div class="auth-left-content">
+        <h2 class="auth-left-headline">
+          Who are<br>
+          you<br>
+          <span class="outline">tracking?</span>
+        </h2>
+        <p class="auth-left-tagline">
+          Add the athlete you're following so we can set up their first chapter.
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+
+        <div class="ac-header">
+          <p class="ac-step">Last Step</p>
+          <h1 class="ac-title">Add an Athlete</h1>
+          <p class="ac-sub">You can add more athletes any time.</p>
+        </div>
+
+        <form id="form-athlete" novalidate>
+
+          <div class="form-group">
+            <label for="athlete-name">Athlete's Full Name</label>
+            <input type="text" id="athlete-name" placeholder="e.g. Marcus Johnson" autocomplete="off" required>
+          </div>
+
+          <div class="form-group">
+            <label for="athlete-sport">Sport</label>
+            <select id="athlete-sport">
+              <option value="" disabled selected>Select a sport</option>
+              <option>Basketball</option>
+              <option>Soccer</option>
+              <option>Football</option>
+              <option>Baseball</option>
+              <option>Softball</option>
+              <option>Volleyball</option>
+              <option>Track &amp; Field</option>
+              <option>Swimming</option>
+              <option>Tennis</option>
+              <option>Golf</option>
+              <option>Wrestling</option>
+              <option>Lacrosse</option>
+              <option>Cross Country</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="athlete-school">School or Organization</label>
+            <input type="text" id="athlete-school" placeholder="e.g. Lincoln High School" autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="athlete-level">Level</label>
+            <select id="athlete-level">
+              <option value="" disabled selected>Select a level</option>
+              <option>Varsity</option>
+              <option>Junior Varsity</option>
+              <option>Middle School</option>
+              <option>Club</option>
+              <option>Recreational</option>
+              <option>College</option>
+              <option>Professional</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn-form" onclick="window.location='dashboard.html'">Add Athlete</button>
+
+        </form>
+
+        <a href="dashboard.html" class="skip-link">Skip for now</a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

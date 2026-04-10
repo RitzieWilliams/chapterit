@@ -5,6 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChapterIt — Junior Season 2024</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Empty state visibility ── */
+    body.state--empty .chapter-frame-section  { display: none; }
+    body.state--empty .moments-grid           { display: none; }
+    body.state--empty .schedule-list          { display: none; }
+    body.state--empty .schedule-view-all      { display: none; }
+    body.state--empty .chapter-events-list    { display: none; }
+    body.state--empty .collections-grid       { display: none; }
+    body.state--empty .goal-list              { display: none; }
+    body.state--empty .goal-completed-section { display: none; }
+    body.state--empty .milestone-grid         { display: none; }
+    body.state--empty .reflection-list        { display: none; }
+    body.state--empty .recognition-list       { display: none; }
+    body.state--empty .chapter-stat-grid      { display: none; }
+    body.state--empty .chapter-stats-note     { display: none; }
+    body.state--empty .overview-section-count { display: none; }
+    body.state--empty .timeline-list          { display: none; }
+    body.state--empty .tl-add-mobile          { display: none; }
+    body.state--empty .section-empty          { display: flex; }
+    body.state--empty .timeline-empty         { display: flex; }
+
+    .section-empty {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 36px 24px 40px;
+      gap: 6px;
+      border: 1px dashed #e8e8e8;
+      border-radius: 4px;
+    }
+    .section-empty-icon {
+      width: 32px;
+      height: 32px;
+      color: #d4d4d4;
+      margin-bottom: 6px;
+    }
+    .section-empty-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+    .section-empty-desc {
+      font-size: 13px;
+      color: #b0b0b0;
+      margin: 0;
+      max-width: 240px;
+      line-height: 1.5;
+    }
+    .section-empty .btn-section-ghost { margin-top: 10px; }
+
+    .timeline-empty {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 72px 24px;
+      gap: 8px;
+    }
+    .timeline-empty-icon {
+      width: 40px;
+      height: 40px;
+      color: #d4d4d4;
+      margin-bottom: 6px;
+    }
+    .timeline-empty-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+    .timeline-empty-desc {
+      font-size: 13px;
+      color: #b0b0b0;
+      margin: 0;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+    .timeline-empty .btn-dash-primary { margin-top: 10px; }
+  </style>
 </head>
 <body class="dash-body">
 
@@ -312,6 +393,18 @@
           </button>
         </div>
 
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+          </svg>
+          <p class="section-empty-title">No moments yet</p>
+          <p class="section-empty-desc">Capture a photo or video worth keeping from this season.</p>
+          <button class="btn-section-ghost" onclick="window.location='moment-create.html'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Moment
+          </button>
+        </div>
+
         <div class="moments-grid">
           <div class="moment-card" onclick="window.location='moment.html'">
             <div class="moment-thumb">
@@ -370,6 +463,18 @@
               Add Game
             </button>
           </div>
+        </div>
+
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <p class="section-empty-title">No games added</p>
+          <p class="section-empty-desc">Add your schedule to track results, stats, and moments for each game.</p>
+          <button class="btn-section-ghost" onclick="window.location='event-create.html'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Game
+          </button>
         </div>
 
         <div class="schedule-list">
@@ -467,6 +572,20 @@
           </button>
         </div>
 
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 21h8"/><path d="M12 17v4"/>
+            <path d="M7 4H4v3a4 4 0 0 0 4 4"/><path d="M17 4h3v3a4 4 0 0 1-4 4"/>
+            <path d="M7 4h10v6a5 5 0 0 1-10 0V4z"/>
+          </svg>
+          <p class="section-empty-title">No events yet</p>
+          <p class="section-empty-desc">Log showcases, camps, combines, or other key events from your season.</p>
+          <button class="btn-section-ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Event
+          </button>
+        </div>
+
         <div class="chapter-events-list">
 
           <a href="event.html" class="chapter-event-card chapter-event-card--link">
@@ -525,6 +644,18 @@
           </button>
         </div>
 
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </svg>
+          <p class="section-empty-title">No collections</p>
+          <p class="section-empty-desc">Group your best moments, games, and memories into shareable collections.</p>
+          <button class="btn-section-ghost" onclick="openNewCollection()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Collection
+          </button>
+        </div>
+
         <div class="collections-grid">
 
           <div class="collection-card" data-coll-name="Highlights" data-coll-desc="Best plays and standout moments from the season." data-coll-entries="m1,m2,g1,g3,ms2" onclick="openEditCollection(this)">
@@ -571,6 +702,20 @@
           </div>
           <button class="btn-section-ghost" onclick="window.location='goal-create.html'">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Goal
+          </button>
+        </div>
+
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+          </svg>
+          <p class="section-empty-title">No goals set</p>
+          <p class="section-empty-desc">Set targets for the season and track your progress throughout the chapter.</p>
+          <button class="btn-section-ghost" onclick="window.location='goal-create.html'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             Add Goal
           </button>
         </div>
@@ -665,6 +810,18 @@
           </button>
         </div>
 
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <p class="section-empty-title">No milestones yet</p>
+          <p class="section-empty-desc">Record the achievements and breakthroughs that define this chapter.</p>
+          <button class="btn-section-ghost" onclick="window.location='milestone-create.html'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Milestone
+          </button>
+        </div>
+
         <div class="milestone-grid" id="milestone-grid">
 
           <div class="milestone-card" id="milestone-1">
@@ -723,6 +880,19 @@
           </button>
         </div>
 
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <p class="section-empty-title">No reflections</p>
+          <p class="section-empty-desc">Write about what you're learning and experiencing throughout the season.</p>
+          <button class="btn-section-ghost">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Reflection
+          </button>
+        </div>
+
         <div class="reflection-list">
 
           <div class="reflection-card">
@@ -765,6 +935,19 @@
           </button>
         </div>
 
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <p class="section-empty-title">No recognition yet</p>
+          <p class="section-empty-desc">Request a note from a coach to add credibility and context to your chapter.</p>
+          <button class="btn-section-ghost" onclick="openRequestRecognition()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            Request Recognition
+          </button>
+        </div>
+
         <div class="recognition-list">
 
           <div class="recognition-card">
@@ -800,6 +983,18 @@
             <span class="overview-section-count">4 games</span>
           </div>
           <span class="chapter-stats-note">Totals across all games</span>
+        </div>
+
+        <div class="section-empty">
+          <svg class="section-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          <p class="section-empty-title">No stats yet</p>
+          <p class="section-empty-desc">Stats are calculated automatically as you add game results to the schedule.</p>
+          <button class="btn-section-ghost" onclick="window.location='event-create.html'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add First Game
+          </button>
         </div>
 
         <div class="stat-grid chapter-stat-grid">
@@ -869,6 +1064,22 @@
         Add Entry
       </button>
 
+      <!-- TIMELINE EMPTY STATE -->
+      <div class="timeline-empty">
+        <svg class="timeline-empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="2" x2="12" y2="22"/>
+          <circle cx="12" cy="6" r="2.5" fill="currentColor" stroke="none" opacity="0.25"/>
+          <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none" opacity="0.25"/>
+          <circle cx="12" cy="18" r="2.5" fill="currentColor" stroke="none" opacity="0.25"/>
+        </svg>
+        <p class="timeline-empty-title">No entries yet</p>
+        <p class="timeline-empty-desc">Add events, moments, and milestones to build the timeline of this chapter.</p>
+        <button class="btn-dash-primary" onclick="openTlPicker()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Entry
+        </button>
+      </div>
+
       <!-- ENTRIES (earliest → latest) -->
       <div class="timeline-list">
 
@@ -876,19 +1087,37 @@
         <div class="timeline-entry" data-type="event" data-collections="Highlights">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
-            <div class="tl-card-header">
-              <span class="tl-tag tl-tag--event">Event</span>
-              <span class="tl-date">Oct 5, 2024</span>
+            <div class="tl-event-cover">
+              <img src="https://unsplash.it/900/400?image=83" alt="Season Opener">
+              <div class="tl-event-cover-overlay"></div>
+              <div class="tl-event-cover-badge">
+                <span class="tl-event-cover-score">68 &ndash; 52</span>
+                <span class="tl-event-cover-result tl-event-cover-result--win">Win</span>
+              </div>
             </div>
-            <h4 class="tl-title">Season Opener</h4>
-            <div class="tl-score-row">
-              <span class="tl-team">Lincoln High School</span>
-              <span class="tl-score">68 &ndash; 52</span>
-              <span class="tl-team tl-team--opp">Riverside HS</span>
-              <span class="tl-result tl-result--win">W</span>
-            </div>
-            <div class="tl-collections-row">
-              <span class="tl-coll-chip">Highlights</span>
+            <div class="tl-event-body">
+              <div class="tl-card-header">
+                <span class="tl-tag tl-tag--event">Event</span>
+                <span class="tl-date">Oct 5, 2024</span>
+              </div>
+              <h4 class="tl-title">Season Opener</h4>
+              <p class="tl-event-opponent">vs. Riverside HS</p>
+              <div class="tl-event-stats">
+                <div><span class="tl-event-stat-value">28</span><span class="tl-event-stat-label">PTS</span></div>
+                <div><span class="tl-event-stat-value">7</span><span class="tl-event-stat-label">REB</span></div>
+                <div><span class="tl-event-stat-value">5</span><span class="tl-event-stat-label">AST</span></div>
+                <div><span class="tl-event-stat-value">3</span><span class="tl-event-stat-label">STL</span></div>
+              </div>
+              <div class="tl-event-moments">
+                <div class="tl-event-moments-strip">
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=10" alt=""></div>
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=20" alt=""></div>
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=30" alt=""></div>
+                </div>
+              </div>
+              <div class="tl-collections-row">
+                <span class="tl-coll-chip">Highlights</span>
+              </div>
             </div>
           </a>
         </div>
@@ -918,16 +1147,32 @@
         <div class="timeline-entry" data-type="event" data-collections="">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
-            <div class="tl-card-header">
-              <span class="tl-tag tl-tag--event">Event</span>
-              <span class="tl-date">Oct 12, 2024</span>
+            <div class="tl-event-cover">
+              <img src="https://unsplash.it/900/400?image=22" alt="Away at Westside">
+              <div class="tl-event-cover-overlay"></div>
+              <div class="tl-event-cover-badge">
+                <span class="tl-event-cover-score">44 &ndash; 61</span>
+                <span class="tl-event-cover-result tl-event-cover-result--loss">Loss</span>
+              </div>
             </div>
-            <h4 class="tl-title">Away at Westside</h4>
-            <div class="tl-score-row">
-              <span class="tl-team">Lincoln High School</span>
-              <span class="tl-score">44 &ndash; 61</span>
-              <span class="tl-team tl-team--opp">Westside Prep</span>
-              <span class="tl-result tl-result--loss">L</span>
+            <div class="tl-event-body">
+              <div class="tl-card-header">
+                <span class="tl-tag tl-tag--event">Event</span>
+                <span class="tl-date">Oct 12, 2024</span>
+              </div>
+              <h4 class="tl-title">Away at Westside</h4>
+              <p class="tl-event-opponent">@ Westside Prep</p>
+              <div class="tl-event-stats">
+                <div><span class="tl-event-stat-value">18</span><span class="tl-event-stat-label">PTS</span></div>
+                <div><span class="tl-event-stat-value">6</span><span class="tl-event-stat-label">REB</span></div>
+                <div><span class="tl-event-stat-value">4</span><span class="tl-event-stat-label">AST</span></div>
+                <div><span class="tl-event-stat-value">1</span><span class="tl-event-stat-label">STL</span></div>
+              </div>
+              <div class="tl-event-moments">
+                <div class="tl-event-moments-strip">
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=40" alt=""></div>
+                </div>
+              </div>
             </div>
           </a>
         </div>
@@ -936,20 +1181,39 @@
         <div class="timeline-entry" data-type="event" data-collections="Comeback Wins,Defense">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
-            <div class="tl-card-header">
-              <span class="tl-tag tl-tag--event">Event</span>
-              <span class="tl-date">Oct 19, 2024</span>
+            <div class="tl-event-cover">
+              <img src="https://unsplash.it/900/400?image=37" alt="Home vs. Eastview">
+              <div class="tl-event-cover-overlay"></div>
+              <div class="tl-event-cover-badge">
+                <span class="tl-event-cover-score">73 &ndash; 55</span>
+                <span class="tl-event-cover-result tl-event-cover-result--win">Win</span>
+              </div>
             </div>
-            <h4 class="tl-title">Home vs. Eastview</h4>
-            <div class="tl-score-row">
-              <span class="tl-team">Lincoln High School</span>
-              <span class="tl-score">73 &ndash; 55</span>
-              <span class="tl-team tl-team--opp">Eastview HS</span>
-              <span class="tl-result tl-result--win">W</span>
-            </div>
-            <div class="tl-collections-row">
-              <span class="tl-coll-chip">Comeback Wins</span>
-              <span class="tl-coll-chip">Defense</span>
+            <div class="tl-event-body">
+              <div class="tl-card-header">
+                <span class="tl-tag tl-tag--event">Event</span>
+                <span class="tl-date">Oct 19, 2024</span>
+              </div>
+              <h4 class="tl-title">Home vs. Eastview</h4>
+              <p class="tl-event-opponent">vs. Eastview HS</p>
+              <div class="tl-event-stats">
+                <div><span class="tl-event-stat-value">32</span><span class="tl-event-stat-label">PTS</span></div>
+                <div><span class="tl-event-stat-value">11</span><span class="tl-event-stat-label">REB</span></div>
+                <div><span class="tl-event-stat-value">6</span><span class="tl-event-stat-label">AST</span></div>
+                <div><span class="tl-event-stat-value">2</span><span class="tl-event-stat-label">STL</span></div>
+              </div>
+              <div class="tl-event-moments">
+                <div class="tl-event-moments-strip">
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=50" alt=""></div>
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=60" alt=""></div>
+                  <div class="tl-event-moment-thumb"><img src="https://unsplash.it/200/150?image=70" alt=""></div>
+                  <div class="tl-event-moment-more">+2</div>
+                </div>
+              </div>
+              <div class="tl-collections-row">
+                <span class="tl-coll-chip">Comeback Wins</span>
+                <span class="tl-coll-chip">Defense</span>
+              </div>
             </div>
           </a>
         </div>
@@ -977,16 +1241,27 @@
         <div class="timeline-entry" data-type="event" data-collections="">
           <div class="tl-dot tl-dot--event"></div>
           <a href="game.html" class="tl-card tl-card--event">
-            <div class="tl-card-header">
-              <span class="tl-tag tl-tag--event">Event</span>
-              <span class="tl-date">Oct 26, 2024</span>
+            <div class="tl-event-cover">
+              <img src="https://unsplash.it/900/400?image=48" alt="Tournament – Round 1">
+              <div class="tl-event-cover-overlay"></div>
+              <div class="tl-event-cover-badge">
+                <span class="tl-event-cover-score">58 &ndash; 50</span>
+                <span class="tl-event-cover-result tl-event-cover-result--win">Win</span>
+              </div>
             </div>
-            <h4 class="tl-title">Tournament &ndash; Round 1</h4>
-            <div class="tl-score-row">
-              <span class="tl-team">Lincoln High School</span>
-              <span class="tl-score">58 &ndash; 50</span>
-              <span class="tl-team tl-team--opp">Central HS</span>
-              <span class="tl-result tl-result--win">W</span>
+            <div class="tl-event-body">
+              <div class="tl-card-header">
+                <span class="tl-tag tl-tag--event">Event</span>
+                <span class="tl-date">Oct 26, 2024</span>
+              </div>
+              <h4 class="tl-title">Tournament &ndash; Round 1</h4>
+              <p class="tl-event-opponent">vs. Central HS</p>
+              <div class="tl-event-stats">
+                <div><span class="tl-event-stat-value">22</span><span class="tl-event-stat-label">PTS</span></div>
+                <div><span class="tl-event-stat-value">8</span><span class="tl-event-stat-label">REB</span></div>
+                <div><span class="tl-event-stat-value">3</span><span class="tl-event-stat-label">AST</span></div>
+                <div><span class="tl-event-stat-value">4</span><span class="tl-event-stat-label">STL</span></div>
+              </div>
             </div>
           </a>
         </div>
@@ -2093,6 +2368,12 @@
       document.getElementById('coll-entry-picker-overlay').classList.remove('is-open');
       document.body.style.overflow = '';
     }
+
+    // State switching via ?state=empty
+    (function () {
+      const state = new URLSearchParams(window.location.search).get('state');
+      if (state) document.body.classList.add('state--' + state);
+    })();
   </script>
 </body>
 </html>
