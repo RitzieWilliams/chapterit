@@ -111,48 +111,18 @@
         <form id="form-athlete" novalidate>
 
           <div class="form-group">
-            <label for="athlete-name">Athlete's Full Name</label>
+            <label for="athlete-name">Full Name</label>
             <input type="text" id="athlete-name" placeholder="e.g. Marcus Johnson" autocomplete="off" required>
           </div>
 
           <div class="form-group">
-            <label for="athlete-sport">Sport</label>
-            <select id="athlete-sport">
-              <option value="" disabled selected>Select a sport</option>
-              <option>Basketball</option>
-              <option>Soccer</option>
-              <option>Football</option>
-              <option>Baseball</option>
-              <option>Softball</option>
-              <option>Volleyball</option>
-              <option>Track &amp; Field</option>
-              <option>Swimming</option>
-              <option>Tennis</option>
-              <option>Golf</option>
-              <option>Wrestling</option>
-              <option>Lacrosse</option>
-              <option>Cross Country</option>
-              <option>Other</option>
-            </select>
+            <label for="athlete-dob">Date of Birth</label>
+            <input type="date" id="athlete-dob" required>
           </div>
 
-          <div class="form-group">
-            <label for="athlete-school">School or Organization</label>
-            <input type="text" id="athlete-school" placeholder="e.g. Lincoln High School" autocomplete="off">
-          </div>
-
-          <div class="form-group">
-            <label for="athlete-level">Level</label>
-            <select id="athlete-level">
-              <option value="" disabled selected>Select a level</option>
-              <option>Varsity</option>
-              <option>Junior Varsity</option>
-              <option>Middle School</option>
-              <option>Club</option>
-              <option>Recreational</option>
-              <option>College</option>
-              <option>Professional</option>
-            </select>
+          <div class="form-group" id="athlete-email-group" style="display:none;">
+            <label for="athlete-email">Athlete's Email</label>
+            <input type="email" id="athlete-email" placeholder="e.g. marcus@example.com" autocomplete="off">
           </div>
 
           <button type="button" class="btn-form" onclick="window.location='dashboard.html'">Add Athlete</button>
@@ -167,5 +137,14 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    document.getElementById('athlete-dob').addEventListener('change', function () {
+      const dob = new Date(this.value);
+      const today = new Date();
+      const age = today.getFullYear() - dob.getFullYear()
+        - (today < new Date(today.getFullYear(), dob.getMonth(), dob.getDate()) ? 1 : 0);
+      document.getElementById('athlete-email-group').style.display = age >= 13 ? '' : 'none';
+    });
+  </script>
 </body>
 </html>
