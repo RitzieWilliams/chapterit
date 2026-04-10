@@ -68,6 +68,14 @@
         </svg>
         Frame
       </a>
+      <a href="profile.html#circle" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <path d="M6.168 18.849A4 4 0 0 1 10 17h4a4 4 0 0 1 3.834 2.855"/>
+        </svg>
+        Circle
+      </a>
       <a href="profile.html" class="dash-drawer-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -132,7 +140,7 @@
     <!-- PAGE HEADER -->
     <div class="profile-page-header">
       <h1 class="profile-page-title">Profile</h1>
-      <button class="btn-page-ghost" onclick="toggleProfileEdit()">
+      <button class="btn-page-ghost" id="profile-edit-btn" onclick="toggleProfileEdit()">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
           <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
@@ -140,6 +148,15 @@
         <span id="edit-profile-label">Edit Profile</span>
       </button>
     </div>
+
+    <!-- TABS -->
+    <div class="profile-tabs">
+      <button class="profile-tab profile-tab--active" id="tab-account" onclick="switchProfileTab('account')">Account</button>
+      <button class="profile-tab" id="tab-circle" onclick="switchProfileTab('circle')">Circle</button>
+    </div>
+
+    <!-- ── ACCOUNT PANEL ─────────────────────────────── -->
+    <div class="profile-tab-panel active" id="profile-account-panel">
 
     <!-- ── PROFILE DETAILS ───────────────────────────── -->
     <div class="overview-section" id="profile-section">
@@ -370,7 +387,176 @@
       </button>
     </div>
 
+    </div><!-- /profile-account-panel -->
+
+    <!-- ── CIRCLE PANEL ──────────────────────────────── -->
+    <div class="profile-tab-panel" id="profile-circle-panel">
+
+      <!-- PAGE SUB-HEADER -->
+      <div class="profile-page-header" style="margin-bottom: 0;">
+        <div>
+          <p class="circle-header-desc" style="margin-top: 0; font-size: 13px;">The people who can see your content. Private — not public, not searchable.</p>
+        </div>
+        <button class="btn-page-ghost" onclick="openAddMemberModal()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Member
+        </button>
+      </div>
+
+      <!-- MEMBER LIST SECTION -->
+      <div class="overview-section" id="circle-members-section">
+        <div class="overview-section-header">
+          <div class="overview-section-title-group">
+            <h3 class="overview-section-title">Members</h3>
+            <span class="overview-section-count" id="circle-member-count">4</span>
+          </div>
+          <button class="btn-section-ghost" onclick="openAddMemberModal()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Add Member
+          </button>
+        </div>
+
+        <div class="people-list" id="circle-member-list">
+
+          <div class="people-row circle-member-row" data-member-id="m1">
+            <div class="people-avatar"><span class="circle-member-initials">DJ</span></div>
+            <div class="people-info">
+              <p class="people-name">David Johnson</p>
+              <p class="people-meta">Father</p>
+            </div>
+            <span class="circle-access-badge circle-access-badge--full">Full Access</span>
+            <button class="circle-manage-btn" aria-label="Manage David Johnson" onclick="openManageAccessModal('m1', 'David Johnson')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+          </div>
+
+          <div class="people-row circle-member-row" data-member-id="m2">
+            <div class="people-avatar"><span class="circle-member-initials">MW</span></div>
+            <div class="people-info">
+              <p class="people-name">Marcus Williams</p>
+              <p class="people-meta">Coach</p>
+            </div>
+            <span class="circle-access-badge circle-access-badge--limited">Games · Stats</span>
+            <button class="circle-manage-btn" aria-label="Manage Marcus Williams" onclick="openManageAccessModal('m2', 'Marcus Williams')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+          </div>
+
+          <div class="people-row circle-member-row" data-member-id="m3">
+            <div class="people-avatar"><span class="circle-member-initials">SW</span></div>
+            <div class="people-info">
+              <p class="people-name">Sarah Williams</p>
+              <p class="people-meta">Mother</p>
+            </div>
+            <span class="circle-access-badge circle-access-badge--full">Full Access</span>
+            <button class="circle-manage-btn" aria-label="Manage Sarah Williams" onclick="openManageAccessModal('m3', 'Sarah Williams')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+          </div>
+
+          <div class="people-row circle-member-row" data-member-id="m4">
+            <div class="people-avatar"><span class="circle-member-initials">JT</span></div>
+            <div class="people-info">
+              <p class="people-name">Jordan Taylor</p>
+              <p class="people-meta">Friend</p>
+            </div>
+            <span class="circle-access-badge circle-access-badge--limited">Moments · Games · +8 more</span>
+            <button class="circle-manage-btn" aria-label="Manage Jordan Taylor" onclick="openManageAccessModal('m4', 'Jordan Taylor')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="circle-empty" id="circle-empty" style="display:none;">
+        <div class="circle-empty-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+            <path d="M6.168 18.849A4 4 0 0 1 10 17h4a4 4 0 0 1 3.834 2.855"/>
+          </svg>
+        </div>
+        <p class="circle-empty-title">Your Circle is empty</p>
+        <p class="circle-empty-desc">Add people to control who can see your content. Nothing is visible to anyone until they're in your Circle.</p>
+        <button class="btn-dash-primary" onclick="openAddMemberModal()">Add Your First Member</button>
+      </div>
+
+    </div><!-- /profile-circle-panel -->
+
   </main>
+
+  <!-- ─── CIRCLE MODALS ─────────────────────────────────── -->
+
+  <!-- Add Member -->
+  <div class="modal-overlay" id="add-member-modal" onclick="closeAddMemberModal()">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-member-title" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <h2 class="modal-title" id="add-member-title">Add to Circle</h2>
+        <button class="dash-drawer-close" onclick="closeAddMemberModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="invite-modal-body">
+        <div class="create-field-group">
+          <label class="create-label" for="circle-invite-email">Email address</label>
+          <input type="email" id="circle-invite-email" class="create-input" placeholder="friend@example.com">
+        </div>
+        <div class="create-field-group">
+          <label class="create-label">Relationship</label>
+          <div class="team-gender-opts circle-rel-opts">
+            <button type="button" class="team-gender-opt team-gender-opt--active">Family</button>
+            <button type="button" class="team-gender-opt">Teammate</button>
+            <button type="button" class="team-gender-opt">Coach</button>
+            <button type="button" class="team-gender-opt">Friend</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm" onclick="submitAddMember()">Send Invite</button>
+        <button class="btn-modal-cancel" onclick="closeAddMemberModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manage Access -->
+  <div class="modal-overlay" id="manage-access-modal" onclick="closeManageAccessModal()">
+    <div class="modal circle-access-modal" role="dialog" aria-modal="true" aria-labelledby="manage-access-title" onclick="event.stopPropagation()">
+      <div class="share-modal-header">
+        <h2 class="modal-title" id="manage-access-title">Manage Access</h2>
+        <button class="dash-drawer-close" onclick="closeManageAccessModal()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <p class="circle-access-modal-member" id="manage-access-member-name"></p>
+      <p class="modal-body">Choose which content categories this person can see.</p>
+      <div class="circle-category-list" id="circle-category-list"></div>
+      <div class="modal-actions" style="margin-top: 32px;">
+        <button class="btn-modal-confirm" onclick="saveAccessSettings()">Save</button>
+        <button class="btn-modal-cancel" onclick="closeManageAccessModal()">Cancel</button>
+      </div>
+      <div class="circle-danger-zone">
+        <button class="circle-remove-btn" onclick="confirmRemoveMember()">Remove from Circle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remove Confirm -->
+  <div class="modal-overlay" id="remove-confirm-modal" onclick="closeRemoveConfirmModal()">
+    <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+      <h2 class="modal-title">Remove Member</h2>
+      <p class="modal-body" id="remove-confirm-body">Remove this person from your Circle?</p>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm" onclick="executeRemoveMember()">Remove</button>
+        <button class="btn-modal-cancel" onclick="closeRemoveConfirmModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ── LOG OUT MODAL ─────────────────────────────── -->
   <div class="modal-overlay" id="logout-overlay" aria-hidden="true">
@@ -386,6 +572,146 @@
 
   <script src="js/main.js"></script>
   <script>
+    // ─── Tab switching ──────────────────────────────────
+    function switchProfileTab(tab) {
+      const isCircle = tab === 'circle';
+      document.getElementById('profile-account-panel').classList.toggle('active', !isCircle);
+      document.getElementById('profile-circle-panel').classList.toggle('active', isCircle);
+      document.getElementById('tab-account').classList.toggle('profile-tab--active', !isCircle);
+      document.getElementById('tab-circle').classList.toggle('profile-tab--active', isCircle);
+      document.getElementById('profile-edit-btn').style.display = isCircle ? 'none' : '';
+      if (isCircle) {
+        history.replaceState(null, '', '#circle');
+      } else {
+        history.replaceState(null, '', window.location.pathname);
+      }
+    }
+
+    // ─── Circle data ────────────────────────────────────
+    const CIRCLE_CATEGORIES = [
+      'Moments', 'Games', 'Stats', 'Goals', 'Milestones',
+      'Reflections', 'Recognition', 'Collections', 'Schedule', 'Frames'
+    ];
+    const memberAccessMap = {
+      'm1': new Set(),
+      'm2': new Set(['goals', 'milestones', 'reflections', 'recognition', 'collections', 'schedule', 'frames']),
+      'm3': new Set(),
+      'm4': new Set(['reflections'])
+    };
+    let _currentMemberId = null;
+    let _currentMemberName = null;
+
+    function openAddMemberModal() {
+      document.getElementById('circle-invite-email').value = '';
+      document.querySelectorAll('.circle-rel-opts .team-gender-opt').forEach((b, i) => {
+        b.classList.toggle('team-gender-opt--active', i === 0);
+      });
+      document.getElementById('add-member-modal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeAddMemberModal() {
+      document.getElementById('add-member-modal').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function submitAddMember() {
+      closeAddMemberModal();
+    }
+
+    function openManageAccessModal(memberId, memberName) {
+      _currentMemberId = memberId;
+      _currentMemberName = memberName;
+      document.getElementById('manage-access-member-name').textContent = memberName;
+      renderCategoryList(memberId);
+      document.getElementById('manage-access-modal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function renderCategoryList(memberId) {
+      const list = document.getElementById('circle-category-list');
+      const disabled = memberAccessMap[memberId] || new Set();
+      list.innerHTML = CIRCLE_CATEGORIES.map(cat => {
+        const slug = cat.toLowerCase();
+        const checked = !disabled.has(slug) ? 'checked' : '';
+        return `<div class="circle-category-row">
+          <span class="circle-category-name">${cat}</span>
+          <label class="access-toggle" aria-label="${cat} access">
+            <input type="checkbox" data-category="${slug}" ${checked}>
+            <span class="access-toggle-track"></span>
+          </label>
+        </div>`;
+      }).join('');
+    }
+    function closeManageAccessModal() {
+      document.getElementById('manage-access-modal').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function saveAccessSettings() {
+      const disabled = new Set();
+      document.querySelectorAll('#circle-category-list input[data-category]').forEach(cb => {
+        if (!cb.checked) disabled.add(cb.dataset.category);
+      });
+      memberAccessMap[_currentMemberId] = disabled;
+      updateMemberBadge(_currentMemberId);
+      closeManageAccessModal();
+    }
+    function updateMemberBadge(memberId) {
+      const row = document.querySelector(`.circle-member-row[data-member-id="${memberId}"]`);
+      if (!row) return;
+      const badge = row.querySelector('.circle-access-badge');
+      const disabled = memberAccessMap[memberId];
+      if (disabled.size === 0) {
+        badge.textContent = 'Full Access';
+        badge.className = 'circle-access-badge circle-access-badge--full';
+      } else {
+        const enabled = CIRCLE_CATEGORIES.filter(c => !disabled.has(c.toLowerCase()));
+        const label = enabled.length === 0 ? 'No Access'
+          : enabled.length <= 2 ? enabled.join(' · ')
+          : enabled.slice(0, 2).join(' · ') + ` +${enabled.length - 2} more`;
+        badge.textContent = label;
+        badge.className = 'circle-access-badge circle-access-badge--limited';
+      }
+    }
+    function confirmRemoveMember() {
+      document.getElementById('remove-confirm-body').textContent =
+        `Remove ${_currentMemberName} from your Circle? They will lose access to all your content.`;
+      closeManageAccessModal();
+      document.getElementById('remove-confirm-modal').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeRemoveConfirmModal() {
+      document.getElementById('remove-confirm-modal').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function executeRemoveMember() {
+      const row = document.querySelector(`.circle-member-row[data-member-id="${_currentMemberId}"]`);
+      if (row) row.remove();
+      delete memberAccessMap[_currentMemberId];
+      const count = Object.keys(memberAccessMap).length;
+      document.getElementById('circle-member-count').textContent = count;
+      if (count === 0) {
+        document.getElementById('circle-members-section').style.display = 'none';
+        document.getElementById('circle-empty').style.display = 'flex';
+      }
+      closeRemoveConfirmModal();
+    }
+
+    document.querySelectorAll('.circle-rel-opts .team-gender-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.circle-rel-opts .team-gender-opt')
+          .forEach(b => b.classList.remove('team-gender-opt--active'));
+        btn.classList.add('team-gender-opt--active');
+      });
+    });
+
+    // ─── Init ────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash === '#circle') {
+        switchProfileTab('circle');
+      } else {
+        document.getElementById('profile-account-panel').classList.add('active');
+      }
+    });
+
+    // ─── Account / profile functions ────────────────────
     function toggleProfileEdit() {
       const view = document.getElementById('profile-view');
       const form = document.getElementById('profile-edit-form');
