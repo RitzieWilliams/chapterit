@@ -8434,3 +8434,573 @@ footer {
     padding: 32px 24px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   UPDATES VIEW
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Filter section ── */
+.upd-filter-section {
+  margin-bottom: 24px;
+}
+
+.upd-type-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.upd-member-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.upd-member-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  background: none;
+  border: 1.5px solid var(--gray-200);
+  color: var(--gray-500);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.upd-member-chip:hover {
+  border-color: var(--gray-400);
+  color: var(--black);
+}
+
+.upd-member-chip.active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.upd-chip-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.upd-member-chip:not(.active) .upd-chip-avatar {
+  background: #e8e8e8;
+  color: #555;
+}
+
+/* ── Update list ── */
+.upd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Update card ── */
+.upd-card {
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.upd-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.upd-card-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.upd-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.upd-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upd-card-role {
+  font-size: 11px;
+  color: #999;
+}
+
+.upd-type-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.upd-type-badge--milestone {
+  background: #111;
+  color: #fff;
+}
+
+.upd-type-badge--game {
+  background: #333;
+  color: #fff;
+}
+
+.upd-type-badge--moment {
+  background: #f0f0f0;
+  color: #444;
+}
+
+.upd-type-badge--frame {
+  background: #111;
+  color: #e8c96d;
+}
+
+.upd-type-badge--recognition {
+  background: #f0f0f0;
+  color: #555;
+}
+
+.upd-card-date {
+  font-size: 11px;
+  color: #bbb;
+  flex-shrink: 0;
+}
+
+/* ── Card body ── */
+.upd-card-body {
+  padding-bottom: 14px;
+}
+
+/* Milestone body */
+.upd-milestone-chapter {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin: 0 0 6px;
+}
+
+.upd-milestone-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 0.03em;
+  color: #111;
+  margin: 0 0 6px;
+  line-height: 1;
+}
+
+.upd-milestone-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+
+.upd-milestone-date {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  background: #f5f5f5;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+/* Recognition body */
+.upd-recognition-block {
+  background: #fafafa;
+  border-left: 3px solid #e0e0e0;
+  padding: 14px 16px;
+  border-radius: 0 4px 4px 0;
+}
+
+.upd-recognition-text {
+  font-size: 14px;
+  color: #222;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  font-style: italic;
+}
+
+.upd-recognition-coach {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upd-recognition-coach-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ddd;
+  color: #555;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.upd-recognition-coach-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.upd-recognition-chapter {
+  font-size: 12px;
+  color: #bbb;
+}
+
+/* Game body */
+.upd-game-matchup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.upd-game-team {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+
+.upd-game-team--opp {
+  color: #888;
+  font-weight: 500;
+}
+
+.upd-game-score-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.upd-game-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: #111;
+  line-height: 1;
+}
+
+.upd-game-result {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+
+.upd-game-result--win {
+  background: #111;
+  color: #fff;
+}
+
+.upd-game-result--loss {
+  background: #f0f0f0;
+  color: #888;
+}
+
+.upd-game-note {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+
+.upd-game-chapter {
+  font-size: 11px;
+  color: #bbb;
+  margin: 0;
+}
+
+/* Moment body */
+.upd-moment-thumb {
+  aspect-ratio: 2 / 1;
+  background: #f0f0f0;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.upd-moment-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E") center / 32px no-repeat;
+}
+
+.upd-moment-caption {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 4px;
+}
+
+.upd-moment-context {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Frame body */
+.upd-frame-preview {
+  background: #111;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.upd-frame-preview-accent {
+  height: 3px;
+  background: #e8c96d;
+}
+
+.upd-frame-preview-inner {
+  padding: 14px 16px 16px;
+}
+
+.upd-frame-preview-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.upd-frame-preview-season {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.upd-frame-preview-level {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.upd-frame-preview-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0 0 2px;
+  line-height: 1;
+}
+
+.upd-frame-preview-team {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 14px;
+}
+
+.upd-frame-preview-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.upd-frame-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.upd-frame-stat-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  line-height: 1;
+}
+
+.upd-frame-stat-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── Card footer + comment ── */
+.upd-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.upd-comment-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.upd-comment-btn:hover {
+  color: #333;
+}
+
+.upd-comment-area {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.upd-comment-area.is-open {
+  display: flex;
+}
+
+.upd-comment-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #111;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  padding: 10px 12px;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.upd-comment-input:focus {
+  outline: none;
+  border-color: #bbb;
+}
+
+.upd-comment-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.upd-comment-privacy {
+  font-size: 11px;
+  color: #bbb;
+}
+
+.upd-comment-submit {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.upd-comment-submit:hover {
+  background: #333;
+}
+
+.upd-comment-sent {
+  font-size: 13px;
+  color: #555;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+/* ── Empty state ── */
+.upd-empty {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 72px 24px;
+  gap: 8px;
+}
+
+.upd-empty-icon {
+  width: 40px;
+  height: 40px;
+  color: #d4d4d4;
+  margin-bottom: 6px;
+}
+
+.upd-empty-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.upd-empty-desc {
+  font-size: 13px;
+  color: #b0b0b0;
+  margin: 0;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .upd-type-filters {
+    gap: 6px;
+  }
+  .upd-game-matchup {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+}

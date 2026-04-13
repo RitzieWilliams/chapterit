@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Updates</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link">Teams</a>
+      <a href="frame.html" class="dash-nav-link">Frame</a>
+      <a href="updates.html" class="dash-nav-link dash-nav-link--active">Updates</a>
+    </div>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" id="notif-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">4</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="dashboard.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
+        </svg>
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
+      </a>
+      <a href="frame.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Frame
+      </a>
+      <a href="updates.html" class="dash-drawer-item dash-drawer-item--active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+        Updates
+      </a>
+      <a href="circle.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <path d="M6.168 18.849A4 4 0 0 1 10 17h4a4 4 0 0 1 3.834 2.855"/>
+        </svg>
+        Circle
+      </a>
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── NOTIFICATIONS PANEL ──────────────────────────── -->
+  <div class="notif-panel" id="notif-panel" aria-hidden="true">
+    <div class="notif-panel-header">
+      <span class="notif-panel-title">Notifications</span>
+      <button class="notif-mark-all" id="notif-mark-all">Mark all read</button>
+    </div>
+    <div class="notif-list">
+      <div class="notif-item notif-item--unread">
+        <div class="notif-icon notif-icon--star">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="notif-body">
+          <p class="notif-text"><strong>Coach Williams</strong> sent recognition on Marcus Johnson's <strong>Junior Season 2024</strong> chapter.</p>
+          <span class="notif-time">2h ago</span>
+          <div class="notif-actions">
+            <button class="notif-action-btn notif-action-btn--approve" onclick="openRecognitionApproval()">Approve</button>
+            <button class="notif-action-btn notif-action-btn--decline" onclick="declineRecognition(this)">Decline</button>
+          </div>
+        </div>
+        <span class="notif-dot"></span>
+      </div>
+      <div class="notif-item notif-item--unread">
+        <div class="notif-icon notif-icon--request"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+        <div class="notif-body"><p class="notif-text"><strong>Kai Thompson</strong> requested to join the <strong>Lincoln Hornets 2024–2025</strong> roster.</p><span class="notif-time">1d ago</span></div>
+        <span class="notif-dot"></span>
+      </div>
+      <div class="notif-item notif-item--unread">
+        <div class="notif-icon notif-icon--tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <div class="notif-body"><p class="notif-text"><strong>Lincoln Hornets</strong> tagged Marcus Johnson in team shared media.</p><span class="notif-time">2d ago</span></div>
+        <span class="notif-dot"></span>
+      </div>
+    </div>
+  </div>
+  <div class="notif-backdrop" id="notif-backdrop"></div>
+
+  <!-- ─── MAIN ─────────────────────────────────────────── -->
+  <main class="dash-main">
+
+    <!-- PAGE HEADER -->
+    <div class="profile-page-header">
+      <div>
+        <h1 class="profile-page-title">Updates</h1>
+        <p class="circle-header-desc">Meaningful updates from your Circle — shared intentionally, seen clearly.</p>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="upd-filter-section">
+      <div class="upd-type-filters">
+        <button class="tl-filter active" data-filter="all">All</button>
+        <button class="tl-filter" data-filter="milestone">Milestones</button>
+        <button class="tl-filter" data-filter="game">Games</button>
+        <button class="tl-filter" data-filter="moment">Moments</button>
+        <button class="tl-filter" data-filter="frame">Frames</button>
+        <button class="tl-filter" data-filter="recognition">Recognition</button>
+      </div>
+      <div class="upd-member-filters">
+        <button class="upd-member-chip active" data-member="all">
+          All Members
+        </button>
+        <button class="upd-member-chip" data-member="kai">
+          <span class="upd-chip-avatar">KT</span>
+          Kai Thompson
+        </button>
+        <button class="upd-member-chip" data-member="coach">
+          <span class="upd-chip-avatar">CW</span>
+          Coach Williams
+        </button>
+        <button class="upd-member-chip" data-member="derek">
+          <span class="upd-chip-avatar">DM</span>
+          Derek Miles
+        </button>
+      </div>
+    </div>
+
+    <!-- UPDATE LIST -->
+    <div class="upd-list" id="upd-list">
+
+      <!-- 1 · MILESTONE — Kai Thompson -->
+      <div class="upd-card" data-type="milestone" data-member="kai">
+        <div class="upd-card-header">
+          <div class="upd-card-avatar">KT</div>
+          <div class="upd-card-meta">
+            <span class="upd-card-name">Kai Thompson</span>
+            <span class="upd-card-role">Teammate</span>
+          </div>
+          <span class="upd-type-badge upd-type-badge--milestone">Milestone</span>
+          <span class="upd-card-date">2d ago</span>
+        </div>
+        <div class="upd-card-body">
+          <p class="upd-milestone-chapter">Junior Season 2024</p>
+          <h3 class="upd-milestone-title">20-Point Game</h3>
+          <p class="upd-milestone-desc">Scored 20 in tonight's JV matchup — first time crossing that mark this season.</p>
+          <span class="upd-milestone-date">Apr 11, 2026</span>
+        </div>
+        <div class="upd-card-footer">
+          <button class="upd-comment-btn" onclick="toggleComment(this)">Leave a comment</button>
+        </div>
+        <div class="upd-comment-area">
+          <textarea class="upd-comment-input" placeholder="Write a comment…" rows="2"></textarea>
+          <div class="upd-comment-actions">
+            <span class="upd-comment-privacy">Only Kai sees your comment</span>
+            <button class="upd-comment-submit" onclick="submitComment(this)">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 · RECOGNITION — Coach Williams -->
+      <div class="upd-card" data-type="recognition" data-member="coach">
+        <div class="upd-card-header">
+          <div class="upd-card-avatar">CW</div>
+          <div class="upd-card-meta">
+            <span class="upd-card-name">Coach Williams</span>
+            <span class="upd-card-role">Coach</span>
+          </div>
+          <span class="upd-type-badge upd-type-badge--recognition">Recognition</span>
+          <span class="upd-card-date">4d ago</span>
+        </div>
+        <div class="upd-card-body">
+          <div class="upd-recognition-block">
+            <p class="upd-recognition-text">"Marcus showed exceptional leadership in practice this week — composed under pressure, and led by example when it counted."</p>
+            <div class="upd-recognition-coach">
+              <span class="upd-recognition-coach-avatar">CW</span>
+              <span class="upd-recognition-coach-name">Coach Williams</span>
+              <span class="upd-recognition-chapter">· Junior Season 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="upd-card-footer">
+          <button class="upd-comment-btn" onclick="toggleComment(this)">Leave a comment</button>
+        </div>
+        <div class="upd-comment-area">
+          <textarea class="upd-comment-input" placeholder="Write a comment…" rows="2"></textarea>
+          <div class="upd-comment-actions">
+            <span class="upd-comment-privacy">Only Coach Williams sees your comment</span>
+            <button class="upd-comment-submit" onclick="submitComment(this)">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 · GAME — Derek Miles -->
+      <div class="upd-card" data-type="game" data-member="derek">
+        <div class="upd-card-header">
+          <div class="upd-card-avatar">DM</div>
+          <div class="upd-card-meta">
+            <span class="upd-card-name">Derek Miles</span>
+            <span class="upd-card-role">Teammate</span>
+          </div>
+          <span class="upd-type-badge upd-type-badge--game">Game</span>
+          <span class="upd-card-date">1w ago</span>
+        </div>
+        <div class="upd-card-body">
+          <div class="upd-game-matchup">
+            <span class="upd-game-team">JV Lincoln Hornets</span>
+            <div class="upd-game-score-block">
+              <span class="upd-game-score">72 – 61</span>
+              <span class="upd-game-result upd-game-result--win">W</span>
+            </div>
+            <span class="upd-game-team upd-game-team--opp">Central HS</span>
+          </div>
+          <p class="upd-game-note">Strong second half — locked in defensively and held them to single digits in the fourth.</p>
+          <p class="upd-game-chapter">Junior Season 2024 · Apr 6, 2026</p>
+        </div>
+        <div class="upd-card-footer">
+          <button class="upd-comment-btn" onclick="toggleComment(this)">Leave a comment</button>
+        </div>
+        <div class="upd-comment-area">
+          <textarea class="upd-comment-input" placeholder="Write a comment…" rows="2"></textarea>
+          <div class="upd-comment-actions">
+            <span class="upd-comment-privacy">Only Derek sees your comment</span>
+            <button class="upd-comment-submit" onclick="submitComment(this)">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · MOMENT — Kai Thompson -->
+      <div class="upd-card" data-type="moment" data-member="kai">
+        <div class="upd-card-header">
+          <div class="upd-card-avatar">KT</div>
+          <div class="upd-card-meta">
+            <span class="upd-card-name">Kai Thompson</span>
+            <span class="upd-card-role">Teammate</span>
+          </div>
+          <span class="upd-type-badge upd-type-badge--moment">Moment</span>
+          <span class="upd-card-date">10d ago</span>
+        </div>
+        <div class="upd-card-body">
+          <div class="upd-moment-thumb" aria-label="Moment photo"></div>
+          <p class="upd-moment-caption">Team warm-up before the championship.</p>
+          <p class="upd-moment-context">The whole team was locked in. You could feel it before we even stepped on the floor.</p>
+        </div>
+        <div class="upd-card-footer">
+          <button class="upd-comment-btn" onclick="toggleComment(this)">Leave a comment</button>
+        </div>
+        <div class="upd-comment-area">
+          <textarea class="upd-comment-input" placeholder="Write a comment…" rows="2"></textarea>
+          <div class="upd-comment-actions">
+            <span class="upd-comment-privacy">Only Kai sees your comment</span>
+            <button class="upd-comment-submit" onclick="submitComment(this)">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · FRAME — Coach Williams -->
+      <div class="upd-card" data-type="frame" data-member="coach">
+        <div class="upd-card-header">
+          <div class="upd-card-avatar">CW</div>
+          <div class="upd-card-meta">
+            <span class="upd-card-name">Coach Williams</span>
+            <span class="upd-card-role">Coach</span>
+          </div>
+          <span class="upd-type-badge upd-type-badge--frame">Frame</span>
+          <span class="upd-card-date">2w ago</span>
+        </div>
+        <div class="upd-card-body">
+          <div class="upd-frame-preview">
+            <div class="upd-frame-preview-accent"></div>
+            <div class="upd-frame-preview-inner">
+              <div class="upd-frame-preview-top">
+                <span class="upd-frame-preview-season">2024 – 2025</span>
+                <span class="upd-frame-preview-level">Varsity</span>
+              </div>
+              <p class="upd-frame-preview-name">Pre-Season 2024</p>
+              <p class="upd-frame-preview-team">Lincoln Hornets · Basketball</p>
+              <div class="upd-frame-preview-stats">
+                <div class="upd-frame-stat">
+                  <span class="upd-frame-stat-val">18.4</span>
+                  <span class="upd-frame-stat-lbl">PPG</span>
+                </div>
+                <div class="upd-frame-stat">
+                  <span class="upd-frame-stat-val">6.1</span>
+                  <span class="upd-frame-stat-lbl">RPG</span>
+                </div>
+                <div class="upd-frame-stat">
+                  <span class="upd-frame-stat-val">4.3</span>
+                  <span class="upd-frame-stat-lbl">APG</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="upd-card-footer">
+          <button class="upd-comment-btn" onclick="toggleComment(this)">Leave a comment</button>
+        </div>
+        <div class="upd-comment-area">
+          <textarea class="upd-comment-input" placeholder="Write a comment…" rows="2"></textarea>
+          <div class="upd-comment-actions">
+            <span class="upd-comment-privacy">Only Coach Williams sees your comment</span>
+            <button class="upd-comment-submit" onclick="submitComment(this)">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /upd-list -->
+
+    <!-- EMPTY STATE -->
+    <div class="upd-empty" id="upd-empty" style="display:none;">
+      <svg class="upd-empty-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+      <p class="upd-empty-title">Nothing new right now.</p>
+      <p class="upd-empty-desc">When someone in your Circle shares something meaningful, it will appear here.</p>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ─── Filter state ───────────────────────────────────────
+    let activeType   = 'all';
+    let activeMember = 'all';
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.upd-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const typeMatch   = activeType   === 'all' || card.dataset.type   === activeType;
+        const memberMatch = activeMember === 'all' || card.dataset.member === activeMember;
+        const show = typeMatch && memberMatch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('upd-empty').style.display = visible === 0 ? 'flex' : 'none';
+    }
+
+    // ─── Type filters ───────────────────────────────────────
+    document.querySelectorAll('.upd-type-filters .tl-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.upd-type-filters .tl-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeType = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // ─── Member filters ─────────────────────────────────────
+    document.querySelectorAll('.upd-member-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.upd-member-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        activeMember = chip.dataset.member;
+        applyFilters();
+      });
+    });
+
+    // ─── Comment toggle ─────────────────────────────────────
+    function toggleComment(btn) {
+      const card = btn.closest('.upd-card');
+      const area = card.querySelector('.upd-comment-area');
+      const isOpen = area.classList.toggle('is-open');
+      btn.textContent = isOpen ? 'Cancel' : 'Leave a comment';
+      if (isOpen) card.querySelector('.upd-comment-input').focus();
+    }
+
+    function submitComment(btn) {
+      const area = btn.closest('.upd-comment-area');
+      const input = area.querySelector('.upd-comment-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      // Render the sent comment inline
+      const sent = document.createElement('p');
+      sent.className = 'upd-comment-sent';
+      sent.textContent = text;
+      area.insertBefore(sent, area.querySelector('.upd-comment-actions'));
+
+      input.value = '';
+      const card = btn.closest('.upd-card');
+      const commentBtn = card.querySelector('.upd-comment-btn');
+      area.classList.remove('is-open');
+      commentBtn.textContent = 'Leave a comment';
+    }
+  </script>
+
+</body>
+</html>
