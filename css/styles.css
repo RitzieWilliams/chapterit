@@ -5009,6 +5009,9 @@ footer {
   color: var(--gray-600);
 }
 
+/* ─── GAME CARD ──────────────────────────────────── */
+.tl-card--game:hover { border-color: var(--gray-400); }
+
 /* ─── ENHANCED TIMELINE EVENT CARD ──────────────── */
 .tl-card--event {
   display: flex;
