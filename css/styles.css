@@ -5911,6 +5911,91 @@ footer {
   color: var(--black);
 }
 
+.people-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.people-badge--managed {
+  background: var(--gray-100);
+  color: var(--gray-500);
+}
+
+.people-badge--connected {
+  background: var(--black);
+  color: var(--white);
+}
+
+.people-more-wrap {
+  position: relative;
+}
+
+.people-more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  transition: color 0.2s ease;
+}
+
+.people-more-btn:hover {
+  color: var(--black);
+}
+
+.people-more-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  min-width: 170px;
+  z-index: 50;
+  display: none;
+}
+
+.people-more-menu.is-open {
+  display: block;
+}
+
+.people-more-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--black);
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.people-more-menu-item:hover {
+  background: var(--gray-100);
+}
+
+.people-more-menu-item--danger {
+  color: #c0392b;
+}
+
+.people-more-menu-item--danger:hover {
+  background: #fdf2f1;
+}
+
 /* ─── SCHEDULE EDITOR ─────────────────────────────── */
 .sched-editor {
   border: 1px solid var(--gray-200);

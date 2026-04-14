@@ -347,6 +347,7 @@
 
       <div class="people-list">
 
+        <!-- Over 13 — has own account → Disconnect -->
         <div class="people-row people-row--athlete">
           <div class="people-avatar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -355,14 +356,27 @@
           </div>
           <div class="people-info">
             <p class="people-name">Marcus Johnson</p>
-            <p class="people-meta">Basketball &middot; Lincoln High School &middot; Varsity</p>
+            <p class="people-meta">4 chapters &middot; 2 teams</p>
           </div>
-          <span class="people-tag">Son</span>
-          <a href="chapter.html" class="people-link" aria-label="View chapters">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <span class="people-badge people-badge--connected">Connected</span>
+          <div class="people-more-wrap">
+            <button class="people-more-btn" onclick="toggleAthleteMenu(event, this)" aria-label="More options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+            <div class="people-more-menu">
+              <a href="chapter.html" class="people-more-menu-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                View Chapters
+              </a>
+              <button class="people-more-menu-item people-more-menu-item--danger" onclick="openAthleteDisconnect('Marcus Johnson')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Disconnect
+              </button>
+            </div>
+          </div>
         </div>
 
+        <!-- Under 13 — managed through parent account → Delete -->
         <div class="people-row people-row--athlete">
           <div class="people-avatar">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -371,12 +385,24 @@
           </div>
           <div class="people-info">
             <p class="people-name">Emma Rodriguez</p>
-            <p class="people-meta">Soccer &middot; Metro FC Academy &middot; U17 Elite</p>
+            <p class="people-meta">2 chapters &middot; 1 team</p>
           </div>
-          <span class="people-tag">Daughter</span>
-          <a href="#" class="people-link" aria-label="View chapters">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <span class="people-badge people-badge--managed">Managed</span>
+          <div class="people-more-wrap">
+            <button class="people-more-btn" onclick="toggleAthleteMenu(event, this)" aria-label="More options">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+            <div class="people-more-menu">
+              <a href="#" class="people-more-menu-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                View Chapters
+              </a>
+              <button class="people-more-menu-item people-more-menu-item--danger" onclick="openAthleteDelete('Emma Rodriguez')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+                Delete Athlete
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -561,6 +587,30 @@
       <div class="modal-actions">
         <button class="btn-modal-confirm" onclick="executeRemoveMember()">Remove</button>
         <button class="btn-modal-cancel" onclick="closeRemoveConfirmModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DISCONNECT ATHLETE MODAL ─────────────────── -->
+  <div class="modal-overlay" id="athlete-disconnect-modal" onclick="closeAthleteModals()">
+    <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+      <h2 class="modal-title">Disconnect Athlete</h2>
+      <p class="modal-body" id="athlete-disconnect-body"></p>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm" onclick="executeAthleteDisconnect()">Disconnect</button>
+        <button class="btn-modal-cancel" onclick="closeAthleteModals()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DELETE ATHLETE MODAL ───────────────────────── -->
+  <div class="modal-overlay" id="athlete-delete-modal" onclick="closeAthleteModals()">
+    <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+      <h2 class="modal-title">Delete Athlete</h2>
+      <p class="modal-body" id="athlete-delete-body"></p>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm btn-modal-confirm--danger" onclick="executeAthleteDelete()">Delete</button>
+        <button class="btn-modal-cancel" onclick="closeAthleteModals()">Cancel</button>
       </div>
     </div>
   </div>
@@ -780,6 +830,57 @@
     document.getElementById('logout-overlay').addEventListener('click', function(e) {
       if (e.target === this) closeLogoutModal();
     });
+
+    // ── Athlete more menus ──────────────────────────────
+    function toggleAthleteMenu(e, btn) {
+      e.stopPropagation();
+      const menu = btn.nextElementSibling;
+      const isOpen = menu.classList.contains('is-open');
+      // close all open athlete menus first
+      document.querySelectorAll('.people-more-menu.is-open').forEach(m => m.classList.remove('is-open'));
+      if (!isOpen) menu.classList.add('is-open');
+    }
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.people-more-menu.is-open').forEach(m => m.classList.remove('is-open'));
+    });
+
+    // ── Disconnect modal ────────────────────────────────
+    let _disconnectName = '';
+
+    function openAthleteDisconnect(name) {
+      _disconnectName = name;
+      document.getElementById('athlete-disconnect-body').textContent =
+        name + ' will keep their own ChapterIt account and all their chapters. You'll no longer be connected.';
+      document.getElementById('athlete-disconnect-modal').classList.add('is-open');
+      document.querySelectorAll('.people-more-menu.is-open').forEach(m => m.classList.remove('is-open'));
+    }
+
+    function executeAthleteDisconnect() {
+      // TODO: wire to backend
+      closeAthleteModals();
+    }
+
+    // ── Delete modal ────────────────────────────────────
+    let _deleteName = '';
+
+    function openAthleteDelete(name) {
+      _deleteName = name;
+      document.getElementById('athlete-delete-body').textContent =
+        'Permanently delete ' + name + '? This cannot be undone. Their account and all chapters, moments, and data will be deleted.';
+      document.getElementById('athlete-delete-modal').classList.add('is-open');
+      document.querySelectorAll('.people-more-menu.is-open').forEach(m => m.classList.remove('is-open'));
+    }
+
+    function executeAthleteDelete() {
+      // TODO: wire to backend
+      closeAthleteModals();
+    }
+
+    function closeAthleteModals() {
+      document.getElementById('athlete-disconnect-modal').classList.remove('is-open');
+      document.getElementById('athlete-delete-modal').classList.remove('is-open');
+    }
   </script>
 </body>
 </html>
