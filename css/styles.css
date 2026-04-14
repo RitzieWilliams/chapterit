@@ -4065,6 +4065,7 @@ footer {
   padding: 3px 9px;
 }
 
+.tl-tag--game     { background: var(--black); color: var(--white); }
 .tl-tag--event    { background: var(--black); color: var(--white); }
 .tl-tag--moment   { border: 1.5px solid var(--gray-300); color: var(--gray-600); }
 .tl-tag--milestone { border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.6); }
