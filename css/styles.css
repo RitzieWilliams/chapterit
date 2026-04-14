@@ -5479,21 +5479,20 @@ footer {
   font-size: 15px;
   font-weight: 400;
   color: var(--black);
-  background: var(--white);
-  border: none;
-  border-bottom: 1.5px solid var(--gray-200);
-  padding: 12px 0;
+  background: var(--gray-100);
+  border: 1.5px solid transparent;
+  padding: 14px 16px;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .create-input:focus {
-  border-bottom-color: var(--black);
+  background: var(--white);
+  border-color: var(--black);
 }
 
 .create-input::placeholder {
   color: var(--gray-400);
-  font-weight: 300;
 }
 
 /* Select */
@@ -5510,7 +5509,7 @@ footer {
 
 .create-select-arrow {
   position: absolute;
-  right: 4px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--gray-400);
@@ -6047,10 +6046,6 @@ footer {
 }
 
 /* ─── MOMENT CREATE ───────────────────────────────── */
-.moment-create-layout {
-  grid-template-columns: 1fr 480px;
-}
-
 /* Right panel — upload zone */
 .moment-upload-panel {
   position: sticky;
@@ -6282,7 +6277,7 @@ footer {
   resize: vertical;
   min-height: 100px;
   line-height: 1.6;
-  padding: 12px 0;
+  padding: 14px 16px;
 }
 
 /* Mobile upload zone (compact, hidden on desktop) */
@@ -7042,8 +7037,6 @@ footer {
   .profile-form-grid { grid-template-columns: 1fr; }
   .create-layout { grid-template-columns: 1fr; }
   .create-info-panel { display: none; }
-  .moment-upload-panel { display: none; }
-  .moment-upload-mobile { display: block; }
   .create-form-panel { padding: 120px 32px 64px; }
   .chapter-item { gap: 32px; margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
   .team-item:hover { margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
