@@ -294,6 +294,16 @@
         </div>
       </form>
 
+      <!-- DELETE ACCOUNT -->
+      <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--gray-200);">
+        <button class="btn-section-ghost" style="color: #c0392b; border-color: currentColor;" onclick="openDeleteAccount()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/>
+          </svg>
+          Delete Account
+        </button>
+      </div>
+
     </div>
 
     <!-- ── PARENTS ─────────────────────────────────────── -->
@@ -457,7 +467,6 @@
             <div class="people-avatar"><span class="circle-member-initials">DJ</span></div>
             <div class="people-info">
               <p class="people-name">David Johnson</p>
-              <p class="people-meta">Father</p>
             </div>
             <span class="circle-access-badge circle-access-badge--full">Full Access</span>
             <button class="circle-manage-btn" aria-label="Manage David Johnson" onclick="openManageAccessModal('m1', 'David Johnson')">
@@ -585,6 +594,18 @@
       <div class="modal-actions">
         <button class="btn-modal-confirm" onclick="executeRemoveMember()">Remove</button>
         <button class="btn-modal-cancel" onclick="closeRemoveConfirmModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DELETE ACCOUNT MODAL ─────────────────────── -->
+  <div class="modal-overlay" id="delete-account-modal" onclick="closeDeleteAccount()">
+    <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+      <h2 class="modal-title">Delete Account</h2>
+      <p class="modal-body">This is permanent and cannot be undone. Your account, all chapters, moments, and data will be deleted immediately.</p>
+      <div class="modal-actions">
+        <button class="btn-modal-confirm btn-modal-confirm--danger" onclick="executeDeleteAccount()">Delete My Account</button>
+        <button class="btn-modal-cancel" onclick="closeDeleteAccount()">Cancel</button>
       </div>
     </div>
   </div>
@@ -950,6 +971,20 @@
 
     function closeAthleteConfirm() {
       document.getElementById('athlete-confirm-modal').classList.remove('is-open');
+    }
+
+    // ── Delete account ──────────────────────────────────
+    function openDeleteAccount() {
+      document.getElementById('delete-account-modal').classList.add('is-open');
+    }
+
+    function closeDeleteAccount() {
+      document.getElementById('delete-account-modal').classList.remove('is-open');
+    }
+
+    function executeDeleteAccount() {
+      // TODO: wire to backend
+      window.location = 'auth.html';
     }
   </script>
 </body>
