@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChapterIt — Add an Event</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dash-body">
+
+  <!-- ─── NAV ─────────────────────────────────────────── -->
+  <nav class="dash-nav">
+    <button class="dash-hamburger" id="dash-hamburger" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <a href="dashboard.html" class="nav-logo">
+      <img src="assets/logo.svg" alt="ChapterIt" class="logo-img">
+    </a>
+    <div class="dash-nav-links">
+      <a href="dashboard.html" class="dash-nav-link">Chapters</a>
+      <a href="teams.html" class="dash-nav-link">Teams</a>
+      <a href="frame.html" class="dash-nav-link">Frame</a>
+      <a href="updates.html" class="dash-nav-link">Updates</a>
+    </div>
+    <div class="dash-nav-right">
+      <button class="dash-icon-btn" id="notif-btn" aria-label="Notifications">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="dash-badge">4</span>
+      </button>
+      <button class="dash-avatar-btn" aria-label="Account" onclick="window.location='profile.html'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── MOBILE DRAWER ────────────────────────────────── -->
+  <div class="dash-drawer" id="dash-drawer" aria-hidden="true">
+    <div class="dash-drawer-header">
+      <button class="dash-drawer-close" id="dash-drawer-close" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="dash-drawer-nav">
+      <a href="dashboard.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M3 14h7v7H3z"/><path d="M14 14h7v7h-7z"/>
+        </svg>
+        Chapters
+      </a>
+      <a href="teams.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        Teams
+      </a>
+      <a href="frame.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Frame
+      </a>
+      <a href="updates.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+        Updates
+      </a>
+      <a href="profile.html#circle" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <path d="M6.168 18.849A4 4 0 0 1 10 17h4a4 4 0 0 1 3.834 2.855"/>
+        </svg>
+        Circle
+      </a>
+      <a href="profile.html" class="dash-drawer-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+  <div class="dash-drawer-overlay" id="dash-drawer-overlay"></div>
+
+  <!-- ─── NOTIFICATIONS PANEL ──────────────────────────── -->
+  <div class="notif-panel" id="notif-panel" aria-hidden="true">
+    <div class="notif-panel-header">
+      <span class="notif-panel-title">Notifications</span>
+      <button class="notif-mark-all" id="notif-mark-all">Mark all read</button>
+    </div>
+    <div class="notif-list">
+      <div class="notif-item notif-item--unread">
+        <div class="notif-icon notif-icon--star">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="notif-body">
+          <p class="notif-text"><strong>Coach Williams</strong> sent recognition on Marcus Johnson's <strong>Junior Season 2024</strong> chapter.</p>
+          <span class="notif-time">2h ago</span>
+          <div class="notif-actions">
+            <button class="notif-action-btn notif-action-btn--approve" onclick="openRecognitionApproval()">Approve</button>
+            <button class="notif-action-btn notif-action-btn--decline" onclick="declineRecognition(this)">Decline</button>
+          </div>
+        </div>
+        <span class="notif-dot"></span>
+      </div>
+      <div class="notif-item notif-item--unread">
+        <div class="notif-icon notif-icon--request"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+        <div class="notif-body"><p class="notif-text"><strong>Kai Thompson</strong> requested to join the <strong>Lincoln Hornets 2024–2025</strong> roster.</p><span class="notif-time">1d ago</span></div>
+        <span class="notif-dot"></span>
+      </div>
+      <div class="notif-item notif-item--unread">
+        <div class="notif-icon notif-icon--tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+        <div class="notif-body"><p class="notif-text"><strong>Lincoln Hornets</strong> tagged Marcus Johnson in team shared media.</p><span class="notif-time">2d ago</span></div>
+        <span class="notif-dot"></span>
+      </div>
+    </div>
+  </div>
+  <div class="notif-backdrop" id="notif-backdrop"></div>
+
+  <!-- ─── CREATE LAYOUT ────────────────────────────────── -->
+  <div class="create-layout">
+
+    <!-- ── LEFT: FORM ──────────────────────────────────── -->
+    <div class="create-form-panel">
+
+      <a href="chapter.html" class="chapter-breadcrumb" style="margin-bottom: 32px; display: inline-flex;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Junior Season 2024
+      </a>
+
+      <h1 class="create-title">Add an<br>Event</h1>
+
+      <form id="event-form" onsubmit="submitEvent(event)">
+
+        <!-- Cover Photo -->
+        <div class="create-field-group">
+          <label class="create-label">Cover Photo</label>
+          <div class="moment-upload-zone moment-upload-zone--compact" id="upload-zone">
+            <input type="file" id="photo-input" accept="image/*" style="display:none">
+            <div class="moment-upload-empty" id="upload-empty">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              <p class="moment-upload-label">Drop a photo here</p>
+              <p class="moment-upload-sub">or <button type="button" class="moment-upload-browse" id="browse-btn">browse files</button></p>
+              <p class="moment-upload-hint">JPG, PNG, HEIC up to 50MB</p>
+            </div>
+            <img class="moment-upload-preview-img" id="preview-img" src="" alt="Preview" style="display:none">
+            <button type="button" class="moment-upload-change" id="change-btn" style="display:none">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              Change Photo
+            </button>
+          </div>
+        </div>
+
+        <!-- Event Title -->
+        <div class="create-field-group">
+          <label class="create-label" for="ev-title">Event Title <span class="create-required">*</span></label>
+          <input type="text" id="ev-title" class="create-input" placeholder="e.g. Fall Showcase, Summer Skills Camp" required>
+        </div>
+
+        <!-- Date -->
+        <div class="create-field-group">
+          <label class="create-label" for="ev-date">Date <span class="create-required">*</span></label>
+          <input type="date" id="ev-date" class="create-input" required>
+        </div>
+
+        <button type="submit" class="btn-dash-primary create-submit">Add Event</button>
+
+      </form>
+    </div>
+
+    <!-- ── RIGHT: INFO ──────────────────────────────────── -->
+    <div class="create-info-panel">
+      <div class="create-info-content">
+
+        <p class="create-info-eyebrow">What is an event?</p>
+        <h2 class="create-info-headline">Beyond the<br>game,<br><span class="outline-text">still counts.</span></h2>
+
+        <div class="create-info-items">
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 21h8"/><path d="M12 17v4"/>
+                <path d="M7 4H4v3a4 4 0 0 0 4 4"/><path d="M17 4h3v3a4 4 0 0 1-4 4"/>
+                <path d="M7 4h10v6a5 5 0 0 1-10 0V4z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Showcases &amp; Combines</p>
+              <p class="create-info-item-desc">Log recruiting events, exposure tournaments, and combines that shape your path as an athlete.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Camps &amp; Clinics</p>
+              <p class="create-info-item-desc">Capture training camps, skills clinics, and off-season programs that push your development forward.</p>
+            </div>
+          </div>
+
+          <div class="create-info-item">
+            <div class="create-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <p class="create-info-item-title">Any Moment Worth Logging</p>
+              <p class="create-info-item-desc">Banquets, award ceremonies, travel tournaments — if it was part of your season, it belongs in the chapter.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    const photoInput = document.getElementById('photo-input');
+    const uploadZone = document.getElementById('upload-zone');
+    const uploadEmpty = document.getElementById('upload-empty');
+    const previewImg = document.getElementById('preview-img');
+    const browseBtn  = document.getElementById('browse-btn');
+    const changeBtn  = document.getElementById('change-btn');
+
+    function showPreview(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      previewImg.src = URL.createObjectURL(file);
+      previewImg.style.display = 'block';
+      uploadEmpty.style.display = 'none';
+      changeBtn.style.display = 'inline-flex';
+    }
+
+    browseBtn.addEventListener('click', () => photoInput.click());
+    changeBtn.addEventListener('click', () => photoInput.click());
+    photoInput.addEventListener('change', () => { if (photoInput.files[0]) showPreview(photoInput.files[0]); });
+
+    uploadZone.addEventListener('click', e => { if (e.target === uploadZone) photoInput.click(); });
+    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('is-dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('is-dragover'));
+    uploadZone.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadZone.classList.remove('is-dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) { photoInput.files = e.dataTransfer.files; showPreview(file); }
+    });
+
+    function submitEvent(e) {
+      e.preventDefault();
+      window.location = 'event.html';
+    }
+  </script>
+</body>
+</html>
