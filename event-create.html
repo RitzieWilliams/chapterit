@@ -111,6 +111,31 @@
 
       <form id="event-form" onsubmit="submitEvent(event)">
 
+        <!-- Cover Photo -->
+        <div class="create-field-group">
+          <label class="create-label">Cover Photo</label>
+          <div class="moment-upload-zone moment-upload-zone--compact" id="upload-zone">
+            <input type="file" id="photo-input" accept="image/*" style="display:none">
+            <div class="moment-upload-empty" id="upload-empty">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              <p class="moment-upload-label">Drop a photo here</p>
+              <p class="moment-upload-sub">or <button type="button" class="moment-upload-browse" id="browse-btn">browse files</button></p>
+              <p class="moment-upload-hint">JPG, PNG, HEIC up to 50MB</p>
+            </div>
+            <img class="moment-upload-preview-img" id="preview-img" src="" alt="Preview" style="display:none">
+            <button type="button" class="moment-upload-change" id="change-btn" style="display:none">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              Change Photo
+            </button>
+          </div>
+        </div>
+
         <!-- Event Name -->
         <div class="create-field-group">
           <label class="create-label" for="ev-name">Event Name <span class="create-required">*</span></label>
@@ -207,7 +232,37 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Hide number spinners
+    // ── Cover photo upload ─────────────────────────────
+    const photoInput = document.getElementById('photo-input');
+    const uploadZone = document.getElementById('upload-zone');
+    const uploadEmpty = document.getElementById('upload-empty');
+    const previewImg = document.getElementById('preview-img');
+    const browseBtn  = document.getElementById('browse-btn');
+    const changeBtn  = document.getElementById('change-btn');
+
+    function showPreview(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      previewImg.src = URL.createObjectURL(file);
+      previewImg.style.display = 'block';
+      uploadEmpty.style.display = 'none';
+      changeBtn.style.display = 'inline-flex';
+    }
+
+    browseBtn.addEventListener('click', () => photoInput.click());
+    changeBtn.addEventListener('click', () => photoInput.click());
+    photoInput.addEventListener('change', () => { if (photoInput.files[0]) showPreview(photoInput.files[0]); });
+
+    uploadZone.addEventListener('click', e => { if (e.target === uploadZone) photoInput.click(); });
+    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('is-dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('is-dragover'));
+    uploadZone.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadZone.classList.remove('is-dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) { photoInput.files = e.dataTransfer.files; showPreview(file); }
+    });
+
+    // ── Hide number spinners ───────────────────────────
     document.querySelectorAll('.event-score-input').forEach(input => {
       input.addEventListener('keydown', e => {
         if (e.key === 'ArrowUp' || e.key === 'ArrowDown') e.preventDefault();
