@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChapterIt — Create Event</title>
+  <title>ChapterIt — Log a Game</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="dash-body">
@@ -107,7 +107,7 @@
         Junior Season 2024
       </a>
 
-      <h1 class="create-title">Create an<br>Event</h1>
+      <h1 class="create-title">Log a<br>Game</h1>
 
       <form id="event-form" onsubmit="submitEvent(event)">
 
@@ -138,8 +138,14 @@
 
         <!-- Event Name -->
         <div class="create-field-group">
-          <label class="create-label" for="ev-name">Event Name <span class="create-required">*</span></label>
+          <label class="create-label" for="ev-name">Game Name <span class="create-required">*</span></label>
           <input type="text" id="ev-name" class="create-input" placeholder="e.g. Season Opener, Away at Westside" required>
+        </div>
+
+        <!-- Description -->
+        <div class="create-field-group">
+          <label class="create-label" for="ev-desc">Description</label>
+          <textarea id="ev-desc" class="create-input create-textarea" placeholder="Anything worth remembering about this game?"></textarea>
         </div>
 
         <!-- Date -->
@@ -170,7 +176,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-dash-primary create-submit">Create Event</button>
+        <button type="submit" class="btn-dash-primary create-submit">Log Game</button>
 
       </form>
     </div>
@@ -179,7 +185,7 @@
     <div class="create-info-panel">
       <div class="create-info-content">
 
-        <p class="create-info-eyebrow">What is an event?</p>
+        <p class="create-info-eyebrow">What is a game?</p>
         <h2 class="create-info-headline">Every game<br>tells part of<br><span class="outline-text">the story.</span></h2>
 
         <div class="create-info-items">
@@ -220,7 +226,7 @@
             </div>
             <div>
               <p class="create-info-item-title">Attach Moments</p>
-              <p class="create-info-item-desc">Link photos and videos directly to the event so the highlights live alongside the stats.</p>
+              <p class="create-info-item-desc">Link photos and videos directly to the game so the highlights live alongside the stats.</p>
             </div>
           </div>
 
