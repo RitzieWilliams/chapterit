@@ -2332,6 +2332,71 @@ footer {
   color: rgba(255,255,255,0.4);
 }
 
+/* Locked season card */
+.season-card--locked {
+  border: 1px dashed var(--gray-300);
+  background: var(--gray-100);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.season-card--locked:hover {
+  border-color: var(--gray-400);
+}
+
+.season-card--locked .season-card-year {
+  color: var(--gray-400);
+}
+
+.season-card-lock-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  background: var(--gray-200);
+  padding: 3px 8px;
+}
+
+.season-card-lock-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0 4px;
+}
+
+.season-card-lock-icon {
+  color: var(--gray-300);
+  flex-shrink: 0;
+}
+
+.season-card-lock-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-400);
+  line-height: 1.4;
+}
+
+.season-card-lock-sub {
+  font-size: 12px;
+  color: var(--gray-300);
+  margin-top: 2px;
+}
+
+.season-card--locked.is-requested {
+  pointer-events: none;
+}
+
+.season-card--locked.is-requested .season-card-lock-badge {
+  color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.season-card--locked.is-requested .season-card-lock-text {
+  color: var(--gray-400);
+}
+
 /* Share modal */
 .share-modal-header {
   display: flex;
