@@ -189,88 +189,6 @@
   <!-- ─── MAIN ─────────────────────────────────────────── -->
   <main class="dash-main">
 
-    <!-- NEXT STEPS -->
-    <section class="next-steps" id="next-steps-section">
-      <h2 class="dash-section-title">Next Steps</h2>
-      <div class="step-cards">
-
-        <!-- Add Profile Photo -->
-        <div class="step-card" id="step-photo">
-          <button class="step-dismiss" onclick="dismissStep('step-photo')" aria-label="Dismiss">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <div class="step-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-          </div>
-          <p class="step-title">Add Profile Photo</p>
-          <p class="step-desc">Upload a photo so teammates and collaborators can recognize you.</p>
-          <button class="step-action">Upload Photo
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-
-        <!-- Add Athlete -->
-        <div class="step-card" id="step-athlete">
-          <button class="step-dismiss" onclick="dismissStep('step-athlete')" aria-label="Dismiss">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <div class="step-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-            </svg>
-          </div>
-          <p class="step-title">Add an Athlete</p>
-          <p class="step-desc">Add the athlete you're tracking so their chapters are tied to their profile.</p>
-          <button class="step-action">Add Athlete
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-
-        <!-- Add Collaborator -->
-        <div class="step-card" id="step-collaborator">
-          <button class="step-dismiss" onclick="dismissStep('step-collaborator')" aria-label="Dismiss">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <div class="step-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <p class="step-title">Add a Collaborator</p>
-          <p class="step-desc">Invite a parent or coach to contribute moments and view chapters.</p>
-          <button class="step-action">Add Collaborator
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-
-        <!-- Create a Chapter -->
-        <div class="step-card" id="step-chapter">
-          <button class="step-dismiss" onclick="dismissStep('step-chapter')" aria-label="Dismiss">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-          <div class="step-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            </svg>
-          </div>
-          <p class="step-title">Create a Chapter</p>
-          <p class="step-desc">Start a chapter to organize a season's games, stats, and memories.</p>
-          <button class="step-action" onclick="window.location='chapter-create.html'">Create Chapter
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </div>
-
-
-      </div>
-    </section>
-
     <!-- CHAPTERS -->
     <section class="chapters-section">
       <div class="chapters-header">
@@ -387,21 +305,6 @@
     const activePill = document.querySelector('.athlete-pill--active');
     if (activePill) applyFilter(activePill.dataset.filter);
 
-    function dismissStep(id) {
-      const card = document.getElementById(id);
-      if (card) {
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.92)';
-        card.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-        setTimeout(() => {
-          card.style.display = 'none';
-          const remaining = document.querySelectorAll('#next-steps-section .step-card:not([style*="display: none"])');
-          if (remaining.length === 0) {
-            document.getElementById('next-steps-section').style.display = 'none';
-          }
-        }, 200);
-      }
-    }
   </script>
 </body>
 </html>
