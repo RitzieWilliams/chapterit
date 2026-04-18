@@ -6,6 +6,10 @@
   <title>ChapterIt — Junior Season 2024</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* ── Frame: hidden by default, shown on complete ── */
+    .chapter-frame-section                        { display: none !important; }
+    body.state--complete .chapter-frame-section    { display: grid !important; }
+
     /* ── Empty state visibility ── */
     body.state--empty .chapter-frame-section  { display: none; }
     body.state--empty .moments-grid           { display: none; }

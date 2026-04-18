@@ -8,6 +8,7 @@
   <style>
     /* ── Empty state visibility ── */
     body.state--empty .athlete-filter { display: none; }
+    body.state--empty .status-filter  { display: none; }
     body.state--empty #chapter-list   { display: none; }
     body.state--empty .chapters-empty { display: flex; }
 
@@ -199,6 +200,14 @@
         <button class="btn-dash-primary" onclick="window.location='chapter-create.html'">Create Chapter</button>
       </div>
 
+      <!-- STATUS FILTER -->
+      <div class="status-filter" id="status-filter">
+        <button class="status-pill status-pill--active" data-status="all">All</button>
+        <button class="status-pill" data-status="in-progress">In Progress</button>
+        <button class="status-pill" data-status="complete">Complete</button>
+        <button class="status-pill" data-status="upcoming">Upcoming</button>
+      </div>
+
       <!-- ATHLETE FILTER -->
       <div class="athlete-filter" id="athlete-filter">
         <button class="athlete-pill athlete-pill--active" data-filter="all">All</button>
@@ -210,45 +219,54 @@
       <!-- CHAPTER LIST -->
       <div class="chapter-list" id="chapter-list">
 
-        <a href="chapter.html" class="chapter-item" data-athlete="marcus-johnson">
+        <a href="chapter.html" class="chapter-item" data-athlete="marcus-johnson" data-status="in-progress">
           <div class="chapter-item-main">
             <span class="chapter-sport">Basketball</span>
             <h3 class="chapter-name">Junior Season 2024</h3>
             <p class="chapter-meta">High School &middot; Varsity &middot; Lincoln High School</p>
           </div>
-          <div class="chapter-item-athlete">
-            <span class="chapter-athlete-label">Athlete</span>
-            <span class="chapter-athlete-name">Marcus Johnson</span>
+          <div class="chapter-item-right">
+            <div class="chapter-item-athlete">
+              <span class="chapter-athlete-label">Athlete</span>
+              <span class="chapter-athlete-name">Marcus Johnson</span>
+            </div>
+            <span class="chapter-status chapter-status--in-progress">In Progress</span>
           </div>
           <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 6l6 6-6 6"/>
           </svg>
         </a>
 
-        <a href="#" class="chapter-item" data-athlete="emma-rodriguez">
+        <a href="chapter.html?state=complete" class="chapter-item" data-athlete="emma-rodriguez" data-status="complete">
           <div class="chapter-item-main">
             <span class="chapter-sport">Soccer</span>
             <h3 class="chapter-name">Fall Classic 2023</h3>
             <p class="chapter-meta">Club &middot; U17 Elite &middot; Metro FC Academy</p>
           </div>
-          <div class="chapter-item-athlete">
-            <span class="chapter-athlete-label">Athlete</span>
-            <span class="chapter-athlete-name">Emma Rodriguez</span>
+          <div class="chapter-item-right">
+            <div class="chapter-item-athlete">
+              <span class="chapter-athlete-label">Athlete</span>
+              <span class="chapter-athlete-name">Emma Rodriguez</span>
+            </div>
+            <span class="chapter-status chapter-status--complete">Complete</span>
           </div>
           <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 6l6 6-6 6"/>
           </svg>
         </a>
 
-        <a href="#" class="chapter-item" data-athlete="tyler-chen">
+        <a href="chapter.html?state=empty" class="chapter-item" data-athlete="tyler-chen" data-status="upcoming">
           <div class="chapter-item-main">
             <span class="chapter-sport">Baseball</span>
             <h3 class="chapter-name">Summer League</h3>
             <p class="chapter-meta">Middle School &middot; JV &middot; Roosevelt Middle School</p>
           </div>
-          <div class="chapter-item-athlete">
-            <span class="chapter-athlete-label">Athlete</span>
-            <span class="chapter-athlete-name">Tyler Chen</span>
+          <div class="chapter-item-right">
+            <div class="chapter-item-athlete">
+              <span class="chapter-athlete-label">Athlete</span>
+              <span class="chapter-athlete-name">Tyler Chen</span>
+            </div>
+            <span class="chapter-status chapter-status--upcoming">Upcoming</span>
           </div>
           <svg class="chapter-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 6l6 6-6 6"/>
@@ -286,10 +304,15 @@
       if (state) document.body.classList.add('state--' + state);
     })();
 
-    // Athlete filter
-    function applyFilter(filter) {
+    // Combined filter
+    function applyFilters() {
+      const athleteFilter = document.querySelector('.athlete-pill--active')?.dataset.filter || 'all';
+      const statusFilter = document.querySelector('.status-pill--active')?.dataset.status || 'all';
+
       document.querySelectorAll('#chapter-list .chapter-item').forEach(item => {
-        item.style.display = filter === 'all' || item.dataset.athlete === filter ? '' : 'none';
+        const matchAthlete = athleteFilter === 'all' || item.dataset.athlete === athleteFilter;
+        const matchStatus = statusFilter === 'all' || item.dataset.status === statusFilter;
+        item.style.display = matchAthlete && matchStatus ? '' : 'none';
       });
     }
 
@@ -297,13 +320,19 @@
       pill.addEventListener('click', () => {
         document.querySelectorAll('.athlete-pill').forEach(p => p.classList.remove('athlete-pill--active'));
         pill.classList.add('athlete-pill--active');
-        applyFilter(pill.dataset.filter);
+        applyFilters();
       });
     });
 
-    // Apply default active filter on load
-    const activePill = document.querySelector('.athlete-pill--active');
-    if (activePill) applyFilter(activePill.dataset.filter);
+    document.querySelectorAll('.status-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.status-pill').forEach(p => p.classList.remove('status-pill--active'));
+        pill.classList.add('status-pill--active');
+        applyFilters();
+      });
+    });
+
+    applyFilters();
 
   </script>
 </body>

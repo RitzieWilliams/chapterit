@@ -1197,6 +1197,40 @@ footer {
   color: var(--black);
 }
 
+.chapter-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 1.4;
+}
+
+.chapter-status--in-progress {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.chapter-status--complete {
+  background: var(--gray-100);
+  color: var(--gray-400);
+}
+
+.chapter-status--upcoming {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.chapter-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 .chapter-arrow {
   color: var(--gray-400);
   flex-shrink: 0;
@@ -1205,6 +1239,41 @@ footer {
 
 .chapter-item:hover .chapter-arrow {
   color: var(--black);
+}
+
+.status-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.status-pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.status-pill:hover {
+  border-color: var(--gray-400);
+  color: var(--black);
+}
+
+.status-pill--active {
+  background: var(--black);
+  color: #fff;
+  border-color: var(--black);
+}
+
+.status-pill--active:hover {
+  background: var(--black);
+  color: #fff;
+  border-color: var(--black);
 }
 
 /* ─── TEAMS PAGE ──────────────────────────────────── */
