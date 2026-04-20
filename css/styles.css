@@ -2542,7 +2542,7 @@ footer {
   right: 0;
   background: var(--white);
   border: 1px solid var(--gray-200);
-  min-width: 140px;
+  min-width: 180px;
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
@@ -4980,7 +4980,9 @@ footer {
 .link-dropdown.is-open { display: block; }
 
 .link-dropdown-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   text-align: left;
   padding: 10px 14px;

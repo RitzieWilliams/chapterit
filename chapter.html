@@ -262,13 +262,21 @@
           </svg>
           Share
         </button>
-        <button class="btn-page-ghost">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-          </svg>
-          Edit Chapter
-        </button>
+        <div class="event-overflow-wrap" id="chapter-overflow-wrap">
+          <button class="event-overflow-btn" id="chapter-overflow-btn" onclick="toggleChapterMenu()" aria-label="Chapter options">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+          </button>
+          <div class="event-overflow-dropdown" id="chapter-overflow-dropdown">
+            <button class="link-dropdown-item" onclick="closeChapterMenu()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Edit Chapter
+            </button>
+            <button class="link-dropdown-item link-dropdown-item--delete" onclick="openDeleteChapterModal()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              Delete Chapter
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1911,6 +1919,24 @@
   <script src="js/main.js"></script>
   <script src="js/customize.js"></script>
   <script>
+    // ── Chapter overflow menu ────────────────────────────
+    function toggleChapterMenu() {
+      document.getElementById('chapter-overflow-dropdown').classList.toggle('is-open');
+    }
+
+    function closeChapterMenu() {
+      document.getElementById('chapter-overflow-dropdown').classList.remove('is-open');
+    }
+
+    function openDeleteChapterModal() {
+      closeChapterMenu();
+    }
+
+    document.addEventListener('click', function(e) {
+      const wrap = document.getElementById('chapter-overflow-wrap');
+      if (wrap && !wrap.contains(e.target)) closeChapterMenu();
+    });
+
     // ── Overview section toggles ────────────────────────────
     const ovFilters = document.querySelectorAll('.ov-filter');
     const allSections = document.querySelectorAll('.overview-section');
