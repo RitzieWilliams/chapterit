@@ -7340,6 +7340,44 @@ footer {
 
   .circle-access-modal { max-width: 100%; }
   .circle-empty { padding: 64px 16px; }
+
+  /* Timeline entries: stack cover + body on mobile */
+  .tl-card--event {
+    grid-template-columns: 1fr;
+  }
+  .tl-event-cover {
+    grid-column: 1;
+    aspect-ratio: 16 / 9;
+    max-height: 180px;
+  }
+  .tl-event-body {
+    grid-column: 1;
+    grid-row: auto;
+    padding: 14px 16px;
+  }
+  .tl-event-detail-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tl-event-moment-thumb {
+    width: 48px;
+    height: 48px;
+  }
+  .tl-event-moment-more {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Moments: stack thumb + text on mobile */
+  .tl-moment-body {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tl-moment-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
 }
 
 /* ─── MOMENT VIEWER (split-panel layout) ───────────────────── */
