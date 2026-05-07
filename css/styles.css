@@ -3306,7 +3306,7 @@ footer {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gray-200);
+  background: rgba(0,0,0,0.15);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -3372,7 +3372,7 @@ footer {
 
 .schedule-list-header {
   display: grid;
-  grid-template-columns: 88px 1fr 180px 88px 56px 72px 32px;
+  grid-template-columns: 48px 88px 1fr 180px 88px 56px 72px 32px;
   gap: 16px;
   align-items: center;
   padding: 10px 16px;
@@ -3386,14 +3386,28 @@ footer {
 
 .event-row {
   display: grid;
-  grid-template-columns: 88px 1fr 180px 88px 56px 72px 32px;
+  grid-template-columns: 48px 88px 1fr 180px 88px 56px 72px 32px;
   gap: 16px;
   align-items: center;
-  padding: 20px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--gray-200);
   text-decoration: none;
   color: inherit;
   transition: background 0.2s ease;
+}
+
+.event-row-cover {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.event-row-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .event-row:hover {
@@ -3786,8 +3800,7 @@ footer {
 /* ── Completed Goals subsection ───────────────────── */
 .goal-completed-section {
   display: none;
-  margin-top: 8px;
-  border-top: 1px solid var(--gray-200);
+  margin-top: 0;
 }
 
 .goal-completed-section.is-visible {
@@ -4184,6 +4197,13 @@ footer {
   overflow: hidden;
 }
 
+.tl-moment-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .tl-moment-thumb--video::before {
   content: '';
   position: absolute;
@@ -4219,6 +4239,30 @@ footer {
 }
 
 .tl-card--milestone .tl-caption { color: rgba(255,255,255,0.45); }
+
+/* Goal card */
+.tl-card--goal {
+  background: var(--white);
+  border: 1.5px solid var(--black);
+}
+
+.tl-tag--goal { background: var(--white); color: var(--black); border: 1.5px solid var(--black); }
+
+.tl-goal-check {
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  margin-bottom: 14px;
+}
+
+.tl-dot--goal {
+  background: var(--black);
+  box-shadow: 0 0 0 3px var(--white), 0 0 0 4.5px var(--black);
+}
 
 /* ─── EVENT DETAIL ────────────────────────────────── */
 
@@ -4446,12 +4490,26 @@ footer {
 
 .chapter-event-card--link {
   display: grid;
-  grid-template-columns: 1fr auto 24px;
+  grid-template-columns: 48px 1fr auto 24px;
   align-items: center;
-  gap: 24px;
-  padding: 22px 24px;
+  gap: 20px;
+  padding: 16px 24px;
   text-decoration: none;
   transition: background 0.15s ease;
+}
+
+.chapter-event-cover {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.chapter-event-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .chapter-event-card--link:hover {
@@ -5058,17 +5116,17 @@ footer {
 
 /* ─── ENHANCED TIMELINE EVENT CARD ──────────────── */
 .tl-card--event {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto 1fr;
   padding: 0;
   overflow: hidden;
 }
 
 .tl-event-cover {
-  position: relative;
-  width: 160px;
-  flex-shrink: 0;
+  grid-row: 1;
+  grid-column: 1;
   align-self: stretch;
+  aspect-ratio: 1 / 1;
   background: #111;
   overflow: hidden;
 }
@@ -5078,74 +5136,81 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
-  opacity: 0.78;
   transition: opacity 0.25s;
 }
 
-.tl-card--event:hover .tl-event-cover img { opacity: 0.92; }
+.tl-card--event:hover .tl-event-cover img { opacity: 0.88; }
 
-.tl-event-cover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 25%, rgba(0,0,0,0.75) 100%);
-}
-
-.tl-event-cover-badge {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-}
-
-.tl-event-cover-score {
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.tl-event-cover-result {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 2px 7px;
-  border-radius: 2px;
-}
-
-.tl-event-cover-result--win  { background: #fff; color: #000; }
-.tl-event-cover-result--loss { border: 1.5px solid rgba(255,255,255,0.35); color: rgba(255,255,255,0.6); }
+.tl-event-cover-overlay { display: none; }
+.tl-event-cover-badge { display: none; }
 
 .tl-event-body {
-  flex: 1;
+  grid-row: 1;
+  grid-column: 2;
   min-width: 0;
-  padding: 20px 24px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
 }
 
-.tl-card--event .tl-card-header { margin-bottom: 10px; }
+.tl-card--event .tl-card-header { margin-bottom: 4px; }
+
+.tl-event-detail-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
 
 .tl-event-opponent {
   font-size: 13px;
   color: #999;
-  margin: 4px 0 0;
+  margin: 0;
+}
+
+.tl-event-score-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tl-event-score {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-event-result-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+}
+
+.tl-event-result-tag--win {
+  background: var(--black);
+  color: var(--white);
+}
+
+.tl-event-result-tag--loss {
+  border: 1.5px solid var(--gray-400);
+  color: var(--gray-400);
 }
 
 /* Per-game stats */
 .tl-event-stats {
   display: flex;
-  gap: 24px;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
+  gap: 16px;
+  align-items: baseline;
 }
 
 .tl-event-stat-value {
   display: block;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   color: #111;
   line-height: 1;
@@ -5153,16 +5218,18 @@ footer {
 
 .tl-event-stat-label {
   display: block;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: #c0c0c0;
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 /* Moments strip */
-.tl-event-moments { margin-top: 14px; }
+.tl-event-moments {
+  margin-top: 8px;
+}
 
 .tl-event-moments-strip {
   display: flex;
@@ -5170,10 +5237,9 @@ footer {
 }
 
 .tl-event-moment-thumb {
-  width: 72px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   background: #f0f0f0;
-  border-radius: 2px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -5186,10 +5252,9 @@ footer {
 }
 
 .tl-event-moment-more {
-  width: 72px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   background: #f5f5f5;
-  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5199,7 +5264,7 @@ footer {
   flex-shrink: 0;
 }
 
-.tl-card--event .tl-collections-row { margin-top: 16px; }
+.tl-card--event .tl-collections-row { margin-top: 0; }
 
 /* ─── TIMELINE COLLECTION CHIPS ──────────────────── */
 .tl-collections-row {
@@ -7180,7 +7245,8 @@ footer {
   .team-chapter-card:hover { margin: 0 -32px; padding-left: 32px; padding-right: 32px; }
   .moments-grid { grid-template-columns: repeat(2, 1fr); }
   .schedule-list-header { display: none; }
-  .event-row { grid-template-columns: 72px 1fr 120px 72px 40px 0 24px; gap: 12px; }
+  .event-row { grid-template-columns: 40px 72px 1fr 120px 72px 40px 0 24px; gap: 12px; }
+  .event-row-cover { width: 40px; height: 40px; }
   .event-moments-count { display: none; }
   .schedule-actions { gap: 16px; }
 }
@@ -7214,13 +7280,15 @@ footer {
   .chapter-item { grid-template-columns: 1fr auto; gap: 24px; margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
   .moments-grid { grid-template-columns: repeat(2, 1fr); }
   .overview-section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .event-row { grid-template-columns: 64px 1fr 80px 40px 24px; gap: 10px; padding: 16px 12px; }
+  .event-row { grid-template-columns: 36px 64px 1fr 80px 40px 24px; gap: 10px; padding: 12px; }
+  .event-row-cover { width: 36px; height: 36px; }
   .event-opponent { display: none; }
   .event-moments-count { display: none; }
   .schedule-actions { flex-wrap: wrap; gap: 12px; }
   .milestone-grid { grid-template-columns: 1fr; }
   .collections-grid { grid-template-columns: 1fr; }
-  .chapter-event-card--link { grid-template-columns: 1fr 24px; gap: 12px; }
+  .chapter-event-card--link { grid-template-columns: 36px 1fr 24px; gap: 12px; }
+  .chapter-event-cover { width: 36px; height: 36px; }
   .chapter-event-chips { display: none; }
   .chapter-event-reflection-header { flex-direction: column; align-items: flex-start; gap: 2px; }
   .chapter-event-link { grid-template-columns: 20px 1fr 16px; }
