@@ -2581,6 +2581,10 @@ footer {
   margin-bottom: 8px;
 }
 
+.chapter-date-mobile {
+  display: none;
+}
+
 .event-description {
   font-size: 15px;
   color: var(--gray-500);
@@ -7338,7 +7342,13 @@ footer {
   .link-item { grid-template-columns: 36px 1fr auto; padding: 16px 20px; }
   .goal-item { grid-template-columns: 32px 1fr; }
   .goal-badge { display: none; }
-  .goal-complete-btn { grid-column: 1 / -1; width: 100%; text-align: center; }
+  .goal-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .goal-complete-btn { flex: 1; text-align: center; }
   .goal-completed-item { grid-template-columns: 32px 1fr; }
   .goal-completed-date { display: none; }
   .event-scoreboard { grid-template-columns: 1fr auto 1fr; gap: 24px; }
@@ -7351,7 +7361,8 @@ footer {
     grid-template-columns: 1fr auto;
     grid-template-areas:
       "breadcrumb actions"
-      "title      title";
+      "title      title"
+      "date       date";
     align-items: center;
     min-width: 0;
   }
@@ -7361,8 +7372,16 @@ footer {
     overflow-wrap: break-word;
     min-width: 0;
   }
-  .chapter-header .chapter-detail-name { margin-bottom: 12px; }
+  .chapter-header .chapter-detail-name { margin-bottom: 0; }
   .chapter-header .chapter-actions { margin-bottom: 0; }
+  .chapter-date-mobile {
+    display: block;
+    grid-area: date;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-500);
+    margin: 4px 0 0;
+  }
   .chapter-meta-strip {
     flex-wrap: wrap;
     gap: 8px;
@@ -7389,6 +7408,9 @@ footer {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gray-600);
+  }
+  .chapter-meta-field--season {
+    display: none;
   }
   .profile-fields { grid-template-columns: 1fr 1fr; }
   .profile-page-header { flex-direction: column; align-items: flex-start; gap: 16px; }
